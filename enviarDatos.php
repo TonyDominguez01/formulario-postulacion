@@ -9,7 +9,6 @@
 
     $id = $_GET['id'];
     $mailFrom = 'cuenta.prueba.dguez@gmail.com';
-    $mailTo = 'tony_dominguezt@outlook.com';
 
     // Conexion
     $conexion = mysqli_connect("localhost", "root", "root", "formulario_postulacion");
@@ -21,11 +20,14 @@
     $sql = "SELECT * FROM destinatarios";
     $query = mysqli_query($conexion, $sql);
     if ($query) {
-        $destinatarios = mysqli_fetch_array($query);
-        echo 'Correo: ' . $destinatarios["correo"] . '<br>';
-        echo 'Nombre: ' . $destinatarios["nombre"] . '<br>';
-        echo 'Apellidos: ' . $destinatarios["apellidos"] . '<br>';
-        die();
+        $correosDest = array();
+        $nombresDest = array();
+        $cont = 0;
+        while ($row = @mysqli_fetch_array($query)) {
+            $correosDest[$cont] = $row['correo'];
+            $nombresDest[$cont] = $row['nombre'];
+            $cont++;
+        }
     }
     else {
         die("Destinatarios no recuperados correctamente: " . mysqli_connect_error());
@@ -164,7 +166,10 @@
 
             //Recipients
             $mail->setFrom($mailFrom, 'Antonio Dominguez');
-            $mail->addAddress($mailTo, 'Tony');
+
+            for ($i=0; $i < sizeof($correosDest); $i++) { 
+                $mail->addAddress($correosDest[$i], $nombresDest[$i]);
+            }
 
             //Content
             $mail->isHTML(true);
@@ -172,7 +177,9 @@
             $mail->Body    = 'Solicitud <b>' . $id . '</b><br>';
 
             $mail->send();
-            echo 'El mensaje ha sido enviado';
+            echo "<script>
+                location.href = 'datosEnviados.php?nombre=$nombre';
+            </script>'";
         } catch (Exception $e) {
             echo "Mensaje no enviado. Error: {$mail->ErrorInfo}";
         }
