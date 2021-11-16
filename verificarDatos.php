@@ -63,7 +63,7 @@
             if ($query) {
                 echo "<script>
                 alert('Datos guardados');
-                location.href = 'datosEnviados.php/?id=" . $idPostulante ."';
+                location.href = 'enviarDatos.php?id=" . $idPostulante ."';
                 </script> <br>";
             } 
             else { echo "Error: " . $query . "<br>" . mysqli_error($conexion) . "<br>"; }
