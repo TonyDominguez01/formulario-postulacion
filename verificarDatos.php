@@ -16,10 +16,10 @@
     $email01 = $_POST['email01'];
     $email02 = $_POST['email02'];
     $beneficiario = utf8_decode($_POST['beneficiario']);
-    $curp = $_POST['curp'];
-    $rfc = $_POST['rfc'];
-    $nss = $_POST['nss'];
-    $ine = $_POST['ine'];
+    $curp = strtoupper($_POST['curp']);
+    $rfc = strtoupper($_POST['rfc']);
+    $nss = strtoupper($_POST['nss']);
+    $ine = strtoupper($_POST['ine']);
     $nivelEstudios = utf8_decode($_POST['nivelEstudios']);
     $fechaNac = $_POST['fechaNac'];
     $estadoCivil = utf8_decode($_POST['estadoCivil']);
@@ -52,8 +52,10 @@
         if (strlen($nombre) <= 0) { $mensajeError .= '-nombre- '; }
         if (!filter_var($email01, FILTER_VALIDATE_EMAIL)) { $mensajeError .= '-email-'; }
         if (!(strlen($telefono01) == 10)) { $mensajeError .= '-teléfono- '; }
-        if (!(strlen($curp) == 18)) { $mensajeError .= '-curp- '; }
-        if (!(strlen($ine) == 18)) { $mensajeError .= '-ine- '; }
+        if (!(strlen($curp) == 18)) { $mensajeError .= '-curpLongitud- '; }
+        if (!(strlen($ine) == 18)) { $mensajeError .= '-ineLongitud- '; }
+        if (!(ctype_alnum($curp))) { $mensajeError .= '-curpLetras- '; }
+        if (!(ctype_alnum($ine))) { $mensajeError .= '-ineLetras- '; }
         
         if (strlen($mensajeError) <= 0) {
             $sql = "INSERT INTO `postulantes` (`idPostulante`, `nombre`, `calleNumero`, `colonia`, `cp`, `ciudad`, `estado`, `telefono01`, `telefono02`, `email01`, `email02`, `beneficiario`, `curp`, `rfc`, `nss`, `ine`, `nivelEstudios`, `fechaNac`, `estadoCivil`, `experiencia`, `experienciaDonde`, `turnoInteres`) VALUES

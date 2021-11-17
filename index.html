@@ -24,25 +24,39 @@
                     <label class="span-10" for="nombre">Nombre</label>
                     <input class="input span-10" id="nombre" name="nombre" type="text" maxlength="50" required />
 
-                    <label class="span-4" for="calleNumero">Calle y número</label>
-                    <label class="span-3" for="colonia">Colonia</label>
-                    <label class="span-3" for="cp">Código postal</label>
+                    <div class="span-4 peq-span-10">
+                        <label for="calleNumero">Calle y número</label>
+                        <input id="calleNumero" name="calleNumero" class="input" type="text" maxlength="25" />
+                    </div>
+                    <div class="span-3 peq-span-10">
+                        <label for="colonia">Colonia</label>
+                        <input id="colonia" name="colonia" class="input" type="text" maxlength="20" />
+                    </div>
+                    <div class="span-3 peq-span-10">
+                        <label for="cp">Código postal</label>
+                        <input id="cp" name="cp" class="input" type="number" min="0" max="99999" />
+                    </div>
 
-                    <input id="calleNumero" name="calleNumero" class=" span-4 input" type="text" maxlength="25" />
-                    <input id="colonia" name="colonia" class="span-3 input" type="text" maxlength="20" />
-                    <input id="cp" name="cp" class="span-3 input" type="number" min="0" max="99999" />
-                    
-                    <label class="span-5" for="ciudad">Ciudad</label>
-                    <label class="span-5" for="estado">Estado</label>
+                    <div class="span-5 peq-span-10">
+                        <label for="ciudad">Ciudad</label>
+                        <input class="input" id="ciudad" name="ciudad" type="text" maxlength="15" />
+                    </div>
+                    <div class="span-5 peq-span-10">
+                        <label for="estado">Estado</label>
+                        <input class="input" id="estado" name="estado" type="text" maxlength="15" />
+                    </div>
 
-                    <input class="span-5 input" id="ciudad" name="ciudad" type="text" maxlength="15" />
-                    <input class="span-5 input" id="estado" name="estado" type="text" maxlength="15" />
                 </div>
 
                 <div class="grid col-2">
-                    <label for="telefono01">Teléfono 1</label>
+                    <div>
+                        <label for="telefono01">Teléfono 1</label>
+                        <input class="input" id="telefono01" name="telefono01" type="number" min="1000000000" max="9999999999" required />
+                    </div>
+                    <div>
+                        
+                    </div>
                     <label for="telefono02">Teléfono 2</label>
-                    <input class="input" id="telefono01" name="telefono01" type="number" min="1000000000" max="9999999999" required />
                     <input class="input" id="telefono02" name="telefono02" type="number" min="1000000000" max="9999999999" />
 
                     <label for="email01">E-mail 1</label>
@@ -57,13 +71,13 @@
 
                     <label class="span-5" for="curp">Curp</label>
                     <label class="span-5" for="rfc">RFC</label>
-                    <input class="span-5 input" id="curp" name="curp" type="text" minlength="18" maxlength="18" required />
-                    <input class="span-5 input" id="rfc" name="rfc" type="text" minlength="13" maxlength="13" />
+                    <input class="span-5 input" id="curp" name="curp" type="text" minlength="18" maxlength="18" pattern="[A-Za-z0-9]{18}" required />
+                    <input class="span-5 input" id="rfc" name="rfc" type="text" minlength="13" maxlength="13" pattern="[A-Za-z0-9]{13}" />
 
                     <label class="span-5" for="nss">Número de seguridad social</label>
                     <label class="span-5" for="ine">INE</label>
-                    <input class="span-5 input" id="nss" name="nss" type="text" minlength="11" maxlength="11" />
-                    <input class="span-5 input" id="ine" name="ine" type="text" minlength="18" maxlength="18" required />
+                    <input class="span-5 input" id="nss" name="nss" type="text" minlength="11" maxlength="11" pattern="[A-Za-z0-9]{11}" />
+                    <input class="span-5 input" id="ine" name="ine" type="text" minlength="18" maxlength="18" pattern="[A-Za-z0-9]{18}" required />
 
                     <label class="span-10" for="nivelEstudios">Nivel de estudios</label>
                     <input class="span-10 input" id="nivelEstudios" name="nivelEstudios" type="text" maxlength="20" />
