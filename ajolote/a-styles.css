@@ -371,7 +371,7 @@ form .checkbox + label:before {
     cursor: pointer;
     color: #fff;
     display: inline-block;
-    padding: 10px 15px;
+    padding: 0.75rem 2rem;
     border-radius: 3px;
     text-align: center;
     line-height: 22px;
@@ -453,5 +453,9 @@ form .checkbox + label:before {
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 .text-left { text-align: left; }
+.float-left { float: left; }
+.float-right { float: right; }
 .bg-white { background: #fff; }
 .bg-black { background: #000; }
+.txt-white { color: #fff; }
+.txt-black { color: #000; }

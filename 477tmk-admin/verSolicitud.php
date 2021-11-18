@@ -17,25 +17,25 @@
         //Obtener Datos
         $datos = mysqli_fetch_array($query);
         $nombre = $datos['nombre'];
-        $calleNumero = utf8_decode($datos['calleNumero']);
-        $colonia = utf8_decode($datos['colonia']);
+        $calleNumero = $datos['calleNumero'];
+        $colonia = $datos['colonia'];
         $cp = (int)$datos['cp'];
-        $ciudad = utf8_decode($datos['ciudad']);
-        $estado = utf8_decode($datos['estado']);
+        $ciudad = $datos['ciudad'];
+        $estado = $datos['estado'];
         $telefono01 = (int)$datos['telefono01'];
         $telefono02 = (int)$datos['telefono02'];
         $email01 = $datos['email01'];
         $email02 = $datos['email02'];
-        $beneficiario = utf8_decode($datos['beneficiario']);
+        $beneficiario = $datos['beneficiario'];
         $curp = $datos['curp'];
         $rfc = $datos['rfc'];
         $nss = $datos['nss'];
         $ine = $datos['ine'];
-        $nivelEstudios = utf8_decode($datos['nivelEstudios']);
+        $nivelEstudios = $datos['nivelEstudios'];
         $fechaNac = $datos['fechaNac'];
-        $estadoCivil = utf8_decode($datos['estadoCivil']);
+        $estadoCivil = $datos['estadoCivil'];
         $experiencia = $datos['experiencia'];
-        $experienciaDonde = utf8_decode($datos['experienciaDonde']);
+        $experienciaDonde = $datos['experienciaDonde'];
         $turnoInteres = $datos['turnoInteres'];
 
         class PDF extends FPDF {
@@ -60,22 +60,22 @@
         $pdf->Cell(110,10, $id, 1, 0, 'R');
         $pdf->Ln();
         $pdf->Cell(60,10, utf8_decode('Nombre'), 1, 0, 'R');
-        $pdf->Cell(110,10, utf8_decode($nombre), 1, 0, 'R');
+        $pdf->Cell(110,10, $nombre, 1, 0, 'R');
         $pdf->Ln();
         $pdf->Cell(60,10, utf8_decode('Calle y número'), 1, 0, 'R');
-        $pdf->Cell(110,10, utf8_decode($calleNumero), 1, 0, 'R');
+        $pdf->Cell(110,10, $calleNumero, 1, 0, 'R');
         $pdf->Ln();
         $pdf->Cell(60,10, 'Colonia', 1, 0, 'R');
-        $pdf->Cell(110,10, utf8_decode($colonia), 1, 0, 'R');
+        $pdf->Cell(110,10, $colonia, 1, 0, 'R');
         $pdf->Ln();
         $pdf->Cell(60,10, utf8_decode('Código postal'), 1, 0, 'R');
         $pdf->Cell(110,10, $cp, 1, 0, 'R');
         $pdf->Ln();
         $pdf->Cell(60,10, 'Ciudad', 1, 0, 'R');
-        $pdf->Cell(110,10, utf8_decode($ciudad), 1, 0, 'R');
+        $pdf->Cell(110,10, $ciudad, 1, 0, 'R');
         $pdf->Ln();
         $pdf->Cell(60,10, 'Estado', 1, 0, 'R');
-        $pdf->Cell(110,10, utf8_decode($estado), 1, 0, 'R');
+        $pdf->Cell(110,10, $estado, 1, 0, 'R');
         $pdf->Ln();
         $pdf->Cell(60,10, utf8_decode('Teléfono 1'), 1, 0, 'R');
         $pdf->Cell(110,10, $telefono01, 1, 0, 'R');
@@ -90,7 +90,7 @@
         $pdf->Cell(110,10, $email02, 1, 0, 'R');
         $pdf->Ln();
         $pdf->Cell(60,10, 'Beneficiario', 1, 0, 'R');
-        $pdf->Cell(110,10, utf8_decode($beneficiario), 1, 0, 'R');
+        $pdf->Cell(110,10, $beneficiario, 1, 0, 'R');
         $pdf->Ln();
         $pdf->Cell(60,10, 'Curp', 1, 0, 'R');
         $pdf->Cell(110,10, $curp, 1, 0, 'R');
@@ -117,10 +117,10 @@
         $pdf->Cell(110,10, $experiencia, 1, 0, 'R');
         $pdf->Ln();
         $pdf->Cell(60,10, 'Experiencia en', 1, 0, 'R');
-        $pdf->Cell(110,10, utf8_decode($experienciaDonde), 1, 0, 'R');
+        $pdf->Cell(110,10, $experienciaDonde, 1, 0, 'R');
         $pdf->Ln();
         $pdf->Cell(60,10, utf8_decode('Turno de interés'), 1, 0, 'R');
-        $pdf->Cell(110,10, utf8_decode($turnoInteres), 1, 0, 'R');
+        $pdf->Cell(110,10, $turnoInteres, 1, 0, 'R');
         $pdf->Ln();
 
         $pdfDoc = $pdf->Output('', './pdf/solicitud_' . $id . '.pdf');

@@ -1,3 +1,12 @@
+<?php
+    if (isset($_SESSION['correo']) AND isset($_SESSION['nombre'])){
+        echo "<script>
+            location.href = 'registrosGuardados.php';
+        </script>";
+    }
+    else {
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +18,7 @@
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
-    <div class="contenedor text-center">
+    <div class="contenedor-reducido text-center">
         <div class="contenedor card form-cont">
             <div class="encabezado-form text-right">
                 <h1>Login</h1>
@@ -25,3 +34,6 @@
     </div>
 </body>
 </html>
+<?php
+    }
+?>

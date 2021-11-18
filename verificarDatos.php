@@ -5,7 +5,7 @@
         die("Error de conexion: " . mysqli_connect_error());
     }
 
-    $nombre = $_POST['nombre'];
+    $nombre = utf8_decode($_POST['nombre']);
     $calleNumero = utf8_decode($_POST['calleNumero']);
     $colonia = utf8_decode($_POST['colonia']);
     $cp = (int)$_POST['cp'];
@@ -20,9 +20,9 @@
     $rfc = strtoupper($_POST['rfc']);
     $nss = strtoupper($_POST['nss']);
     $ine = strtoupper($_POST['ine']);
-    $nivelEstudios = utf8_decode($_POST['nivelEstudios']);
+    $nivelEstudios = $_POST['nivelEstudios'];
     $fechaNac = $_POST['fechaNac'];
-    $estadoCivil = utf8_decode($_POST['estadoCivil']);
+    $estadoCivil = $_POST['estadoCivil'];
     $experiencia = $_POST['experiencia'];
     $experienciaDonde = utf8_decode($_POST['experienciaDonde']);
     $turnoInteres = $_POST['turnoInteres'];

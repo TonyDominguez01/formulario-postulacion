@@ -1,7 +1,8 @@
 <?php
+    
     $correo = $_POST['correo'];
     $password = $_POST['password'];
-
+    
     // Conexion
     $conexion = mysqli_connect("localhost", "root", "root", "formulario_postulacion");
     if (!$conexion) {
@@ -12,6 +13,9 @@
     $query = mysqli_query($conexion, $sql);
     $row = mysqli_fetch_array($query);
     if ($row != NULL) {
+        session_start();
+        $_SESSION['correo'] = $row['correo'];
+        $_SESSION['nombre'] = $row['nombre'];
         echo "<script>
             alert('Acceso correcto');
             location.href = 'registrosGuardados.php';
@@ -20,7 +24,8 @@
     else {
         echo "<script>
             alert('Acceso denegado');
-            location.href = 'index.html';
+            location.href = 'index.php';
         </script>";
     }
+    mysqli_close($conexion);
 ?>
