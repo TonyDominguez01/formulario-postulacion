@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
-    <div class="contenedor odin">
+    <?php include_once('./components/nav.php'); ?>
+    <div class="contenedor">
         <div class="contenedor-reducido card form-cont">
             <div class="encabezado-form text-right">
                 <h1>Registrar usuario</h1>

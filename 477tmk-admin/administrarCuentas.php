@@ -64,10 +64,10 @@
                             <td>$nombres[$i]</td>
                             <td>$estatuses[$i]</td>
                             <td>
-                                <a class='btn' href='modificarUsuario.php?correo=$correos[$i]'>modificar</a>
+                                <a class='btn' href='#'>modificar</a>
                             </td>
                             <td>
-                            <a class='btn bg-red' href='borrarUsuario.php?correo=$correos[$i]'>borrar</a>
+                            <a class='btn bg-red' href='#'>borrar</a>
                             </td>
                         </tr>";
                     }
