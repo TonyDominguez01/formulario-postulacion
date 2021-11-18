@@ -1,24 +1,34 @@
 <?php
-    
     $correo = $_POST['correo'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
+    $permisoAdmin = false;
     
     // Conexion
     $conexion = mysqli_connect("localhost", "root", "root", "formulario_postulacion");
     if (!$conexion) {
         die("Error de conexion: " . mysqli_connect_error());
     }
-    // Recuperar destinatarios
-    $sql = "SELECT * FROM destinatarios WHERE `password` = '$password'";
+    $sql = "SELECT * FROM tableadmin WHERE `correo` = '$correo' AND `password` = '$password'";
+    $query = mysqli_query($conexion, $sql);
+    $row = mysqli_fetch_array($query);
+    if ($row != NULL) {
+        $permisoAdmin = true;
+    }
+    else {
+        $permisoAdmin = false;
+    }
+
+    $sql = "SELECT * FROM destinatarios WHERE `correo` = '$correo' AND `password` = '$password'";
     $query = mysqli_query($conexion, $sql);
     $row = mysqli_fetch_array($query);
     if ($row != NULL) {
         session_start();
         $_SESSION['correo'] = $row['correo'];
         $_SESSION['nombre'] = $row['nombre'];
+        $_SESSION['permisoAdmin'] = $permisoAdmin;
         echo "<script>
             alert('Acceso correcto');
-            location.href = 'registrosGuardados.php';
+            location.href = 'registrosSolicitudes.php';
         </script>";
     }
     else {

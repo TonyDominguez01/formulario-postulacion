@@ -24,7 +24,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --fuente-1: 'Urbanist', sans-serif;
     --fuente-2: 'Open Sans', sans-serif;
     --clr-main: #0084DE;
-    --clr-main-s: #71a5e9;
+    --clr-main-s: #0078c9;
     --clr-second: #020202;
     --clr-second-s: #54c59f;
     --clr-seleccionado: #ffffff22;
@@ -379,8 +379,6 @@ form .checkbox + label:before {
     transition: .3s ease all;
 }
 .btn:hover { background: var(--clr-main-s); }
-.btn.verde { background: var(--clr-second); }
-.btn.verde:hover { background: var(--clr-second-s); }
 
 /* ==============
     HELPERS
@@ -455,7 +453,13 @@ form .checkbox + label:before {
 .text-left { text-align: left; }
 .float-left { float: left; }
 .float-right { float: right; }
-.bg-white { background: #fff; }
-.bg-black { background: #000; }
+.bg-white { background: #ddd; }
+.bg-black { background: #222; }
+.bg-gray { background: #aaa; }
+.btn.bg-gray:hover { background: #777; }
+.bg-red { background: #e94141; }
+.btn.bg-red:hover { background: #c03131; }
+.bg-green { background: #24a76a; }
+.btn.bg-green:hover { background: #198553; }
 .txt-white { color: #fff; }
 .txt-black { color: #000; }

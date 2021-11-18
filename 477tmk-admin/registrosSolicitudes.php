@@ -9,7 +9,7 @@
         if (!$conexion) {
             die("Error de conexion: " . mysqli_connect_error());
         }
-        // Recuperar destinatdatosarios
+        // Recuperar solicitudes
         $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01` FROM postulantes";
         $query = mysqli_query($conexion, $sql);
         if ($query) {
@@ -51,35 +51,32 @@
                     window.open('verSolicitud.php?id=' + id, '_blank');
                 }
             </script>
-            <div class="contenedor-ancho nav no-margen">
-                <div class="encabezado">
-                    <p><?php echo $nombre; ?></p>
+            <?php require_once('./components/nav.php'); ?>
+            <div class="contenedor">
+                <div class="contendor-ancho margen-superior-4">
+                    <h1>Registros guardados</h1>
+                    <table class="tabla solicitudes">
+                        <tr class="headers">
+                            <td>Nombre</td>
+                            <td>Email 1</td>
+                            <td>Teléfono 1</td>
+                            <td>PDF</td>
+                            <button></button>
+                        </tr>
+                        <?php
+                            for ($i=0; $i < sizeof($ids); $i++) { 
+                                echo "<tr>
+                                    <td>$nombres[$i]</td>
+                                    <td>$emails[$i]</td>
+                                    <td>$telefonos[$i]</td>
+                                    <td>
+                                        <button class='btn bg-green' onclick=abrirPDF($ids[$i])>Ver PDF</button>
+                                    </td>
+                                </tr>";
+                            }
+                        ?>
+                    </table>
                 </div>
-                <a class="link" href="cerrarSesion.php">Cerrar Sesión</a>
-            </div>
-            <div class="contenedor margen-superior-4">
-                <h1>Registros guardados</h1>
-                <table class="tabla">
-                    <tr class="headers">
-                        <td>Nombre</td>
-                        <td>Email 1</td>
-                        <td>Teléfono 1</td>
-                        <td>PDF</td>
-                        <button></button>
-                    </tr>
-                    <?php
-                        for ($i=0; $i < sizeof($ids); $i++) { 
-                            echo "<tr>
-                                <td>$nombres[$i]</td>
-                                <td>$emails[$i]</td>
-                                <td>$telefonos[$i]</td>
-                                <td>
-                                    <button class='btn' onclick=abrirPDF($ids[$i])>Ver PDF</button>
-                                </td>
-                            </tr>";
-                        }
-                    ?>
-                </table>
             </div>
         </body>
         </html>

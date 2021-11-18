@@ -1,3 +1,13 @@
+:root {
+    --clr-main: #006CB8;
+    --clr-main-s: #0d77c2;
+    --clr-second: #7e7e7e;
+    --clr-second-s: #5E5E5E;
+}
+
+body {
+    background-color: #eee;
+}
 .form-cont {
     padding: 0;
 }
@@ -28,12 +38,17 @@
 }
 .tabla .headers td {
     padding: 8px;
-    background: var(--clr-main);
+    background: var(--clr-dark);
     color: #fff;
 }
 .tabla td {
-    width: 25%;
     padding: 4px;
     text-align: center;
-    border: 1px solid var(--clr-main);
+    border: 1px solid var(--clr-dark);
+}
+.tabla.solicitudes td {
+    width: 25%;
+}
+.tabla.cuentas td {
+    width: 20%;
 }

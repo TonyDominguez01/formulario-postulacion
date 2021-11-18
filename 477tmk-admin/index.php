@@ -1,7 +1,8 @@
 <?php
+    session_start();
     if (isset($_SESSION['correo']) AND isset($_SESSION['nombre'])){
         echo "<script>
-            location.href = 'registrosGuardados.php';
+            location.href = 'registrosSolicitudes.php';
         </script>";
     }
     else {
@@ -15,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="../ajolote/a-styles.css">
+    <script src="../ajolote/a-functions.js"></script>
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
