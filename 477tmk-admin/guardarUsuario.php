@@ -9,13 +9,13 @@
         die("Error de conexion: " . mysqli_connect_error());
     }
 
-    $sql = "INSERT INTO `destinatarios` (`correo`, `nombre`, `password`) VALUES ('$correo', '$nombre', '$password');";
+    $sql = "INSERT INTO `destinatarios` (`correo`, `nombre`, `password`, `estatus`) VALUES ('$correo', '$nombre', '$password', 1);";
     $query = mysqli_query($conexion, $sql);
 
     if ($query) {
         echo "<script>
         alert('Datos guardados');
-        location.href = 'enviarDatos.php?id=" . $idPostulante ."';
+        location.href = 'vUsuarioGuardado.php?correo=$correo&nombre=$nombre';
         </script> <br>";
     } 
     else {

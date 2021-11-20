@@ -40,7 +40,7 @@
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Registros Guardados</title>
+            <title>Registros de Solicitudes</title>
             <link rel="stylesheet" href="../ajolote/a-styles.css">
             <script src="../ajolote/a-functions.js"></script>
             <link rel="stylesheet" href="../css/estilos.css">
@@ -54,14 +54,14 @@
             <?php require_once('./components/nav.php'); ?>
             <div class="contenedor">
                 <div class="contendor-ancho margen-superior-4">
-                    <h1>Registros guardados</h1>
-                    <table class="tabla solicitudes">
+                    <h1>Registros de Solicitudes</h1>
+                    <table class="tabla">
                         <tr class="headers">
                             <td>Nombre</td>
                             <td>Email 1</td>
                             <td>Teléfono 1</td>
                             <td>PDF</td>
-                            <button></button>
+                            <td>Eliminar</td>
                         </tr>
                         <?php
                             for ($i=0; $i < sizeof($ids); $i++) { 
@@ -71,6 +71,9 @@
                                     <td>$telefonos[$i]</td>
                                     <td>
                                         <button class='btn bg-green' onclick=abrirPDF($ids[$i])>Ver PDF</button>
+                                    </td>
+                                    <td>
+                                        <a class='btn bg-red' href='#'>Eliminar</a>
                                     </td>
                                 </tr>";
                             }
@@ -84,7 +87,7 @@
     }
     else {
         echo "<script>
-            location.href = '../404.php';
+            location.href = '../error.php';
         </script>";
     }
 ?>

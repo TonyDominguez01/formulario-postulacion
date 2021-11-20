@@ -19,7 +19,7 @@
     <div class="contenedor">
         <div class="contenedor-reducido card form-cont">
             <div class="encabezado-form text-right">
-                <h1>Registrar usuario</h1>
+                <h1>Modificar Usuario</h1>
             </div>
             <form action="actualizarUsuario.php" method="POST">
                 <label for="nombre">Nombre</label>
@@ -28,8 +28,12 @@
                 <input id="correo" class="input" name="correo" type="email">
                 <label for="correo">Password</label>
                 <input id="password" class="input" name="password" type="password">
+                <div class="contenedor-ancho text-right">
+                    <input id="estatus" class="checkbox" name="estatus" type="checkbox">
+                    <label for="estatus">Estatus</label>
+                </div>
                 <div class="contenedor-ancho no-padding text-right">
-                    <button class="btn margen-inferior-3" type="submit">registrar</button>
+                    <button class="btn margen-inferior-3" type="submit">guardar cambios</button>
                 </div>
             </form>
         </div>

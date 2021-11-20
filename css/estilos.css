@@ -46,9 +46,13 @@ body {
     text-align: center;
     border: 1px solid var(--clr-dark);
 }
-.tabla.solicitudes td {
-    width: 25%;
-}
-.tabla.cuentas td {
+.tabla td {
     width: 20%;
+}
+.indicador {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid var(--clr-dark);
+    margin: 0 auto;
 }

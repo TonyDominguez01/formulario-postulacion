@@ -1,7 +1,7 @@
 RewriteEngine On
 
-ErrorDocument 404 http://localhost/formulario-vacantes/error.php?error=404
-ErrorDocument 400 http://localhost/formulario-vacantes/error.php?error=400
-ErrorDocument 401 http://localhost/formulario-vacantes/error.php?error=401
-ErrorDocument 403 http://localhost/formulario-vacantes/error.php?error=403
-ErrorDocument 500 http://localhost/formulario-vacantes/error.php?error=500
+ErrorDocument 404 http://localhost/formulario-vacantes/vError.php?error=404
+ErrorDocument 400 http://localhost/formulario-vacantes/vError.php?error=400
+ErrorDocument 401 http://localhost/formulario-vacantes/vError.php?error=401
+ErrorDocument 403 http://localhost/formulario-vacantes/vError.php?error=403
+ErrorDocument 500 http://localhost/formulario-vacantes/vError.php?error=500

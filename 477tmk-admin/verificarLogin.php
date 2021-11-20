@@ -28,7 +28,7 @@
         $_SESSION['permisoAdmin'] = $permisoAdmin;
         echo "<script>
             alert('Acceso correcto');
-            location.href = 'registrosSolicitudes.php';
+            location.href = 'vRegistrosSolicitudes.php';
         </script>";
     }
     else {

@@ -39,4 +39,9 @@
 <?php
         }
     }
+    else {
+        echo "<script>
+            location.href = '../vError.php?error=403';
+        </script>";
+    }
 ?>

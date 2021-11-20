@@ -178,8 +178,17 @@
 
             $mail->send();
             $nombreEncode = utf8_encode($nombre);
+            
+            //Verificar si hay que limpiar server
+            $idSubstr = substr($id, -1);
+            if ($idSubstr == '1'){
+                echo "<script>
+                    location.href = './php/liberarArchivos.php?nombre=$nombreEncode';
+                </script>'";
+            }
+            
             echo "<script>
-                location.href = 'datosEnviados.php?nombre=$nombreEncode';
+                location.href = 'vDatosEnviados.php?nombre=$nombreEncode';
             </script>'";
         } catch (Exception $e) {
             echo "Mensaje no enviado. Error: {$mail->ErrorInfo}";

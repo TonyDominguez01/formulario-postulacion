@@ -46,9 +46,9 @@
         <div class="contenedor-ancho margen-superior-4">
             <h1>Administrar Cuentas</h1>
             <div class="contenedor-ancho no-padding text-right">
-                <a class="btn bg-green" href="registrarUsuario.php">Agregar cuenta</a>
+                <a class="btn bg" href="vRegistrarUsuario.php">Agregar cuenta</a>
             </div>
-            <table class="tabla cuentas">
+            <table class="tabla">
                 <tr class="headers">
                     <td>Correo</td>
                     <td>Nombre</td>
@@ -59,12 +59,14 @@
                 </tr>
                 <?php
                     for ($i=0; $i < sizeof($correos); $i++) { 
+                        if ($estatuses[$i]) $indicadorCls = 'bg-green';
+                        else $indicadorCls = 'bg-red';
                         echo "<tr>
                             <td>$correos[$i]</td>
                             <td>$nombres[$i]</td>
-                            <td>$estatuses[$i]</td>
+                            <td><div class='indicador $indicadorCls'></div></td>
                             <td>
-                                <a class='btn' href='#'>modificar</a>
+                                <a class='btn bg-green' href='vModificarUsuario.php?correo=$correos[$i]'>modificar</a>
                             </td>
                             <td>
                             <a class='btn bg-red' href='#'>borrar</a>
