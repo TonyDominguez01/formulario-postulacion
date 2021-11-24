@@ -1,6 +1,8 @@
 <?php
     session_start();
     if (isset($_SESSION['permisoAdmin'])){
+        include_once('./verificarActividad.php');
+        verificarActividad(1);
         $correo = $_GET['correo'];
 
         // Conexion

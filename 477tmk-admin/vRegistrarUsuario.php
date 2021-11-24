@@ -2,6 +2,8 @@
     session_start();
     if (isset($_SESSION['permisoAdmin'])){
         if ($_SESSION['permisoAdmin']){
+            include_once('./php/verificarActividad.php');
+            verificarActividad(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">

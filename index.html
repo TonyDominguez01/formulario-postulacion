@@ -13,7 +13,8 @@
 <body>
     <script>
         const activarModal = (e) => {
-            e.classList.toggle('active');
+            e.classList.toggle("active");
+            document.getElementById('btn-modal').classList.toggle('active');
         }
     </script>
     <div class="contenedor">
@@ -124,7 +125,7 @@
                     <label class="span-10" for="turnoInteres">
                         Turno de interés
                         <span class="modal-reference">
-                            <button id="btn-horario" class="btn-question" type="button" onclick=activarModal()>?</button>
+                            <button id="btn-horario" class="btn-question" type="button" onclick=activarModal(this)>?</button>
                             <div id="btn-modal" class="modal-simple">
                                 <h2 class="texto-2">Horarios disponibles</h2>
                                 <div class="grid col-2">

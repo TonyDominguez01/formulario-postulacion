@@ -26,6 +26,7 @@
         $_SESSION['correo'] = $row['correo'];
         $_SESSION['nombre'] = $row['nombre'];
         $_SESSION['permisoAdmin'] = $permisoAdmin;
+        $_SESSION['ultimoAcceso'] = date("Y-n-j H:i:s");
         echo "<script>
             alert('Acceso correcto');
             location.href = '../vRegistrosSolicitudes.php';

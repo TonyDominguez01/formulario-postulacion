@@ -79,7 +79,7 @@ body {
     background: var(--clr-main);
 }
 .btn-question.active:hover {
-    background: var(--clr-main-s);
+    background: #444;
 }
 .modal-reference {
     position: relative;

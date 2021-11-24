@@ -2,6 +2,8 @@
     session_start();
     if (isset($_SESSION['permisoAdmin'])){
         if ($_SESSION['permisoAdmin']){
+            include_once('./php/verificarActividad.php');
+            verificarActividad(0);
             $correo = $_GET['correo'];
             // Conexion
             $conexion = mysqli_connect("localhost", "root", "root", "formulario_postulacion");

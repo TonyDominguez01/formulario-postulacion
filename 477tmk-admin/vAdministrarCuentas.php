@@ -1,6 +1,8 @@
 <?php
     session_start();
     if (isset($_SESSION['correo']) AND isset($_SESSION['nombre'])){
+        include_once('./php/verificarActividad.php');
+        verificarActividad(0);
         // Conexion
         $conexion = mysqli_connect("localhost", "root", "root", "formulario_postulacion");
         if (!$conexion) {

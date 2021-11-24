@@ -2,6 +2,8 @@
     session_start();
 
     if (isset($_SESSION['correo']) AND isset($_SESSION['nombre'])) {
+        include_once('./php/verificarActividad.php');
+        verificarActividad(0);
         $emailBorrar = '';
         $correo = $_SESSION['correo'];
         $nombre = $_SESSION['nombre'];
