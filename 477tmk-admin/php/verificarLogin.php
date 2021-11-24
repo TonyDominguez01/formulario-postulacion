@@ -28,13 +28,13 @@
         $_SESSION['permisoAdmin'] = $permisoAdmin;
         echo "<script>
             alert('Acceso correcto');
-            location.href = 'vRegistrosSolicitudes.php';
+            location.href = '../vRegistrosSolicitudes.php';
         </script>";
     }
     else {
         echo "<script>
             alert('Acceso denegado');
-            location.href = 'index.php';
+            location.href = '../index.php';
         </script>";
     }
     mysqli_close($conexion);

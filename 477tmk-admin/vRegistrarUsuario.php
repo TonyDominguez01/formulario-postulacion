@@ -21,7 +21,7 @@
             <div class="encabezado-form text-right">
                 <h1>Registrar usuario</h1>
             </div>
-            <form action="guardarUsuario.php" method="POST">
+            <form action="./php/guardarUsuario.php" method="POST">
                 <label for="nombre">Nombre</label>
                 <input id="nombre" class="input" name="nombre" type="text">
                 <label for="correo">Correo</label>

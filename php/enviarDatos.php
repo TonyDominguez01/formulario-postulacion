@@ -2,10 +2,10 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
-    require './PHPMailer/Exception.php';
-    require './PHPMailer/PHPMailer.php';
-    require './PHPMailer/SMTP.php';
-    require('./fpdf/fpdf.php');
+    require '../PHPMailer/Exception.php';
+    require '../PHPMailer/PHPMailer.php';
+    require '../PHPMailer/SMTP.php';
+    require('../fpdf/fpdf.php');
 
     $id = $_GET['id'];
     $mailFrom = 'cuenta.prueba.dguez@gmail.com';
@@ -148,7 +148,7 @@
         $pdf->Cell(110,10, $turnoInteres, 1, 0, 'R');
         $pdf->Ln();
 
-        $pdfDoc = $pdf->Output('F', './pdf/solicitud_' . $id . '.pdf');
+        $pdfDoc = $pdf->Output('F', '../pdf/solicitud_' . $id . '.pdf');
 
         try {
             //Server settings
@@ -162,7 +162,7 @@
             $mail->Port       = 465;
 
             //Attachments
-            $mail->AddAttachment('./pdf/solicitud_' . $id . '.pdf', '', $encoding = 'base64', $type = 'application/pdf');
+            $mail->AddAttachment('../pdf/solicitud_' . $id . '.pdf', '', $encoding = 'base64', $type = 'application/pdf');
 
             //Recipients
             $mail->setFrom($mailFrom, 'Antonio Dominguez');
@@ -183,12 +183,12 @@
             $idSubstr = substr($id, -1);
             if ($idSubstr == '1'){
                 echo "<script>
-                    location.href = './php/liberarArchivos.php?nombre=$nombreEncode';
+                    location.href = 'liberarArchivos.php?nombre=$nombreEncode';
                 </script>'";
             }
             
             echo "<script>
-                location.href = 'vDatosEnviados.php?nombre=$nombreEncode';
+                location.href = '../vDatosEnviados.php?nombre=$nombreEncode';
             </script>'";
         } catch (Exception $e) {
             echo "Mensaje no enviado. Error: {$mail->ErrorInfo}";

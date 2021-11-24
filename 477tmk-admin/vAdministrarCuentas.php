@@ -41,6 +41,17 @@
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
+    <script>
+        let usuarioSeleccionado = '';
+        const abrirBorrar = (correo) => {
+            usuarioSeleccionado = correo;
+            document.getElementById('modal-borrar').classList.toggle('active');
+            document.getElementById('txt-borrar').innerHTML = '¿Estás seguro que quieres eliminar al usuario con correo ' + correo + '?';
+        }
+        const borrarUsuario = () => {
+            location.href = './php/borrarUsuario.php?correo=' + usuarioSeleccionado;
+        }
+    </script>
     <?php require_once('./components/nav.php'); ?>
     <div class="contenedor">
         <div class="contenedor-ancho margen-superior-4">
@@ -69,12 +80,21 @@
                                 <a class='btn bg-green' href='vModificarUsuario.php?correo=$correos[$i]'>modificar</a>
                             </td>
                             <td>
-                            <a class='btn bg-red' href='#'>borrar</a>
+                                <button class='btn bg-red' onclick=abrirBorrar('$correos[$i]')>eliminar</a>
                             </td>
                         </tr>";
                     }
                 ?>
             </table>
+        </div>
+    </div>
+    <div id="modal-borrar" class="modal-div">
+        <div class="modal-content">
+            <h2>Confirmar operación</h2>
+            <p id="txt-borrar"></p>
+            <br>
+            <button class="btn" onclick=abrirBorrar()>Volver</button>
+            <button class="btn bg-red" onclick=borrarUsuario()>Eliminar</button>
         </div>
     </div>
 </body>

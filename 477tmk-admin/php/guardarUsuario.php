@@ -15,7 +15,7 @@
     if ($query) {
         echo "<script>
         alert('Datos guardados');
-        location.href = 'vUsuarioGuardado.php?correo=$correo&nombre=$nombre';
+        location.href = '../vUsuarioGuardado.php?correo=$correo&nombre=$nombre';
         </script> <br>";
     } 
     else {

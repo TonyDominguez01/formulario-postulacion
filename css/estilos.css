@@ -56,3 +56,47 @@ body {
     border: 2px solid var(--clr-dark);
     margin: 0 auto;
 }
+@media screen and (max-width: 576px) {
+    .tabla {
+        overflow-y: scroll;
+    }
+}
+.btn-question {
+    font-size: 1rem;
+    color: white;
+    background: #888;
+    border: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .3s ease all;
+}
+.btn-question:hover {
+    background: #444;
+}
+.btn-question.active {
+    background: var(--clr-main);
+}
+.btn-question.active:hover {
+    background: var(--clr-main-s);
+}
+.modal-reference {
+    position: relative;
+}
+.modal-simple {
+    position: absolute;
+    width: 650px;
+    height: auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px #555;
+    bottom: 2rem;
+    left: 0;
+    transition: .3s ease all;
+    display: none;
+}
+.modal-simple.active {
+    display: inline;
+}

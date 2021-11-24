@@ -74,7 +74,7 @@
             $mensajeError .= ' formato equivocado';
             echo "<script>
                 alert('$mensajeError');
-                location.href = 'index.php';
+                location.href = '../index.php';
                 </script>";
             }
         }

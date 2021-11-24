@@ -2,6 +2,7 @@
     session_start();
 
     if (isset($_SESSION['correo']) AND isset($_SESSION['nombre'])) {
+        $emailBorrar = '';
         $correo = $_SESSION['correo'];
         $nombre = $_SESSION['nombre'];
         // Conexion
@@ -47,8 +48,17 @@
         </head>
         <body>
             <script>
+                let solicitudSeleccionada = '';
                 const abrirPDF = (id) => {            
                     window.open('verSolicitud.php?id=' + id, '_blank');
+                }
+                const abrirBorrar = (id, nombre) => {
+                    solicitudSeleccionada = id;
+                    document.getElementById('modal-borrar').classList.toggle('active');
+                    document.getElementById('txt-borrar').innerHTML = '¿Estás seguro que quieres eliminar la solicitud ' + id + ' de ' + nombre + '?';
+                }
+                const borrarSolicitud = () => {
+                    location.href = './php/borrarSolicitud.php?id=' + solicitudSeleccionada;
                 }
             </script>
             <?php require_once('./components/nav.php'); ?>
@@ -65,20 +75,31 @@
                         </tr>
                         <?php
                             for ($i=0; $i < sizeof($ids); $i++) { 
-                                echo "<tr>
-                                    <td>$nombres[$i]</td>
-                                    <td>$emails[$i]</td>
-                                    <td>$telefonos[$i]</td>
+                            ?>
+                                <tr>
+                                    <td><?php echo $nombres[$i] ?></td>
+                                    <td><?php echo $emails[$i] ?></td>
+                                    <td><?php echo $telefonos[$i] ?></td>
                                     <td>
-                                        <button class='btn bg-green' onclick=abrirPDF($ids[$i])>Ver PDF</button>
+                                        <button class='btn bg-green' onclick=abrirPDF(<?php echo $ids[$i]; ?>)>Ver PDF</button>
                                     </td>
                                     <td>
-                                        <a class='btn bg-red' href='#'>Eliminar</a>
+                                        <button class='btn bg-red' onclick="abrirBorrar('<?php echo "$ids[$i]', '$nombres[$i]"; ?>')">Eliminar</button>
                                     </td>
-                                </tr>";
+                                </tr>
+                            <?php
                             }
                         ?>
                     </table>
+                </div>
+            </div>
+            <div id="modal-borrar" class="modal-div">
+                <div class="modal-content">
+                    <h2>Confirmar operación</h2>
+                    <p id="txt-borrar"></p>
+                    <br>
+                    <button class="btn" onclick=abrirBorrar()>Volver</button>
+                    <button class="btn bg-red" onclick=borrarSolicitud()>Eliminar</button>
                 </div>
             </div>
         </body>

@@ -11,13 +11,18 @@
     <script src="js/functions.js"></script>
 </head>
 <body>
+    <script>
+        const activarModal = (e) => {
+            e.classList.toggle('active');
+        }
+    </script>
     <div class="contenedor">
         <div class="contenedor card form-cont">
             <div class="encabezado-form text-right">
                 <h1>Postularme para la vacante</h1>
                 <h2>Puesto como operador telefónico </h2>
             </div>
-            <form class="padding-superior-2" action="verificarDatos.php" method="POST">
+            <form class="padding-superior-2" action="php/verificarDatos.php" method="POST">
                 
                 <div class="grid col-10">
                     <label class="span-10" for="nombre">Nombre</label>
@@ -82,7 +87,7 @@
                         <input class="input" id="nss" name="nss" type="text" minlength="11" maxlength="11" pattern="[0-9]{11}" />
                     </div>
                     <div class="span-5">
-                        <label for="ine">INE</label>
+                        <label for="ine">INE (Clave de elector)</label>
                         <input class="input" id="ine" name="ine" type="text" minlength="18" maxlength="18" pattern="[A-Za-z0-9]{18}" required />
                     </div>
 
@@ -116,7 +121,32 @@
                         <input class="input" id="experienciaDonde" name="experienciaDonde" type="text" maxlength="16" />
                     </div>
 
-                    <label class="span-10" for="turnoInteres">Turno de interés</label>
+                    <label class="span-10" for="turnoInteres">
+                        Turno de interés
+                        <span class="modal-reference">
+                            <button id="btn-horario" class="btn-question" type="button" onclick=activarModal()>?</button>
+                            <div id="btn-modal" class="modal-simple">
+                                <h2 class="texto-2">Horarios disponibles</h2>
+                                <div class="grid col-2">
+                                    <div>
+                                        Completo <br>
+                                        Lunes a viernes - 8:55 a 18:30 <br><br>
+                                        Matutino <br>
+                                        Lunes a viernes - 8:55 a 16:00 <br>
+                                        Sabado - 8:55 a 14:00 <br>
+                                    </div>
+                                    <div>
+                                        Vespertino <br>
+                                        Lunes a viernes - 16:00 a 20:00 <br>
+                                        Sabado - 10:00 a 15:00 <br><br>
+                                        Mixto <br>
+                                        Lunes a viernes - 13:00 a 20:00 <br>
+                                        Sabado - 10:00 a 15:00 <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                    </label>
                     <select class="span-10 input" name="turnoInteres" id="turnoInteres">
                         <option value="Matutino">Matutino</option>
                         <option value="Vespertino">Vespertino</option>

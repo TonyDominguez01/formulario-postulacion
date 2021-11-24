@@ -38,7 +38,7 @@
         <h1>Error <?php echo $error; ?></h1>
         <br>
         <h2>Página no encontrada</h2>
-        <button class="btn">regresar a 477TMK</button>
+        <button class="btn" onclick="window.open('http://477tmk.mx')">regresar a 477TMK</button>
     </div>
 </body>
 </html>

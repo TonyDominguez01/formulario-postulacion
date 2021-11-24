@@ -123,7 +123,7 @@
         $pdf->Cell(110,10, $turnoInteres, 1, 0, 'R');
         $pdf->Ln();
 
-        $pdfDoc = $pdf->Output('', './pdf/solicitud_' . $id . '.pdf');
+        $pdfDoc = $pdf->Output('', '../pdf/solicitud_' . $id . '.pdf');
     } 
     else {
         echo "Error: " . $query . "<br>" . mysqli_error($conexion) . "<br>";

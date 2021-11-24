@@ -16,8 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="../ajolote/a-styles.css">
-    <script src="../ajolote/a-functions.js"></script>
     <link rel="stylesheet" href="../css/estilos.css">
+    <script src="../ajolote/a-functions.js"></script>
 </head>
 <body>
     <div class="contenedor-reducido text-center">
@@ -25,7 +25,7 @@
             <div class="encabezado-form text-right">
                 <h1>Login</h1>
             </div>
-            <form class="contenedor-reducido padding-superior-5 padding-inferior-5" action="verificarLogin.php" method="POST" style="margin: 0 auto;">
+            <form class="contenedor-reducido padding-superior-5 padding-inferior-5" action="./php/verificarLogin.php" method="POST" style="margin: 0 auto;">
                 <label for="correo">Correo</label>
                 <input class="input" type="text" name="correo" id="correo" required>
                 <label for="password">Password</label>

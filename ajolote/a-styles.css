@@ -277,6 +277,31 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     text-align: right;
 }
+.modal-div {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: none;
+}
+.modal-div.active {
+    display: inline;
+}
+.modal-content {
+    position: absolute;
+    top: 10%;
+    left: 32.5%;
+    width: 35%;
+    height: auto;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px #555;
+    background: white;
+}
 
 /* Tamaño Mediano */
 @media screen and (max-width: 992px) {
@@ -307,10 +332,18 @@ h1, h2, h3, h4, h5, h6 {
         display: flex;
         width: 20%;
     }
+    .modal-content {
+        width: 70%;
+        left: 15%;
+    }
 }
 
 /* Tamaño pequeño */
 @media screen and (max-width: 576px) {
+    .modal-content {
+        width: 95%;
+        left: 2.5%;
+    }
 }
 
 /* ==============
