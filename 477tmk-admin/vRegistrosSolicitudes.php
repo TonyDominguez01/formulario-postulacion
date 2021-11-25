@@ -51,7 +51,11 @@
         <body>
             <script>
                 let solicitudSeleccionada = '';
-                const abrirPDF = (id) => {            
+                const abrirPDF = (id) => {
+                    <?php 
+                        include_once('./php/verificarActividad.php');
+                        verificarActividad(0);
+                    ?>
                     window.open('verSolicitud.php?id=' + id, '_blank');
                 }
                 const abrirBorrar = (id, nombre) => {
@@ -83,10 +87,10 @@
                                     <td><?php echo $emails[$i] ?></td>
                                     <td><?php echo $telefonos[$i] ?></td>
                                     <td>
-                                        <button class='btn bg-green' onclick=abrirPDF(<?php echo $ids[$i]; ?>)>Ver PDF</button>
+                                        <button class='btn btn-with-icon' onclick=abrirPDF(<?php echo $ids[$i]; ?>)><img src="./icons/icon_pdf.png"></button>
                                     </td>
                                     <td>
-                                        <button class='btn bg-red' onclick="abrirBorrar('<?php echo "$ids[$i]', '$nombres[$i]"; ?>')">Eliminar</button>
+                                        <button class='btn btn-with-icon red' onclick="abrirBorrar('<?php echo "$ids[$i]', '$nombres[$i]"; ?>')"><img src="./icons/icon_delete.png"></button>
                                     </td>
                                 </tr>
                             <?php

@@ -24,9 +24,13 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --fuente-1: 'Urbanist', sans-serif;
     --fuente-2: 'Open Sans', sans-serif;
     --clr-main: #0084DE;
-    --clr-main-s: #0078c9;
+    --clr-main-h: #0078c9;
     --clr-second: #020202;
-    --clr-second-s: #54c59f;
+    --clr-second-h: #54c59f;
+    --clr-red: #e94141;
+    --clr-red-h: #c03131;
+    --clr-green: #24a76a;
+    --clr-green-h: #198553;
     --clr-seleccionado: #ffffff22;
     --clr-light: #fff;
     --clr-dark: #333;
@@ -259,7 +263,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav .link:hover,
 .nav .link.activo {
-    background: var(--clr-main-s);
+    background: var(--clr-main-h);
 }
 .nav .contenedor {
     display: flex;
@@ -411,7 +415,7 @@ form .checkbox + label:before {
     text-decoration: none;
     transition: .3s ease all;
 }
-.btn:hover { background: var(--clr-main-s); }
+.btn:hover { background: var(--clr-main-h); }
 
 /* ==============
     HELPERS
@@ -490,9 +494,9 @@ form .checkbox + label:before {
 .bg-black { background: #222; }
 .bg-gray { background: #aaa; }
 .btn.bg-gray:hover { background: #777; }
-.bg-red { background: #e94141; }
-.btn.bg-red:hover { background: #c03131; }
-.bg-green { background: #24a76a; }
-.btn.bg-green:hover { background: #198553; }
+.bg-red { background: var(--clr-red); }
+.btn.bg-red:hover { background: var(--clr-red-h); }
+.bg-green { background: var(--clr-green); }
+.btn.bg-green:hover { background: var(--clr-green-h); }
 .txt-white { color: #fff; }
 .txt-black { color: #000; }
