@@ -55,7 +55,9 @@
                 <input id="estatus" class="checkbox" name="estatus" type="checkbox" <?php if($estatus) echo 'checked'; ?>>
                 <label for="estatus">Estatus</label>
                 <div class="contenedor-ancho no-padding text-right">
-                    <button class="btn margen-inferior-3" type="submit">guardar cambios</button>
+                    <button class="btn with-icon margen-inferior-3" type="button" onclick="location.href = './vAdministrarCuentas.php'"><div>regresar </div><img src='./icons/icon_volver.png'></button>
+                    <button class="btn with-icon bg-green margen-inferior-3" type="submit"><div>guardar datos </div><img src='./icons/icon_save.png'></button>
+                    
                 </div>
             </form>
         </div>

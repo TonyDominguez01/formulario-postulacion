@@ -31,7 +31,8 @@
                 <label for="correo">Password</label>
                 <input id="password" class="input" name="password" type="password">
                 <div class="contenedor-ancho no-padding text-right">
-                    <button class="btn margen-inferior-3" type="submit">registrar</button>
+                    <button class="btn margen-inferior-3" type="button" onclick="location.href = './vAdministrarCuentas.php'">regresar</button>
+                    <button class="btn bg-green margen-inferior-3" type="submit">guardar usuario</button>
                 </div>
             </form>
         </div>

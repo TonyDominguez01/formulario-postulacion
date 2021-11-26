@@ -15,113 +15,83 @@
 
     if ($query) {
         //Obtener Datos
+        $campos = array(
+            'Nombre',
+            'Calle y número',
+            'Colonia',
+            'Código postal',
+            'Ciudad',
+            'Estado',
+            'Teléfono 1',
+            'Teléfono 2',
+            'Email 1',
+            'Email 2',
+            'Beneficiario',
+            'Curp',
+            'RFC',
+            'NSS',
+            'INE',
+            'Nivel de estudios',
+            'Fecha de nacimiento',
+            'Estado civil',
+            'Experiencia',
+            'Experiencia en',
+            'Turno de interés'
+        );
+
         $datos = mysqli_fetch_array($query);
-        $nombre = $datos['nombre'];
-        $calleNumero = $datos['calleNumero'];
-        $colonia = $datos['colonia'];
-        $cp = (int)$datos['cp'];
-        $ciudad = $datos['ciudad'];
-        $estado = $datos['estado'];
-        $telefono01 = (int)$datos['telefono01'];
-        $telefono02 = (int)$datos['telefono02'];
-        $email01 = $datos['email01'];
-        $email02 = $datos['email02'];
-        $beneficiario = $datos['beneficiario'];
-        $curp = $datos['curp'];
-        $rfc = $datos['rfc'];
-        $nss = $datos['nss'];
-        $ine = $datos['ine'];
-        $nivelEstudios = $datos['nivelEstudios'];
-        $fechaNac = $datos['fechaNac'];
-        $estadoCivil = $datos['estadoCivil'];
-        $experiencia = $datos['experiencia'];
-        $experienciaDonde = $datos['experienciaDonde'];
-        $turnoInteres = $datos['turnoInteres'];
+        $datosArray = array();
+
+        array_push($datosArray, $datos['nombre']);
+        array_push($datosArray, $datos['calleNumero']);
+        array_push($datosArray, $datos['colonia']);
+        array_push($datosArray, (int)$datos['cp']);
+        array_push($datosArray, $datos['ciudad']);
+        array_push($datosArray, $datos['estado']);
+        array_push($datosArray, (int)$datos['telefono01']);
+        array_push($datosArray, (int)$datos['telefono02']);
+        array_push($datosArray, $datos['email01']);
+        array_push($datosArray, $datos['email02']);
+        array_push($datosArray, $datos['beneficiario']);
+        array_push($datosArray, $datos['curp']);
+        array_push($datosArray, $datos['rfc']);
+        array_push($datosArray, $datos['nss']);
+        array_push($datosArray, $datos['ine']);
+        array_push($datosArray, $datos['nivelEstudios']);
+        array_push($datosArray, $datos['fechaNac']);
+        array_push($datosArray, $datos['estadoCivil']);
+        array_push($datosArray, $datos['experiencia']);
+        array_push($datosArray, $datos['experienciaDonde']);
+        array_push($datosArray, $datos['turnoInteres']);
 
         class PDF extends FPDF {
             function Header()
             {
-                $this->SetFont('Arial','',14);
-                $this->Cell(80);
-                $this->Image('../img/logo.png', 150, 10, 32);
+                $this->SetFont('Arial','',12);
+                $this->SetTextColor(102, 108, 100);
+                $this->Image('../img/logo.png', 90, 10, 32);
                 $this->Ln(20);
             }
         }
         $pdf=new PDF(); //Crear PDF
         //Formato de PDF
-        $pdf->SetMargins(20, 20, 20);
+        $pdf->SetMargins(40, 20, 40);
         $pdf->AddPage();
         $pdf->SetFont('Arial','B',16);
-        $pdf->Cell(80,10,'Solicitud ' . $id);
+        $pdf->SetTextColor(0, 108, 184);
+        $pdf->Cell(140,10,'Solicitud ' . $id, 0, 0, 'C');
         $pdf->Ln();
-        $pdf->SetFont('Arial','',12);
+        $pdf->SetFont('Arial','',14);
 
-        $pdf->Cell(60,10, 'Id', 1, 0, 'R');
-        $pdf->Cell(110,10, $id, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, utf8_decode('Nombre'), 1, 0, 'R');
-        $pdf->Cell(110,10, $nombre, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, utf8_decode('Calle y número'), 1, 0, 'R');
-        $pdf->Cell(110,10, $calleNumero, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'Colonia', 1, 0, 'R');
-        $pdf->Cell(110,10, $colonia, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, utf8_decode('Código postal'), 1, 0, 'R');
-        $pdf->Cell(110,10, $cp, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'Ciudad', 1, 0, 'R');
-        $pdf->Cell(110,10, $ciudad, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'Estado', 1, 0, 'R');
-        $pdf->Cell(110,10, $estado, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, utf8_decode('Teléfono 1'), 1, 0, 'R');
-        $pdf->Cell(110,10, $telefono01, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, utf8_decode('Teléfono 2'), 1, 0, 'R');
-        $pdf->Cell(110,10, $telefono02, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'Email 1', 1, 0, 'R');
-        $pdf->Cell(110,10, $email01, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'Email 2', 1, 0, 'R');
-        $pdf->Cell(110,10, $email02, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'Beneficiario', 1, 0, 'R');
-        $pdf->Cell(110,10, $beneficiario, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'Curp', 1, 0, 'R');
-        $pdf->Cell(110,10, $curp, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'RFC', 1, 0, 'R');
-        $pdf->Cell(110,10, $rfc, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'NSS', 1, 0, 'R');
-        $pdf->Cell(110,10, $nss, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'INE', 1, 0, 'R');
-        $pdf->Cell(110,10, $ine, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'Nivel de estudios', 1, 0, 'R');
-        $pdf->Cell(110,10, $nivelEstudios, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'Fecha de nacimiento', 1, 0, 'R');
-        $pdf->Cell(110,10, $fechaNac, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'Estado civil', 1, 0, 'R');
-        $pdf->Cell(110,10, $estadoCivil, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'Experiencia', 1, 0, 'R');
-        $pdf->Cell(110,10, $experiencia, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, 'Experiencia en', 1, 0, 'R');
-        $pdf->Cell(110,10, $experienciaDonde, 1, 0, 'R');
-        $pdf->Ln();
-        $pdf->Cell(60,10, utf8_decode('Turno de interés'), 1, 0, 'R');
-        $pdf->Cell(110,10, $turnoInteres, 1, 0, 'R');
-        $pdf->Ln();
+        
+        for ($i=0; $i < sizeof($datosArray); $i++) { 
+            $pdf->SetTextColor(0, 108, 184);
+            $pdf->Cell(60,10, utf8_decode($campos[$i]) . ':', 0, 0, 'R');
+            $pdf->SetTextColor(0, 0, 0);
+            $pdf->Cell(10, 10);
+            $pdf->Cell(60,10, $datosArray[$i], 0, 0, 'L');
+            $pdf->Ln();
+        }
 
         $pdfDoc = $pdf->Output('', '../pdf/solicitud_' . $id . '.pdf');
     } 

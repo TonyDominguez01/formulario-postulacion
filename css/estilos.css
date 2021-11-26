@@ -1,6 +1,6 @@
 :root {
-    --clr-main: #006CB8;
-    --clr-main-h: #0d77c2;
+    --clr-main: #006cb8;
+    --clr-main-h: #0961a0;
     --clr-second: #7e7e7e;
     --clr-second-h: #5E5E5E;
 }
@@ -100,22 +100,11 @@ body {
 .modal-simple.active {
     display: inline;
 }
-.btn-with-icon {
-    background: transparent;
-    border: 2px solid transparent;
-    padding: 4px 3rem 0px 3rem;
+.btn.with-icon {
+    display: inline-flex;
 }
-.btn-with-icon:hover {
-    background: white;
-    border-color: var(--clr-main);
-}
-.btn-with-icon.red:hover {
-    border-color: var(--clr-red);
-}
-.btn-with-icon.green:hover {
-    border-color: var(--clr-green);
-}
-.btn-with-icon img {
-    width: 2rem;
+.btn.with-icon img {
+    width: 1.5rem;
     height: auto;
+    margin: 0 0 0 0.25rem;
 }

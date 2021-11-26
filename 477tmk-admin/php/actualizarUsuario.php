@@ -7,8 +7,13 @@
         $actualizarPassword = true;
         $correo = $_POST['correo'];
         $nombre = $_POST['nombre'];
-        if ($password != '') $password = md5($_POST['password']);
-        else $actualizarPassword = false;
+        if (isset($_POST['password'])) {
+            $password = $_POST['password'];
+            if ($password != '') {
+                $password = md5($_POST['password']);
+            }
+            else $actualizarPassword = false;
+        }
 
         if (isset($_POST['estatus'])) $estado = 1;
         else $estado = 0;

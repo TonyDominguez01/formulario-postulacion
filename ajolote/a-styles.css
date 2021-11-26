@@ -29,8 +29,8 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --clr-second-h: #54c59f;
     --clr-red: #e94141;
     --clr-red-h: #c03131;
-    --clr-green: #24a76a;
-    --clr-green-h: #198553;
+    --clr-green: #1ba766;
+    --clr-green-h: #17804f;
     --clr-seleccionado: #ffffff22;
     --clr-light: #fff;
     --clr-dark: #333;
@@ -227,8 +227,9 @@ h1, h2, h3, h4, h5, h6 {
 .card {
     padding: 2rem;
     background:  #fff;
-    border-radius: 4px;
+    border-radius: 8px;
     box-shadow: 0px 0px 0.5rem rgba(0, 0, 0, 0.3);
+    overflow: hidden;
 }
 .nav {
     background: var(--clr-main);
@@ -379,8 +380,8 @@ form .input:focus {
 form .checkbox { display: none; }
 form .checkbox + label { color: #777; }
 form .checkbox + label:hover { cursor: pointer; }
-form .checkbox:checked + label { color: var(--clr-main); }
-form .checkbox:checked + label:before { border-color: var(--clr-main); }
+form .checkbox:checked + label { color: var(--clr-green); }
+form .checkbox:checked + label:before { border-color: var(--clr-green ); }
 form .checkbox + label:before {
 	content: "";
 	width: 1.5rem;
@@ -394,7 +395,7 @@ form .checkbox + label:before {
     content: "";
     width: 1rem;
     height: 0.5rem;
-    border: 4px solid var(--clr-main);
+    border: 4px solid var(--clr-green);
     float: right;
     margin-right: -1.4em;
     border-right: 0;

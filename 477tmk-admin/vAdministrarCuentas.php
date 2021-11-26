@@ -59,7 +59,7 @@
         <div class="contenedor-ancho margen-superior-4">
             <h1>Administrar Cuentas</h1>
             <div class="contenedor-ancho no-padding text-right">
-                <a class="btn bg" href="vRegistrarUsuario.php">Agregar cuenta</a>
+                <a class="btn with-icon" href="vRegistrarUsuario.php">Agregar cuenta <img src='./icons/icon_agregar.png'></a>
             </div>
             <table class="tabla">
                 <tr class="headers">
@@ -79,10 +79,10 @@
                             <td>$nombres[$i]</td>
                             <td><div class='indicador $indicadorCls'></div></td>
                             <td>
-                                <a class='btn bg-green' href='vModificarUsuario.php?correo=$correos[$i]'>modificar</a>
+                                <a class='btn with-icon bg-green' href='vModificarUsuario.php?correo=$correos[$i]'><div>modificar</div><img src='./icons/icon_modificar.png'></a>
                             </td>
                             <td>
-                                <button class='btn bg-red' onclick=abrirBorrar('$correos[$i]')>eliminar</a>
+                                <button class='btn with-icon bg-red' onclick=abrirBorrar('$correos[$i]')><div>eliminar</div><img src='./icons/icon_delete.png'></a>
                             </td>
                         </tr>";
                     }

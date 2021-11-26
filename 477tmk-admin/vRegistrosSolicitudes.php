@@ -87,10 +87,10 @@
                                     <td><?php echo $emails[$i] ?></td>
                                     <td><?php echo $telefonos[$i] ?></td>
                                     <td>
-                                        <button class='btn btn-with-icon' onclick=abrirPDF(<?php echo $ids[$i]; ?>)><img src="./icons/icon_pdf.png"></button>
+                                        <button class='btn with-icon' onclick=abrirPDF(<?php echo $ids[$i]; ?>)><div>ver pdf </div><img src="./icons/icon_pdf.png"></button>
                                     </td>
                                     <td>
-                                        <button class='btn btn-with-icon red' onclick="abrirBorrar('<?php echo "$ids[$i]', '$nombres[$i]"; ?>')"><img src="./icons/icon_delete.png"></button>
+                                        <button class='btn with-icon bg-red' onclick="abrirBorrar('<?php echo "$ids[$i]', '$nombres[$i]"; ?>')"><div>eliminar</div><img src="./icons/icon_delete.png"></button>
                                     </td>
                                 </tr>
                             <?php

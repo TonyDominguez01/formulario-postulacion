@@ -68,7 +68,7 @@
             {
                 $this->SetFont('Arial','',14);
                 $this->Cell(80);
-                $this->Image('./img/logo.png', 150, 10, 32);
+                $this->Image('../img/logo.png', 150, 10, 32);
                 $this->Ln(20);
             }
         }
