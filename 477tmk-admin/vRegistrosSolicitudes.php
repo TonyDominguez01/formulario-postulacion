@@ -66,6 +66,9 @@
                 const borrarSolicitud = () => {
                     location.href = './php/borrarSolicitud.php?id=' + solicitudSeleccionada;
                 }
+                const enviarWhatsapp = (telefono) => {
+                    window.open('https://api.whatsapp.com/send?phone=+52' + telefono, '_blank');
+                }
             </script>
             <?php require_once('./components/nav.php'); ?>
             <div class="contenedor">
@@ -85,7 +88,12 @@
                                 <tr>
                                     <td><?php echo $nombres[$i] ?></td>
                                     <td><?php echo $emails[$i] ?></td>
-                                    <td><?php echo $telefonos[$i] ?></td>
+                                    <td>
+                                        <button class="btn with-icon bg-green" onclick=enviarWhatsapp(<?php echo $telefonos[$i] ?>)>
+                                            <div><?php echo $telefonos[$i] ?></div>
+                                            <img src="./icons/icon_whatsapp.png" alt="">
+                                        </button>
+                                    </td>
                                     <td>
                                         <button class='btn with-icon' onclick=abrirPDF(<?php echo $ids[$i]; ?>)><div>ver pdf </div><img src="./icons/icon_pdf.png"></button>
                                     </td>
