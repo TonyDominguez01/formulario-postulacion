@@ -152,7 +152,7 @@
             $idSubstr = substr($id, -1);
             if ($idSubstr == '1'){
                 echo "<script>
-                    location.href = 'liberarArchivos.php?nombre=$nombreEncode';
+                    location.href = '../477tmk-admin/php/liberarArchivos.php?nombre=$nombreEncode';
                 </script>'";
             }
             

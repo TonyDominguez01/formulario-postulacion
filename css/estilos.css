@@ -49,6 +49,9 @@ body {
 .tabla td {
     width: 20%;
 }
+.tabla.solicitudes td {
+    width: repeat(6, 1fr);
+}
 .indicador {
     width: 1.5rem;
     height: 1.5rem;
@@ -107,4 +110,42 @@ body {
     width: 1.5rem;
     height: auto;
     margin: 0 0 0 0.25rem;
+}
+.toggle-div {
+    width: 200px;
+    height: 50px;
+    padding: 0;
+    display: flex;
+}
+.toggle-btn {
+    width: 200px;
+    margin: 0;
+    border: none;
+    background-color: var(--clr-dark);
+    color: white;
+    transition: 0.3s all ease;
+    cursor: pointer;
+}
+.toggle-btn.l {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+.toggle-btn.r {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.toggle-btn.active {
+    background: var(--clr-main);
+    border: 3px solid var(--clr-dark);
+}
+#form-filtrar, #form-buscar {
+    display: none;
+}
+#form-buscar.active, #form-filtrar.active {
+    display: inline-block;
+}
+#form-buscar .input, #form-filtrar .input {
+    width: 200px;
+    margin-right: 1rem;
+    border: 1px solid var(--clr-dark);
 }

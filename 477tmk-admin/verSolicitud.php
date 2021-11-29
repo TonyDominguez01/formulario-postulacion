@@ -36,7 +36,8 @@
             'Estado civil',
             'Experiencia',
             'Experiencia en',
-            'Turno de interés'
+            'Turno de interés',
+            'Fecha de registro'
         );
 
         $datos = mysqli_fetch_array($query);
@@ -63,6 +64,7 @@
         array_push($datosArray, $datos['experiencia']);
         array_push($datosArray, $datos['experienciaDonde']);
         array_push($datosArray, $datos['turnoInteres']);
+        array_push($datosArray, $datos['fechaRegistro']);
 
         class PDF extends FPDF {
             function Header()
