@@ -45,7 +45,7 @@
             <div class="encabezado-form text-right">
                 <h1>Modificar Usuario</h1>
             </div>
-            <form action="./php/actualizarUsuario.php" method="POST">
+            <form class="pv-3" action="./php/actualizarUsuario.php" method="POST">
                 <label for="nombre">Nombre</label>
                 <input id="nombre" class="input" name="nombre" type="text" value="<?php echo $nombre; ?>" required>
                 <label for="correo">Correo</label>
@@ -54,9 +54,9 @@
                 <input id="password" class="input" name="password" type="password">
                 <input id="estatus" class="checkbox" name="estatus" type="checkbox" <?php if($estatus) echo 'checked'; ?>>
                 <label for="estatus">Estatus</label>
-                <div class="contenedor-ancho no-padding text-right">
-                    <button class="btn with-icon margen-inferior-3" type="button" onclick="location.href = './vAdministrarCuentas.php'"><div>regresar </div><img src='./icons/icon_volver.png'></button>
-                    <button class="btn with-icon bg-green margen-inferior-3" type="submit"><div>guardar datos </div><img src='./icons/icon_save.png'></button>
+                <div class="contenedor-ancho p-0 text-right">
+                    <button class="btn with-icon" type="button" onclick="location.href = './vAdministrarCuentas.php'"><div>regresar </div><img src='./icons/icon_volver.png'></button>
+                    <button class="btn with-icon bg-green" type="submit"><div>guardar datos </div><img src='./icons/icon_save.png'></button>
                     
                 </div>
             </form>

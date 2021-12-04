@@ -23,16 +23,16 @@
             <div class="encabezado-form text-right">
                 <h1>Registrar usuario</h1>
             </div>
-            <form action="./php/guardarUsuario.php" method="POST">
+            <form class="pt-3 pb-3" action="./php/guardarUsuario.php" method="POST">
                 <label for="nombre">Nombre</label>
                 <input id="nombre" class="input" name="nombre" type="text">
                 <label for="correo">Correo</label>
                 <input id="correo" class="input" name="correo" type="email">
                 <label for="correo">Password</label>
                 <input id="password" class="input" name="password" type="password">
-                <div class="contenedor-ancho no-padding text-right">
-                    <button class="btn margen-inferior-3" type="button" onclick="location.href = './vAdministrarCuentas.php'">regresar</button>
-                    <button class="btn bg-green margen-inferior-3" type="submit">guardar usuario</button>
+                <div class="contenedor-ancho p-0 text-right">
+                    <button class="btn" type="button" onclick="location.href = './vAdministrarCuentas.php'">regresar</button>
+                    <button class="btn bg-green" type="submit">guardar usuario</button>
                 </div>
             </form>
         </div>

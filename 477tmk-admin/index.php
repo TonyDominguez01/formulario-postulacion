@@ -25,7 +25,7 @@
             <div class="encabezado-form text-right">
                 <h1>Login</h1>
             </div>
-            <form class="contenedor-reducido padding-superior-5 padding-inferior-5" action="./php/verificarLogin.php" method="POST" style="margin: 0 auto;">
+            <form class="contenedor-reducido pt-5 pb-5" action="./php/verificarLogin.php" method="POST" style="margin: 0 auto;">
                 <label for="correo">Correo</label>
                 <input class="input" type="text" name="correo" id="correo" required>
                 <label for="password">Password</label>

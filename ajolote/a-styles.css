@@ -403,6 +403,7 @@ form .input:focus {
     margin-top: 0.4rem;
     transform: rotate(-55deg);
 }
+/* botones */
 .btn {
     background: var(--clr-main);
     border: none;
@@ -422,83 +423,120 @@ form .input:focus {
     HELPERS
 ============== */
 
-.no-margen { margin: 0px }
-.no-margen-superior { margin-top: 0px }
-.no-margen-inferior { margin-bottom: 0 }
-.no-margen-derecho { margin-right: 0 }
-.no-margen-izquierdo { margin-left: 0 }
-
-.no-padding { padding: 0 }
-.no-padding-superior { padding-top: 0 }
-.no-padding-inferior { padding-bottom: 0 }
-.no-padding-derecho { padding-right: 0 }
-.no-padding-izquierdo { padding-left: 0 }
-
 /* padding */
-.padding-superior-1 { padding-top: 1rem; }
-.padding-inferior-1 { padding-bottom: 1rem; }
-.padding-derecho-1 { padding-right: 1rem; }
-.padding-izquierdo-1 { padding-left: 1rem; }
+.p-0 { padding: 0 }
+.pt-0 { padding-top: 0 }
+.pb-0 { padding-bottom: 0 }
+.pr-0 { padding-right: 0 }
+.pl-0 { padding-left: 0 }
 
-.padding-superior-2 { padding-top: 2rem; }
-.padding-inferior-2 { padding-bottom: 2rem; }
-.padding-derecho-2 { padding-right: 2rem; }
-.padding-izquierdo-2 { padding-left: 2rem; }
+.pt-1 { padding-top: 1rem; }
+.pb-1 { padding-bottom: 1rem; }
+.pr-1 { padding-right: 1rem; }
+.pl-1 { padding-left: 1rem; }
 
-.padding-superior-3 { padding-top: 3rem; }
-.padding-inferior-3 { padding-bottom: 3rem; }
-.padding-derecho-3 { padding-right: 3rem; }
-.padding-izquierdo-3 { padding-left: 3rem; }
+.pt-2 { padding-top: 2rem; }
+.pb-2 { padding-bottom: 2rem; }
+.pr-2 { padding-right: 2rem; }
+.pl-2 { padding-left: 2rem; }
 
-.padding-superior-4 { padding-top: 4rem; }
-.padding-inferior-4 { padding-bottom: 4rem; }
-.padding-derecho-4 { padding-right: 4rem; }
-.padding-izquierdo-4 { padding-left: 4rem; }
+.pt-3 { padding-top: 3rem; }
+.pb-3 { padding-bottom: 3rem; }
+.pr-3 { padding-right: 3rem; }
+.pl-3 { padding-left: 3rem; }
 
-.padding-superior-5 { padding-top: 5rem; }
-.padding-inferior-5 { padding-bottom: 5rem; }
-.padding-derecho-5 { padding-right: 5rem; }
-.padding-izquierdo-5 { padding-left: 5rem; }
+.pt-4 { padding-top: 4rem; }
+.pb-4 { padding-bottom: 4rem; }
+.pr-4 { padding-right: 4rem; }
+.pl-4 { padding-left: 4rem; }
+
+.pt-5 { padding-top: 5rem; }
+.pb-5 { padding-bottom: 5rem; }
+.pr-5 { padding-right: 5rem; }
+.pl-5 { padding-left: 5rem; }
+
+.pv-0 { padding-top: 0rem; padding-bottom: 0rem; }
+.pv-1 { padding-top: 1rem; padding-bottom: 1rem; }
+.pv-2 { padding-top: 2rem; padding-bottom: 2rem; }
+.pv-3 { padding-top: 3rem; padding-bottom: 3rem; }
+.pv-4 { padding-top: 4rem; padding-bottom: 4rem; }
+.pv-5 { padding-top: 5rem; padding-bottom: 5rem; }
+
+.ph-0 { padding-right: 0rem; padding-left: 0rem; }
+.ph-1 { padding-right: 1rem; padding-left: 1rem; }
+.ph-2 { padding-right: 2rem; padding-left: 2rem; }
+.ph-3 { padding-right: 3rem; padding-left: 3rem; }
+.ph-4 { padding-right: 4rem; padding-left: 4rem; }
+.ph-5 { padding-right: 5rem; padding-left: 5rem; }
 
 /* margen */
-.margen-superior { margin-top: 1rem }
-.margen-inferior { margin-bottom: 1rem }
-.margen-derecho { margin-right: 1rem }
-.margen-izquierdo { margin-left: 1rem }
+.m-0 { margin: 0px }
+.mt-0 { margin-top: 0px }
+.mb-0 { margin-bottom: 0 }
+.mr-0 { margin-right: 0 }
+.ml-0 { margin-left: 0 }
 
-.margen-superior-2 { margin-top: 2rem }
-.margen-inferior-2 { margin-bottom: 2rem }
-.margen-derecho-2 { margin-right: 2rem }
-.margen-izquierdo-2 { margin-left: 2rem }
+.mt-1 { margin-top: 1rem }
+.mb-1 { margin-bottom: 1rem }
+.mr-1 { margin-right: 1rem }
+.ml-1 { margin-left: 1rem }
 
-.margen-superior-3 { margin-top: 3rem }
-.margen-inferior-3 { margin-bottom: 3rem }
-.margen-derecho-3 { margin-right: 3rem }
-.margen-izquierdo-3 { margin-left: 3rem }
+.mt-2 { margin-top: 2rem }
+.mb-2 { margin-bottom: 2rem }
+.mr-2 { margin-right: 2rem }
+.ml-2 { margin-left: 2rem }
 
-.margen-superior-4 { margin-top: 4rem }
-.margen-inferior-4 { margin-bottom: 4rem }
-.margen-derecho-4 { margin-right: 4rem }
-.margen-izquierdo-4 { margin-left: 4rem }
+.mt-3 { margin-top: 3rem }
+.mb-3 { margin-bottom: 3rem }
+.mr-3 { margin-right: 3rem }
+.ml-3 { margin-left: 3rem }
 
-.margen-superior-5 { margin-top: 5rem }
-.margen-inferior-5 { margin-bottom: 5rem }
-.margen-derecho-5 { margin-right: 5rem }
-.margen-izquierdo-5 { margin-left: 5rem }
+.mt-4 { margin-top: 4rem }
+.mb-4 { margin-bottom: 4rem }
+.mr-4 { margin-right: 4rem }
+.ml-4 { margin-left: 4rem }
 
+.mt-5 { margin-top: 5rem }
+.mb-5 { margin-bottom: 5rem }
+.mr-5 { margin-right: 5rem }
+.ml-5 { margin-left: 5rem }
+
+.mv-0 { margin-top: 0rem; margin-bottom: 0rem; }
+.mv-1 { margin-top: 1rem; margin-bottom: 1rem; }
+.mv-2 { margin-top: 2rem; margin-bottom: 2rem; }
+.mv-3 { margin-top: 3rem; margin-bottom: 3rem; }
+.mv-4 { margin-top: 4rem; margin-bottom: 4rem; }
+.mv-5 { margin-top: 5rem; margin-bottom: 5rem; }
+
+.mh-0 { margin-right: 0rem; margin-left: 0rem; }
+.mh-1 { margin-right: 1rem; margin-left: 1rem; }
+.mh-2 { margin-right: 2rem; margin-left: 2rem; }
+.mh-3 { margin-right: 3rem; margin-left: 3rem; }
+.mh-4 { margin-right: 4rem; margin-left: 4rem; }
+.mh-5 { margin-right: 5rem; margin-left: 5rem; }
+
+/* Textos */
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 .text-left { text-align: left; }
 .float-left { float: left; }
 .float-right { float: right; }
+
 .bg-white { background: #ddd; }
+.btn.bg-white:hover { background: #aaa; }
+
 .bg-black { background: #222; }
+.btn.bg-black { background: #444; }
+
 .bg-gray { background: #aaa; }
 .btn.bg-gray:hover { background: #777; }
+
 .bg-red { background: var(--clr-red); }
 .btn.bg-red:hover { background: var(--clr-red-h); }
+
 .bg-green { background: var(--clr-green); }
 .btn.bg-green:hover { background: var(--clr-green-h); }
-.txt-white { color: #fff; }
-.txt-black { color: #000; }
-.txt-main { color: var(--clr-main); }
+
+.clr-white { color: #fff; }
+.clr-black { color: #000; }
+.clr-main { color: var(--clr-main); }

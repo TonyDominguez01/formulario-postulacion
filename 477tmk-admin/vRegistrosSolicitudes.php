@@ -72,17 +72,19 @@
                 const enviarWhatsapp = (telefono) => {
                     window.open('https://api.whatsapp.com/send?phone=+52' + telefono, '_blank');
                 }
-                const cambiarToggle = () => {
+                const cambiarToggle = (e) => {
+                    let idRight = e.parentNode.getElementsByClassName('toggle-btn-r')[0].id;
+                    let idRight = e.parentNode.getElementsByClassName('toggle-btn-r')[0].id;
                     estadoToggle = !estadoToggle;
                     if (estadoToggle) {
-                        document.getElementById('toggle-btn-l').classList.add('active');
-                        document.getElementById('toggle-btn-r').classList.remove('active');
+                        document.getElementById(id + '-l').classList.add('active');
+                        document.getElementById(id + '-r').classList.remove('active');
                         document.getElementById('form-buscar').classList.add('active');
                         document.getElementById('form-filtrar').classList.remove('active');
                     }
                     else {
-                        document.getElementById('toggle-btn-r').classList.add('active');
-                        document.getElementById('toggle-btn-l').classList.remove('active');
+                        document.getElementById(id + '-r').classList.add('active');
+                        document.getElementById(id + '-l').classList.remove('active');
                         document.getElementById('form-filtrar').classList.add('active');
                         document.getElementById('form-buscar').classList.remove('active');
                     }
@@ -90,20 +92,20 @@
             </script>
             <?php require_once('./components/nav.php'); ?>
             <div class="contenedor">
-                <div class="contendor-ancho margen-superior-4">
+                <div class="contendor-ancho mt-2">
                     <h1>Registros de Solicitudes</h1>
                     <div class="contenedor-ancho">
-                        <div class="toggle-div">
-                            <button type="button" id="toggle-btn-l" class="toggle-btn l active" onclick=cambiarToggle()>Buscar</button>
-                            <button type="button" id="toggle-btn-r" class="toggle-btn r" onclick=cambiarToggle()>Filtrar</button>
+                        <div id="toggle-0" class="toggle-div">
+                            <button type="button" class="toggle-btn l active" onclick=cambiarToggle(this)>Buscar</button>
+                            <button type="button" class="toggle-btn r" onclick=cambiarToggle(this)>Filtrar</button>
                         </div>
-                        <div class="margen-superior">
-                            <div id="form-buscar" class="margen-inferior active">
+                        <div class="mt-1">
+                            <div id="form-buscar" class="mb-1 active">
                                 <p>Puedes buscar solicitudes por nombre o por correo</p>
                                 <input id="input-busqueda" class="input" type="text">
                                 <button class="btn" type="button">Buscar</button>
                             </div>
-                            <div id="form-filtrar" class="margen-inferior">
+                            <div id="form-filtrar" class="mb-1">
                                 <p>Elige dos fechas para ver las solicitudes recibidas en ese periodo de tiempo</p>
                                 <input id="input-fecha-inicio" class="input" type="date" name="inicio" id="fecha-inicio">
                                 <input id="input-fecha-final" class="input" type="date" name="final" id="fecha-final">

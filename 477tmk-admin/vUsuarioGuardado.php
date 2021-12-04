@@ -18,7 +18,7 @@
 </head>
 <body>
     <?php include_once('./components/nav.php') ?>
-    <div class="contenedor margen-superior-4">
+    <div class="contenedor mt-2">
         <h1>El usuario con el correo <b><?php echo $_GET['correo']; ?></b>, y el nombre <b><?php echo $_GET['nombre']; ?></b> ha sido registrado.</h1>
     </div>
 </body>

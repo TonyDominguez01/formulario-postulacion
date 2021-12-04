@@ -34,11 +34,11 @@
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <div class="contenedor margen-superior-4">
+    <div class="contenedor mt-2">
         <h1>Error <?php echo $error; ?></h1>
         <br>
         <h2>Página no encontrada</h2>
-        <button class="btn" onclick="window.open('http://477tmk.mx')">regresar a 477TMK</button>
+        <button class="btn" onclick=window.open('http://477tmk.mx')>regresar a 477TMK</button>
     </div>
 </body>
 </html>
