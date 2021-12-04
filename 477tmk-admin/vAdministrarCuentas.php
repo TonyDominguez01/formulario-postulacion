@@ -51,7 +51,7 @@
             document.getElementById('txt-borrar').innerHTML = '¿Estás seguro que quieres eliminar al usuario con correo ' + correo + '?';
         }
         const borrarUsuario = () => {
-            location.href = './php/borrarUsuario.php?correo=' + usuarioSeleccionado;
+            location.href = './php/borrarUsuario?correo=' + usuarioSeleccionado;
         }
     </script>
     <?php require_once('./components/nav.php'); ?>
@@ -67,8 +67,7 @@
                     <td>Nombre</td>
                     <td>Estatus</td>
                     <td>Modificar</td>
-                    <td>Borrar</td>
-                    <a href=""></a>
+                    <td>Eliminar</td>
                 </tr>
                 <?php
                     for ($i=0; $i < sizeof($correos); $i++) { 
@@ -79,7 +78,7 @@
                             <td>$nombres[$i]</td>
                             <td><div class='indicador $indicadorCls'></div></td>
                             <td>
-                                <a class='btn with-icon bg-green' href='vModificarUsuario.php?correo=$correos[$i]'><div>modificar</div><img src='./icons/icon_modificar.png'></a>
+                                <a class='btn with-icon bg-green' href='vModificarUsuario?correo=$correos[$i]'><div>modificar</div><img src='./icons/icon_modificar.png'></a>
                             </td>
                             <td>
                                 <button class='btn with-icon bg-red' onclick=abrirBorrar('$correos[$i]')><div>eliminar</div><img src='./icons/icon_delete.png'></a>

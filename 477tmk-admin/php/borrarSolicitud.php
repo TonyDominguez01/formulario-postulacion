@@ -17,7 +17,7 @@
         if ($query) {
             echo "<script>
             alert('Solicitud eliminada');
-            location.href = '../vRegistrosSolicitudes.php';
+            location.href = '../vRegistrosSolicitudes';
             </script>";
         } 
         else {

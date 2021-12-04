@@ -17,7 +17,7 @@
         if ($query) {
             echo "<script>
             alert('Usuario eliminado');
-            location.href = '../vAdministrarCuentas.php';
+            location.href = '../vAdministrarCuentas';
             </script>";
         } 
         else {

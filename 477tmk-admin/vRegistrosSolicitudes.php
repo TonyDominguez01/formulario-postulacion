@@ -59,7 +59,7 @@
                         include_once('./php/verificarActividad.php');
                         verificarActividad(0);
                     ?>
-                    window.open('verSolicitud.php?id=' + id, '_blank');
+                    window.open('verSolicitud?id=' + id, '_blank');
                 }
                 const abrirBorrar = (id, nombre) => {
                     solicitudSeleccionada = id;
@@ -67,24 +67,22 @@
                     document.getElementById('txt-borrar').innerHTML = '¿Estás seguro que quieres eliminar la solicitud ' + id + ' de ' + nombre + '?';
                 }
                 const borrarSolicitud = () => {
-                    location.href = './php/borrarSolicitud.php?id=' + solicitudSeleccionada;
+                    location.href = './php/borrarSolicitud?id=' + solicitudSeleccionada;
                 }
                 const enviarWhatsapp = (telefono) => {
                     window.open('https://api.whatsapp.com/send?phone=+52' + telefono, '_blank');
                 }
-                const cambiarToggle = (e) => {
-                    let idRight = e.parentNode.getElementsByClassName('toggle-btn-r')[0].id;
-                    let idRight = e.parentNode.getElementsByClassName('toggle-btn-r')[0].id;
+                const cambiarToggle = () => {
                     estadoToggle = !estadoToggle;
                     if (estadoToggle) {
-                        document.getElementById(id + '-l').classList.add('active');
-                        document.getElementById(id + '-r').classList.remove('active');
+                        document.getElementById('toggle-btn-l').classList.add('active');
+                        document.getElementById('toggle-btn-r').classList.remove('active');
                         document.getElementById('form-buscar').classList.add('active');
                         document.getElementById('form-filtrar').classList.remove('active');
                     }
                     else {
-                        document.getElementById(id + '-r').classList.add('active');
-                        document.getElementById(id + '-l').classList.remove('active');
+                        document.getElementById('toggle-btn-r').classList.add('active');
+                        document.getElementById('toggle-btn-l').classList.remove('active');
                         document.getElementById('form-filtrar').classList.add('active');
                         document.getElementById('form-buscar').classList.remove('active');
                     }
@@ -95,9 +93,9 @@
                 <div class="contendor-ancho mt-2">
                     <h1>Registros de Solicitudes</h1>
                     <div class="contenedor-ancho">
-                        <div id="toggle-0" class="toggle-div">
-                            <button type="button" class="toggle-btn l active" onclick=cambiarToggle(this)>Buscar</button>
-                            <button type="button" class="toggle-btn r" onclick=cambiarToggle(this)>Filtrar</button>
+                        <div class="toggle-div">
+                            <button id="toggle-btn-l" type="button" class="toggle-btn l active" onclick=cambiarToggle()>Buscar</button>
+                            <button id="toggle-btn-r" type="button" class="toggle-btn r" onclick=cambiarToggle()>Filtrar</button>
                         </div>
                         <div class="mt-1">
                             <div id="form-buscar" class="mb-1 active">
@@ -163,7 +161,7 @@
     }
     else {
         echo "<script>
-            location.href = '../error.php';
+            location.href = '../error';
         </script>";
     }
 ?>

@@ -7,11 +7,11 @@
     <?php
         if ($_SESSION['permisoAdmin']) {
     ?>
-        <a class="link" href="vAdministrarCuentas.php">Administrar cuentas</a>
-        <a class="link" href="vRegistrosSolicitudes.php">Registro de solicitudes</a>
+        <a class="link" href="vAdministrarCuentas">Administrar cuentas</a>
+        <a class="link" href="vRegistrosSolicitudes">Registro de solicitudes</a>
     <?php
         }
     ?>
-        <a class="link" href="./php/cerrarSesion.php">Cerrar Sesión</a>
+        <a class="link" href="./php/cerrarSesion">Cerrar Sesión</a>
     </div>
 </nav>

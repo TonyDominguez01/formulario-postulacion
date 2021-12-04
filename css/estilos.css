@@ -35,6 +35,14 @@ body {
 .tabla {
     width: 100%;
     border-spacing: 0px;
+    border: 1px solid var(--clr-dark);
+    border-top: none;
+}
+.tabla tr:nth-child(odd){
+    background-color: #fff;
+}
+.tabla tr:nth-child(even){
+    background-color: #ddd;
 }
 .tabla .headers td {
     padding: 8px;
@@ -44,7 +52,6 @@ body {
 .tabla td {
     padding: 4px;
     text-align: center;
-    border: 1px solid var(--clr-dark);
 }
 .tabla td {
     width: 20%;

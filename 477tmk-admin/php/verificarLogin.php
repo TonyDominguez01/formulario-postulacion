@@ -35,13 +35,13 @@
         $_SESSION['ultimoAcceso'] = date("Y-n-j H:i:s");
         echo "<script>
             alert('Acceso correcto');
-            location.href = '../vRegistrosSolicitudes.php';
+            location.href = '../vRegistrosSolicitudes';
         </script>";
     }
     else {
         echo "<script>
             alert('Acceso denegado');
-            location.href = '../index.php';
+            location.href = '../index';
         </script>";
     }
     mysqli_close($conexion);

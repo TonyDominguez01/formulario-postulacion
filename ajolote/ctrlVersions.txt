@@ -12,9 +12,3 @@
     - Clases para colores
         * Estandarizacion para clases que especifiquen el color del , ahora se usa la nomenclatura 'bg-nombreDelColor', además cada clase especifica un color de hover cuando la clase es puesta en conjunto con un btn
         * Estandarizacion para clases que especifiquen el color del texto, ahora se usa la nomenclatura 'clr-nombreDelColor'
-    
-    // En duda
-    - Adición de botones tipo toggle
-        * Pensado para toggles que requieran de que cada estado tenga un titulo incrustado dentro del botón
-        * Usan un contenedor 'toggle-div' el cual engloba los dos botones para cada estado
-        * La clase 'toggle-btn'

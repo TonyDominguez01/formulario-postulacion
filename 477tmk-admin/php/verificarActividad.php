@@ -5,10 +5,10 @@
             $tiempoInactividad = 900;
             if ((strtotime($tiempoActual) - strtotime($_SESSION['ultimoAcceso'])) >= $tiempoInactividad){
                 if ($posicion == 0) {
-                    $ruta = './php/cerrarSesion.php';
+                    $ruta = './php/cerrarSesion';
                 }
                 else {
-                    $ruta = './cerrarSesion.php';
+                    $ruta = './cerrarSesion';
                 }
                 echo "<script>
                     alert('Tiempo de sesión expirado por inactividad');
