@@ -2,7 +2,7 @@
     session_start();
     if (isset($_SESSION['correo']) AND isset($_SESSION['nombre'])){
         echo "<script>
-            location.href = 'vRegistrosSolicitudes.php';
+            location.href = 'registros-solicitudes';
         </script>";
     }
     else {

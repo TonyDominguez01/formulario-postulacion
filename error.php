@@ -28,7 +28,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página no encontrada</title>
+    <title>Ha surgido un error</title>
     <link rel="stylesheet" href="ajolote/a-styles.css">
     <script src="ajolote/a-functions.js"></script>
     <link rel="stylesheet" href="css/estilos.css">
@@ -37,7 +37,7 @@
     <div class="contenedor mt-2">
         <h1>Error <?php echo $error; ?></h1>
         <br>
-        <h2>Página no encontrada</h2>
+        <h2><?php echo $mensaje; ?></h2>
         <button class="btn" onclick=window.open('http://477tmk.mx')>regresar a 477TMK</button>
     </div>
 </body>

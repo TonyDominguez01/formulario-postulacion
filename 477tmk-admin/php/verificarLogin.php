@@ -35,7 +35,7 @@
         $_SESSION['ultimoAcceso'] = date("Y-n-j H:i:s");
         echo "<script>
             alert('Acceso correcto');
-            location.href = '../vRegistrosSolicitudes';
+            location.href = '../registros-solicitudes';
         </script>";
     }
     else {

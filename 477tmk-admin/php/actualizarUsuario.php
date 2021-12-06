@@ -35,7 +35,7 @@
         if ($query) {
             echo "<script>
             alert('Datos guardados');
-            location.href = '../vAdministrarCuentas';
+            location.href = '../administrar-cuentas';
             </script> <br>";
         }
         else {

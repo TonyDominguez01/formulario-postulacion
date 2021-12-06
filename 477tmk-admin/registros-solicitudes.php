@@ -30,6 +30,20 @@
                 $telefonos[$cont] = $row['telefono01'];
                 $cont++;
             }
+            
+            $idsFilter = $ids;
+            $nombresFilter = $nombres;
+            $emailsFilter = $emails;
+            $fechasFilter = $fechas;
+            $telefonosFilter = $telefonos;
+            echo '<script>
+                ids = '.json_encode($ids) .
+                'nombres ='.json_encode($nombres).
+                'emails ='.json_encode($emails).
+                'fechas ='.json_encode($fechas).
+                'telefonos ='.json_encode($telefonos).
+            '</script>';
+
             mysqli_close($conexion);
         }
         else {
@@ -49,43 +63,19 @@
             <link rel="stylesheet" href="../ajolote/a-styles.css">
             <script src="../ajolote/a-functions.js"></script>
             <link rel="stylesheet" href="../css/estilos.css">
+            <script src="./js/registros-solicitudes.js"></script>
         </head>
         <body>
             <script>
-                let solicitudSeleccionada = '';
-                let estadoToggle = true;
                 const abrirPDF = (id) => {
-                    <?php 
-                        include_once('./php/verificarActividad.php');
-                        verificarActividad(0);
-                    ?>
+                <?php 
+                    include_once('./php/verificarActividad.php');
+                    verificarActividad(0);
+                ?>
                     window.open('ver-solicitud?id=' + id, '_blank');
                 }
-                const abrirBorrar = (id, nombre) => {
-                    solicitudSeleccionada = id;
-                    document.getElementById('modal-borrar').classList.toggle('active');
-                    document.getElementById('txt-borrar').innerHTML = '¿Estás seguro que quieres eliminar la solicitud ' + id + ' de ' + nombre + '?';
-                }
-                const borrarSolicitud = () => {
-                    location.href = './php/borrarSolicitud?id=' + solicitudSeleccionada;
-                }
-                const enviarWhatsapp = (telefono) => {
-                    window.open('https://api.whatsapp.com/send?phone=+52' + telefono, '_blank');
-                }
-                const cambiarToggle = () => {
-                    estadoToggle = !estadoToggle;
-                    if (estadoToggle) {
-                        document.getElementById('toggle-btn-l').classList.add('active');
-                        document.getElementById('toggle-btn-r').classList.remove('active');
-                        document.getElementById('form-buscar').classList.add('active');
-                        document.getElementById('form-filtrar').classList.remove('active');
-                    }
-                    else {
-                        document.getElementById('toggle-btn-r').classList.add('active');
-                        document.getElementById('toggle-btn-l').classList.remove('active');
-                        document.getElementById('form-filtrar').classList.add('active');
-                        document.getElementById('form-buscar').classList.remove('active');
-                    }
+                const buscarRegistros = () => {
+                    
                 }
             </script>
             <?php require_once('./components/nav.php'); ?>
@@ -101,7 +91,7 @@
                             <div id="form-buscar" class="mb-1 active">
                                 <p>Puedes buscar solicitudes por nombre o por correo</p>
                                 <input id="input-busqueda" class="input" type="text">
-                                <button class="btn" type="button">Buscar</button>
+                                <button class="btn" type="button" onclick=buscarRegistros()>Buscar</button>
                             </div>
                             <div id="form-filtrar" class="mb-1">
                                 <p>Elige dos fechas para ver las solicitudes recibidas en ese periodo de tiempo</p>
@@ -124,25 +114,28 @@
                             for ($i=0; $i < sizeof($ids); $i++) { 
                             ?>
                                 <tr>
-                                    <td><?php echo $nombres[$i] ?></td>
-                                    <td><?php echo $emails[$i] ?></td>
-                                    <td><?php echo $fechas[$i] ?></td>
+                                    <td><?php echo $nombresFilter[$i] ?></td>
+                                    <td><?php echo $emailsFilter[$i] ?></td>
+                                    <td><?php echo $fechasFilter[$i] ?></td>
                                     <td>
                                         <button class="btn with-icon bg-green" onclick=enviarWhatsapp(<?php echo $telefonos[$i] ?>)>
-                                            <div><?php echo $telefonos[$i] ?></div>
+                                            <div><?php echo $telefonosFilter[$i] ?></div>
                                             <img src="./icons/icon_whatsapp.png" alt="">
                                         </button>
                                     </td>
                                     <td>
-                                        <button class='btn with-icon' onclick=abrirPDF(<?php echo $ids[$i]; ?>)><div>ver pdf </div><img src="./icons/icon_pdf.png"></button>
+                                        <button class='btn with-icon' onclick=abrirPDF(<?php echo $idsFilter[$i]; ?>)><div>ver pdf </div><img src="./icons/icon_pdf.png"></button>
                                     </td>
                                     <td>
-                                        <button class='btn with-icon bg-red' onclick="abrirBorrar('<?php echo "$ids[$i]', '$nombres[$i]"; ?>')"><div>eliminar</div><img src="./icons/icon_delete.png"></button>
+                                        <button class='btn with-icon bg-red' onclick="abrirBorrar('<?php echo "$ids[$i]', '$nombresFilter[$i]"; ?>')"><div>eliminar</div><img src="./icons/icon_delete.png"></button>
                                     </td>
                                 </tr>
                             <?php
                             }
                         ?>
+                    </table>
+                    <table id="tabla-prueba" class="tabla solicitudes">
+                        
                     </table>
                 </div>
             </div>
@@ -155,6 +148,44 @@
                     <button class="btn bg-red" onclick=borrarSolicitud()>Eliminar</button>
                 </div>
             </div>
+            <script>
+                tabla = document.getElementById('tabla-prueba');
+                for (let i = 0; i < nombres.length; i++) {
+                    const tr = document.createElement('tr')
+
+                    let tdNombre = document.createElement('td')
+                    let txtNombre = document.createTextNode(nombres[$i])
+                    tdNombre.appendChild(txtNombre)
+
+                    let tdEmail = document.createElement('td')
+                    let txtEmail = document.createTextNode(nombres[$i])
+                    tdEmail.appendChild(txtEmail)
+
+                    let tdFecha = document.createElement('td')
+                    let txtFecha = document.createTextNode(nombres[$i])
+                    tdFecha.appendChild(txtFecha)
+
+                    let tdTelefono = document.createElement('td')
+                    let txtTelefono = document.createTextNode(nombres[$i])
+                    tdTelefono.appendChild(txtTelefono)
+
+                    let tdPdf = document.createElement('td')
+                    let txtPdf = document.createTextNode(nombres[$i])
+                    tdPdf.appendChild(txtPdf)
+
+                    let tdEliminar = document.createElement('td')
+                    let txtEliminar = document.createTextNode(nombres[$i])
+                    tdEliminar.appendChild(txtEliminar)
+
+                    td.appendChild(tdNombre)
+                    td.appendChild(tdEmail)
+                    td.appendChild(tdFecha)
+                    td.appendChild(tdTelefono)
+                    td.appendChild(tdPdf)
+                    td.appendChild(tdEliminar)
+                    tabla.appendChild(tr)
+                }
+            </script>
         </body>
         </html>
 <?php

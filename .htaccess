@@ -7,7 +7,5 @@ ErrorDocument 401 http://localhost/formulario-vacantes/error.php?error=401
 ErrorDocument 403 http://localhost/formulario-vacantes/error.php?error=403
 ErrorDocument 500 http://localhost/formulario-vacantes/error.php?error=500
 
-#Quitar PHP y html
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
+# Disable directory browsing
+Options All -Indexes

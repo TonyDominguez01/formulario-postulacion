@@ -4,7 +4,9 @@
 25/11/2021 ---  version 0.01.04
 29/11/2021 ---  version 0.01.05
 
-04/12/2021 ---  version 0.02.01
+----VERSION 0.02----
+
+Version 0.02.01 --- 04/12/2021
     - Clases para margins y paddings
         * Cambio de clases del formato 'margen-izquierdo-2' a 'ml-2'
         * Las iniciales 'ml-2' vienen del inglés 'marginleft-2'
@@ -12,3 +14,6 @@
     - Clases para colores
         * Estandarizacion para clases que especifiquen el color del , ahora se usa la nomenclatura 'bg-nombreDelColor', además cada clase especifica un color de hover cuando la clase es puesta en conjunto con un btn
         * Estandarizacion para clases que especifiquen el color del texto, ahora se usa la nomenclatura 'clr-nombreDelColor'
+
+06/12/2021 ---  version 0.02.02
+    - Ahora la clase 'input' es independiente de si esta o no en un formulario
