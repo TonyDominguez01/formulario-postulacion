@@ -59,7 +59,7 @@
                         include_once('./php/verificarActividad.php');
                         verificarActividad(0);
                     ?>
-                    window.open('verSolicitud?id=' + id, '_blank');
+                    window.open('ver-solicitud?id=' + id, '_blank');
                 }
                 const abrirBorrar = (id, nombre) => {
                     solicitudSeleccionada = id;

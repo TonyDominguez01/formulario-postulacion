@@ -78,7 +78,7 @@
                             <td>$nombres[$i]</td>
                             <td><div class='indicador $indicadorCls'></div></td>
                             <td>
-                                <a class='btn with-icon bg-green' href='vModificarUsuario?correo=$correos[$i]'><div>modificar</div><img src='./icons/icon_modificar.png'></a>
+                                <a class='btn with-icon bg-green' href='modificar-usuario?correo=$correos[$i]'><div>modificar</div><img src='./icons/icon_modificar.png'></a>
                             </td>
                             <td>
                                 <button class='btn with-icon bg-red' onclick=abrirBorrar('$correos[$i]')><div>eliminar</div><img src='./icons/icon_delete.png'></a>

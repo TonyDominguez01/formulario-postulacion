@@ -31,7 +31,7 @@
                 <label for="correo">Password</label>
                 <input id="password" class="input" name="password" type="password">
                 <div class="contenedor-ancho p-0 text-right">
-                    <button class="btn" type="button" onclick="location.href = './vAdministrarCuentas.php'">regresar</button>
+                    <button class="btn" type="button" onclick="location.href = './administrar-cuentas.php'">regresar</button>
                     <button class="btn bg-green" type="submit">guardar usuario</button>
                 </div>
             </form>
@@ -44,7 +44,7 @@
     }
     else {
         echo "<script>
-            location.href = '../vError.php?error=403';
+            location.href = '../error.php?error=403';
         </script>";
     }
 ?>

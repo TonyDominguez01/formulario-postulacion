@@ -4,6 +4,7 @@
         if ($_SESSION['permisoAdmin']){
             include_once('./php/verificarActividad.php');
             verificarActividad(0);
+            if (isset($_GET['correo']) && isset($_GET['nombre'])){
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,15 +21,22 @@
     <?php include_once('./components/nav.php') ?>
     <div class="contenedor mt-2">
         <h1>El usuario con el correo <b><?php echo $_GET['correo']; ?></b>, y el nombre <b><?php echo $_GET['nombre']; ?></b> ha sido registrado.</h1>
+        <button class="btn with-icon" type="button" onclick="location.href = './administrar-cuentas.php'"><div>regresar </div><img src='./icons/icon_volver.png'></button>
     </div>
 </body>
 </html>
 <?php
+            }
+            else {
+        echo "<script>
+                location.href = './registros-solicitudes.php'
+            </script>";
+            }
         }
     }
     else {
         echo "<script>
-            location.href = '../vError.php?error=403';
+            location.href = '../error.php?error=403';
         </script>";
     }
 ?>

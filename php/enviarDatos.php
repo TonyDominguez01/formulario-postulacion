@@ -157,7 +157,7 @@
             }
             
             echo "<script>
-                location.href = '../vDatosEnviados.php?nombre=$nombreEncode';
+                location.href = '../datos-enviados.php?nombre=$nombreEncode';
             </script>'";
         } catch (Exception $e) {
             echo "Mensaje no enviado. Error: {$mail->ErrorInfo}";
