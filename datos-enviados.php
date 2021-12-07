@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="contenedor mt-2">
-        <h1>Muchas gracias <b><?php echo $_GET['nombre']; ?></b>, tu solictid ha sido enviada.</h1>
+        <h1>Muchas gracias <b><?php echo $_GET['nombre']; ?></b>, tu solicitud ha sido enviada.</h1>
         <button class="btn mt-2" onclick=window.open('http://477tmk.mx')>regresar a 477TMK</button>
     </div>
 </body>

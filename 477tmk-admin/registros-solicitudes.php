@@ -1,4 +1,5 @@
 <?php
+    require_once('../php/config.php');
     session_start();
 
     if (isset($_SESSION['correo']) AND isset($_SESSION['nombre'])) {
@@ -8,13 +9,24 @@
         $correo = $_SESSION['correo'];
         $nombre = $_SESSION['nombre'];
         // Conexion
-        $conexion = mysqli_connect("localhost", "root", "root", "formulario_postulacion");
+        $conexion = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
         if (!$conexion) {
             die("Error de conexion: " . mysqli_connect_error());
         }
         // Recuperar solicitudes
         $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes";
         $query = mysqli_query($conexion, $sql);
+
+        if (!isset($_GET['page'])) $page = 1;
+        else $page = $_GET['page'];
+        $totalPages = ceil(mysqli_num_rows($query) / ITEMS_BY_PAGE);
+        if ($page > $totalPages) $page = 1;
+        $start = ($page - 1) * ITEMS_BY_PAGE;
+
+        $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
+            ORDER BY `nombre` ASC LIMIT $start, " . ITEMS_BY_PAGE;
+        $query = mysqli_query($conexion, $sql);
+
         if ($query) {
             $ids = array();
             $nombres = array();
@@ -30,26 +42,12 @@
                 $telefonos[$cont] = $row['telefono01'];
                 $cont++;
             }
-            
-            $idsFilter = $ids;
-            $nombresFilter = $nombres;
-            $emailsFilter = $emails;
-            $fechasFilter = $fechas;
-            $telefonosFilter = $telefonos;
-            echo '<script>
-                ids = '.json_encode($ids) .
-                'nombres ='.json_encode($nombres).
-                'emails ='.json_encode($emails).
-                'fechas ='.json_encode($fechas).
-                'telefonos ='.json_encode($telefonos).
-            '</script>';
 
             mysqli_close($conexion);
         }
         else {
             echo "<script>
-                alert('No se logró recuperar los datos');
-                location.href = 'index.html';
+                alert('No se logró recuperar los datos');;
             </script>";
         }
 ?>
@@ -74,35 +72,43 @@
                 ?>
                     window.open('ver-solicitud?id=' + id, '_blank');
                 }
-                const buscarRegistros = () => {
-                    
-                }
             </script>
             <?php require_once('./components/nav.php'); ?>
             <div class="contenedor">
                 <div class="contendor-ancho mt-2">
                     <h1>Registros de Solicitudes</h1>
                     <div class="contenedor-ancho">
-                        <div class="toggle-div">
-                            <button id="toggle-btn-l" type="button" class="toggle-btn l active" onclick=cambiarToggle()>Buscar</button>
-                            <button id="toggle-btn-r" type="button" class="toggle-btn r" onclick=cambiarToggle()>Filtrar</button>
-                        </div>
-                        <div class="mt-1 grid col-2">
-                            <div>
-                                <form id="form-buscar" class="mb-1 bg-none grid col-2 active">
-                                    <p>Puedes buscar solicitudes por nombre o por correo</p>
+                        <div class="grid col-4">
+                            <div class="toggle-div">
+                                <button id="toggle-filtro-l" type="button" class="toggle-btn l active" onclick=cambiarFiltro()>Buscar</button>
+                                <button id="toggle-filtro-r" type="button" class="toggle-btn r" onclick=cambiarFiltro()>Filtrar</button>
+                            </div>
+                            <div class="span-3">
+                                <form id="form-buscar" class="m-0 bg-none active">
                                     <input id="input-busqueda" class="input" type="text">
                                     <button class="btn" type="button" onclick=buscarRegistros()>Buscar</button>
+                                    <p class="mb-1">Puedes buscar solicitudes por nombre o por correo</p>
                                 </form>
-                                <form id="form-filtrar" class="mb-1 bg-none">
-                                    <p>Elige dos fechas para ver las solicitudes recibidas en ese periodo de tiempo</p>
+                                <form id="form-filtrar" class="m-0 bg-none">
                                     <input id="input-fecha-inicio" class="input" type="date" name="inicio" id="fecha-inicio">
                                     <input id="input-fecha-final" class="input" type="date" name="final" id="fecha-final">
                                     <button class="btn" type="button">Filtrar</button>
+                                    <p class="mb-1">Elige dos fechas para ver las solicitudes recibidas en ese periodo de tiempo</p>
                                 </form>
                             </div>
+                        </div>
+                        <div id="toggle-ordenar">
+                            <div>Ordenar por: </div>
                             <div>
-                                
+                                <div class="toggle-div">
+                                    <button id="toggle-ordenar-l" type="button" class="toggle-btn l active">Nombre</button>
+                                    <button id="toggle-ordenar-r" type="button" class="toggle-btn r">Fecha</button>
+                                </div>
+                            </div>
+                            <div>Página no. <?php echo $page; ?></div>
+                            <div>
+                                <button class="btn bg-green"> < </button>
+                                <button class="btn bg-green"> > </button>
                             </div>
                         </div>
                     </div>
@@ -119,17 +125,17 @@
                             for ($i=0; $i < sizeof($ids); $i++) { 
                             ?>
                                 <tr>
-                                    <td><?php echo $nombresFilter[$i] ?></td>
-                                    <td><?php echo $emailsFilter[$i] ?></td>
-                                    <td><?php echo $fechasFilter[$i] ?></td>
+                                    <td><?php echo $nombres[$i] ?></td>
+                                    <td><?php echo $emails[$i] ?></td>
+                                    <td><?php echo $fechas[$i] ?></td>
                                     <td>
                                         <button class="btn with-icon bg-green" onclick=enviarWhatsapp(<?php echo $telefonos[$i] ?>)>
-                                            <div><?php echo $telefonosFilter[$i] ?></div>
+                                            <div><?php echo $telefonos[$i] ?></div>
                                             <img src="./icons/icon_whatsapp.png" alt="">
                                         </button>
                                     </td>
                                     <td>
-                                        <button class='btn with-icon' onclick=abrirPDF(<?php echo $idsFilter[$i]; ?>)><div>ver pdf </div><img src="./icons/icon_pdf.png"></button>
+                                        <button class='btn with-icon' onclick=abrirPDF(<?php echo $ids[$i]; ?>)><div>ver pdf </div><img src="./icons/icon_pdf.png"></button>
                                     </td>
                                     <td>
                                         <button class='btn with-icon bg-red' onclick="abrirBorrar('<?php echo "$ids[$i]', '$nombresFilter[$i]"; ?>')"><div>eliminar</div><img src="./icons/icon_delete.png"></button>
@@ -139,7 +145,6 @@
                             }
                         ?>
                     </table>
-                    <table id="tabla-prueba" class="tabla solicitudes">
                         
                     </table>
                 </div>
@@ -153,44 +158,6 @@
                     <button class="btn bg-red" onclick=borrarSolicitud()>Eliminar</button>
                 </div>
             </div>
-            <script>
-                tabla = document.getElementById('tabla-prueba');
-                for (let i = 0; i < nombres.length; i++) {
-                    const tr = document.createElement('tr')
-
-                    let tdNombre = document.createElement('td')
-                    let txtNombre = document.createTextNode(nombres[$i])
-                    tdNombre.appendChild(txtNombre)
-
-                    let tdEmail = document.createElement('td')
-                    let txtEmail = document.createTextNode(nombres[$i])
-                    tdEmail.appendChild(txtEmail)
-
-                    let tdFecha = document.createElement('td')
-                    let txtFecha = document.createTextNode(nombres[$i])
-                    tdFecha.appendChild(txtFecha)
-
-                    let tdTelefono = document.createElement('td')
-                    let txtTelefono = document.createTextNode(nombres[$i])
-                    tdTelefono.appendChild(txtTelefono)
-
-                    let tdPdf = document.createElement('td')
-                    let txtPdf = document.createTextNode(nombres[$i])
-                    tdPdf.appendChild(txtPdf)
-
-                    let tdEliminar = document.createElement('td')
-                    let txtEliminar = document.createTextNode(nombres[$i])
-                    tdEliminar.appendChild(txtEliminar)
-
-                    td.appendChild(tdNombre)
-                    td.appendChild(tdEmail)
-                    td.appendChild(tdFecha)
-                    td.appendChild(tdTelefono)
-                    td.appendChild(tdPdf)
-                    td.appendChild(tdEliminar)
-                    tabla.appendChild(tr)
-                }
-            </script>
         </body>
         </html>
 <?php

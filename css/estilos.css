@@ -154,6 +154,51 @@ body {
 }
 #form-buscar .input, #form-filtrar .input {
     width: 200px;
+    height: 50px;
     margin-right: 1rem;
     border: 1px solid var(--clr-dark);
 }
+#toggle-ordenar-l, #toggle-ordenar-r {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    border: 2px solid var(--clr-green);
+}
+#toggle-ordenar-l.active, #toggle-ordenar-r.active {
+    background: var(--clr-green);
+    color: white;
+}
+.img-error {
+    width: 256px;
+    height: auto;
+}
+#toggle-ordenar {
+    position: relative;
+    width: auto;
+    height: 50px;
+}
+#toggle-ordenar .btn {
+    height: 50px;
+}
+#toggle-ordenar div:nth-child(1) {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+#toggle-ordenar div:nth-child(2) {
+    position: absolute;
+    bottom: 0px;
+    left: 120px;
+}
+#toggle-ordenar div:nth-child(3) {
+    position: absolute;
+    bottom: 0px;
+    right: 180px;
+}
+#toggle-ordenar div:nth-child(4) {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+/* * {
+    border: 1px solid black;
+} */

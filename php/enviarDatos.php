@@ -1,4 +1,5 @@
 <?php
+    require_once('./config.php');
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
@@ -11,7 +12,7 @@
     $mailFrom = 'cuenta.prueba.dguez@gmail.com';
 
     // Conexion
-    $conexion = mysqli_connect("localhost", "root", "root", "formulario_postulacion");
+    $conexion = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
     if (!$conexion) {
         die("Error de conexion: " . mysqli_connect_error());
     }
@@ -142,11 +143,11 @@
 
             //Content
             $mail->isHTML(true);
-            $mail->Subject = 'Solicitud de Empleo Enviada por ' . $nombre;
+            $mail->Subject = 'Solicitud de Empleo Enviada por ' . $datos['nombre'];
             $mail->Body    = 'Solicitud <b>' . $id . '</b><br>';
 
             $mail->send();
-            $nombreEncode = utf8_encode($nombre);
+            $nombreEncode = utf8_encode($datos['nombre']);
             
             //Verificar si hay que limpiar server
             $idSubstr = substr($id, -1);

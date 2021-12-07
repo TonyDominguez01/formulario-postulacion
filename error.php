@@ -34,11 +34,12 @@
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <div class="contenedor mt-2">
+    <div class="contenedor text-center mt-2">
         <h1>Error <?php echo $error; ?></h1>
         <br>
         <h2><?php echo $mensaje; ?></h2>
-        <button class="btn" onclick=window.open('http://477tmk.mx')>regresar a 477TMK</button>
+        <button class="btn mv-4" onclick=window.open('http://477tmk.mx')>regresar a 477TMK</button><br>
+        <img class="img-error" src="./img/img_reparing.png" alt="">
     </div>
 </body>
 </html>

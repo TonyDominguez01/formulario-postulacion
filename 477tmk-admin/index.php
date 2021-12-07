@@ -20,7 +20,7 @@
     <script src="../ajolote/a-functions.js"></script>
 </head>
 <body>
-    <div class="contenedor-reducido text-center">
+    <div class="contenedor-reducido pt-4 text-center">
         <div class="contenedor card form-cont">
             <div class="encabezado-form text-right">
                 <h1>Login</h1>

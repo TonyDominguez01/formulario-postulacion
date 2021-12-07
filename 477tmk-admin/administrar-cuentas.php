@@ -1,10 +1,11 @@
 <?php
+    require_once('../php/config.php');
     session_start();
     if (isset($_SESSION['correo']) AND isset($_SESSION['nombre'])){
         include_once('./php/verificarActividad.php');
         verificarActividad(0);
         // Conexion
-        $conexion = mysqli_connect("localhost", "root", "root", "formulario_postulacion");
+        $conexion = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
         if (!$conexion) {
             die("Error de conexion: " . mysqli_connect_error());
         }
