@@ -537,6 +537,8 @@ form {
 .bg-green { background: var(--clr-green); }
 .btn.bg-green:hover { background: var(--clr-green-h); }
 
+.bg-none { background: none; }
+
 .clr-white { color: #fff; }
 .clr-black { color: #000; }
 .clr-main { color: var(--clr-main); }

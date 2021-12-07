@@ -1,3 +1,6 @@
+<?php
+    if (isset($_GET['nombre'])) {
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,3 +19,11 @@
     </div>
 </body>
 </html>
+<?php
+    }
+    else {
+        echo "<script>
+            location.href = './index.html'
+        </script>";
+    }
+?>

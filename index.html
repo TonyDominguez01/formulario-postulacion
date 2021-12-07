@@ -16,6 +16,14 @@
             e.classList.toggle("active");
             document.getElementById('btn-modal').classList.toggle('active');
         }
+        const validacion = () => {
+            if (document.getElementById('avisoPrivacidad').checked == false) {
+                alert('Debes leer y aceptar el aviso de privacidad antes de continuar')
+                document.getElementById('avisoPrivacidad').focus();
+                return false
+            }
+            return true;
+        }
     </script>
     <div class="contenedor">
         <div class="contenedor card form-cont">
@@ -23,7 +31,7 @@
                 <h1>Postularme para la vacante</h1>
                 <h2>Puesto como operador telefónico </h2>
             </div>
-            <form class="padding-superior-2" action="php/verificarDatos.php" method="POST">
+            <form class="padding-superior-2" action="php/verificarDatos.php" method="POST" onsubmit="return validacion()">
                 
                 <div class="grid col-10">
                     <label class="span-10" for="nombre">Nombre</label>
@@ -154,8 +162,8 @@
                         <option value="Mixto">Mixto</option>
                     </select>
                     <div class="span-10 mv-2">
-                        <input class="checkbox" type="checkbox" name="aviso-privacidad" id="aviso-privacidad">
-                        <label for="aviso-privacidad">He leído y acepto el <a class="clr-main" href="./aviso-de-privacidad.html" target="_blank">aviso  de privacidad</a></label>
+                        <input class="checkbox" type="checkbox" name="avisoPrivacidad" value="aceptado" id="avisoPrivacidad">
+                        <label for="avisoPrivacidad">He leído y acepto el <a class="clr-main" href="./aviso-de-privacidad.html" target="_blank">aviso  de privacidad</a></label>
                     </div>
                 </div>
 

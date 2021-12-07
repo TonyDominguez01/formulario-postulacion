@@ -26,6 +26,8 @@
     $experiencia = $_POST['experiencia'];
     $experienciaDonde = utf8_decode($_POST['experienciaDonde']);
     $turnoInteres = $_POST['turnoInteres'];
+    $avisoPrivacidad = null;
+    if (isset($_POST['avisoPrivacidad'])) $avisoPrivacidad = $_POST['avisoPrivacidad'];
 
     $fechaHoy = date("Y/m/d"); //Conseguiimos la fecha actual
     $codigoFechaHoy = str_replace("/", "", $fechaHoy); //Formateo de fecha para que se ajuste al codigo
@@ -42,41 +44,51 @@
     
     $mensajeError = '';
 
-    if ($nombre != null &&
-        $telefono01 != null &&
-        $email01 != null &&
-        $curp != null &&
-        $ine != null &&
-        $fechaNac != null) {
-
-        if (strlen($nombre) <= 0) { $mensajeError .= '-nombre- '; }
-        if (!filter_var($email01, FILTER_VALIDATE_EMAIL)) { $mensajeError .= '-email-'; }
-        if (!(strlen($telefono01) == 10)) { $mensajeError .= '-teléfono- '; }
-        if (!(strlen($curp) == 18)) { $mensajeError .= '-curpLongitud- '; }
-        if (!(strlen($ine) == 18)) { $mensajeError .= '-ineLongitud- '; }
-        if (!(ctype_alnum($curp))) { $mensajeError .= '-curpLetras- '; }
-        if (!(ctype_alnum($ine))) { $mensajeError .= '-ineLetras- '; }
-        
-        if (strlen($mensajeError) <= 0) {
-            $sql = "INSERT INTO `postulantes` (`idPostulante`, `nombre`, `calleNumero`, `colonia`, `cp`, `ciudad`, `estado`, `telefono01`, `telefono02`, `email01`, `email02`, `beneficiario`, `curp`, `rfc`, `nss`, `ine`, `nivelEstudios`, `fechaNac`, `estadoCivil`, `experiencia`, `experienciaDonde`, `turnoInteres`) VALUES
-            ('$idPostulante', '$nombre', '$calleNumero', '$colonia', $cp, '$ciudad', '$estado', $telefono01, $telefono02, '$email01', '$email02', '$beneficiario', '$curp', '$rfc', '$nss', '$ine', '$nivelEstudios', '$fechaNac', '$estadoCivil', '$experiencia', '$experienciaDonde', '$turnoInteres');";
-            $query = mysqli_query($conexion, $sql);
-
-            if ($query) {
+    if ($avisoPrivacidad == "aceptado") {
+        if ($nombre != null &&
+            $telefono01 != null &&
+            $email01 != null &&
+            $curp != null &&
+            $ine != null &&
+            $fechaNac != null) {
+    
+            if (strlen($nombre) <= 0) { $mensajeError .= '-nombre- '; }
+            if (!filter_var($email01, FILTER_VALIDATE_EMAIL)) { $mensajeError .= '-email-'; }
+            if (!(strlen($telefono01) == 10)) { $mensajeError .= '-teléfono- '; }
+            if (!(strlen($curp) == 18)) { $mensajeError .= '-curpLongitud- '; }
+            if (!(strlen($ine) == 18)) { $mensajeError .= '-ineLongitud- '; }
+            if (!(ctype_alnum($curp))) { $mensajeError .= '-curpLetras- '; }
+            if (!(ctype_alnum($ine))) { $mensajeError .= '-ineLetras- '; }
+            
+            if (strlen($mensajeError) <= 0) {
+                $sql = "INSERT INTO `postulantes` (`idPostulante`, `nombre`, `calleNumero`, `colonia`, `cp`, `ciudad`, `estado`, `telefono01`, `telefono02`, `email01`, `email02`, `beneficiario`, `curp`, `rfc`, `nss`, `ine`, `nivelEstudios`, `fechaNac`, `estadoCivil`, `experiencia`, `experienciaDonde`, `turnoInteres`) VALUES
+                ('$idPostulante', '$nombre', '$calleNumero', '$colonia', $cp, '$ciudad', '$estado', $telefono01, $telefono02, '$email01', '$email02', '$beneficiario', '$curp', '$rfc', '$nss', '$ine', '$nivelEstudios', '$fechaNac', '$estadoCivil', '$experiencia', '$experienciaDonde', '$turnoInteres');";
+                $query = mysqli_query($conexion, $sql);
+    
+                if ($query) {
+                    echo "<script>
+                    alert('Datos guardados');
+                    location.href = './enviarDatos.php?id=" . $idPostulante ."';
+                    </script> <br>";
+                } 
+                else { echo "Error: " . $query . "<br>" . mysqli_error($conexion) . "<br>"; }
+            }
+            else {
+                $mensajeError .= ' formato equivocado';
                 echo "<script>
-                alert('Datos guardados');
-                location.href = 'enviarDatos.php?id=" . $idPostulante ."';
-                </script> <br>";
-            } 
-            else { echo "Error: " . $query . "<br>" . mysqli_error($conexion) . "<br>"; }
-        }
-        else {
-            $mensajeError .= ' formato equivocado';
-            echo "<script>
-                alert('$mensajeError');
-                location.href = '../index.php';
-                </script>";
+                    alert('$mensajeError');
+                    location.href = '../index.html';
+                    </script>";
             }
         }
         mysqli_close($conexion);
+
+    }
+    else {
+        echo "<script>
+            alert('Debes leer y aceptar el aviso de privacidad para continuar');
+            location.href = '../index.html';
+            </script>";
+    }
+
 ?>

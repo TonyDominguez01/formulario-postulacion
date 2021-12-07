@@ -87,17 +87,22 @@
                             <button id="toggle-btn-l" type="button" class="toggle-btn l active" onclick=cambiarToggle()>Buscar</button>
                             <button id="toggle-btn-r" type="button" class="toggle-btn r" onclick=cambiarToggle()>Filtrar</button>
                         </div>
-                        <div class="mt-1">
-                            <div id="form-buscar" class="mb-1 active">
-                                <p>Puedes buscar solicitudes por nombre o por correo</p>
-                                <input id="input-busqueda" class="input" type="text">
-                                <button class="btn" type="button" onclick=buscarRegistros()>Buscar</button>
+                        <div class="mt-1 grid col-2">
+                            <div>
+                                <form id="form-buscar" class="mb-1 bg-none grid col-2 active">
+                                    <p>Puedes buscar solicitudes por nombre o por correo</p>
+                                    <input id="input-busqueda" class="input" type="text">
+                                    <button class="btn" type="button" onclick=buscarRegistros()>Buscar</button>
+                                </form>
+                                <form id="form-filtrar" class="mb-1 bg-none">
+                                    <p>Elige dos fechas para ver las solicitudes recibidas en ese periodo de tiempo</p>
+                                    <input id="input-fecha-inicio" class="input" type="date" name="inicio" id="fecha-inicio">
+                                    <input id="input-fecha-final" class="input" type="date" name="final" id="fecha-final">
+                                    <button class="btn" type="button">Filtrar</button>
+                                </form>
                             </div>
-                            <div id="form-filtrar" class="mb-1">
-                                <p>Elige dos fechas para ver las solicitudes recibidas en ese periodo de tiempo</p>
-                                <input id="input-fecha-inicio" class="input" type="date" name="inicio" id="fecha-inicio">
-                                <input id="input-fecha-final" class="input" type="date" name="final" id="fecha-final">
-                                <button class="btn" type="button">Filtrar</button>
+                            <div>
+                                
                             </div>
                         </div>
                     </div>
