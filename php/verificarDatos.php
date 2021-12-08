@@ -68,7 +68,6 @@
     
                 if ($query) {
                     echo "<script>
-                    alert('Datos guardados');
                     location.href = './enviarDatos.php?id=" . $idPostulante ."';
                     </script> <br>";
                 } 

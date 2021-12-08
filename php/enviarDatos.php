@@ -150,12 +150,12 @@
             $nombreEncode = utf8_encode($datos['nombre']);
             
             //Verificar si hay que limpiar server
-            $idSubstr = substr($id, -1);
+            /* $idSubstr = substr($id, -1);
             if ($idSubstr == '1'){
                 echo "<script>
                     location.href = '../477tmk-admin/php/liberarArchivos.php?nombre=$nombreEncode';
                 </script>'";
-            }
+            } */
             
             echo "<script>
                 location.href = '../datos-enviados.php?nombre=$nombreEncode';

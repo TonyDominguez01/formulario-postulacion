@@ -28,9 +28,9 @@
 <?php
             }
             else {
-        echo "<script>
-                location.href = './registros-solicitudes.php'
-            </script>";
+                echo "<script>
+                        location.href = './registros-solicitudes.php'
+                    </script>";
             }
         }
     }

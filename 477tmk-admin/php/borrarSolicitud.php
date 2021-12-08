@@ -15,6 +15,8 @@
         $sql = "DELETE FROM `postulantes` WHERE `idPostulante` = '$idPostulante'";
         $query = mysqli_query($conexion, $sql);
 
+        mysqli_close($conexion);
+
         if ($query) {
             echo "<script>
             alert('Solicitud eliminada');

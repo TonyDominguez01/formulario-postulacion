@@ -18,6 +18,8 @@
         $sql = "INSERT INTO `destinatarios` (`correo`, `nombre`, `password`, `estatus`) VALUES ('$correo', '$nombre', '$password', 1);";
         $query = mysqli_query($conexion, $sql);
 
+        mysqli_close($conexion);
+
         if ($query) {
             echo "<script>
             alert('Datos guardados');

@@ -284,21 +284,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 .modal-div {
     text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 2;
-    display: none;
+    visibility: hidden;
+    background: rgba(15, 11, 11, 0);
+    transition: 0.3s all ease;
 }
 .modal-div.active {
-    display: inline;
+    visibility: visible;
+    background: rgba(0, 0, 0, 0.5);
 }
 .modal-content {
-    position: absolute;
-    top: 10%;
+    position: fixed;
+    top: 0%;
     left: 32.5%;
     width: 35%;
     height: auto;
@@ -306,6 +308,12 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 8px;
     box-shadow: 0px 2px 4px #555;
     background: white;
+    transition: 0.5s all ease;
+    opacity: 0;
+}
+.modal-content.active {
+    top: 10%;
+    opacity: 1;
 }
 
 /* Tamaño Mediano */
@@ -542,3 +550,9 @@ form {
 .clr-white { color: #fff; }
 .clr-black { color: #000; }
 .clr-main { color: var(--clr-main); }
+
+.width-4 { width: 4rem; }
+.width-6 { width: 6rem; }
+.width-8 { width: 8rem; }
+.width-10 { width: 10rem; }
+.width-12 { width: 12rem; }

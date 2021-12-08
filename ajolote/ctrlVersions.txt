@@ -19,4 +19,8 @@
     - Ahora la clase 'input' es independiente de si esta o no en un formulario
 
 00.02.03 --- 07/12/2021
-    - Adición de la clase bg-none para quitar el fondo de un div
+    - Adición de la clase 'bg-none' para quitar el fondo de un div
+
+00.02.04 --- 08/12/2021
+    - Adición de las clases 'width-4' que especifican el width
+    - Actualización de ventanas modales

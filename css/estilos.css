@@ -113,26 +113,29 @@ body {
 .btn.with-icon {
     display: inline-flex;
 }
-.btn.with-icon img {
+.btn.with-icon img,
+.toggle-btn.with-icon img {
     width: 1.5rem;
     height: auto;
     margin: 0 0 0 0.25rem;
+    display: inline-flex;
 }
 /* Toggles */
 .toggle-div {
-    width: 200px;
     height: 50px;
     padding: 0;
     display: flex;
 }
 .toggle-btn {
-    width: 200px;
     margin: 0;
-    border: none;
+    border: 1px solid var(--clr-dark);
     background-color: var(--clr-dark);
     color: var(--clr-light);
-    transition: 0.3s all ease;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    text-decoration: none;
     cursor: pointer;
+    transition: 0.3s all ease;
 }
 .toggle-btn.l {
     border-top-left-radius: 4px;
@@ -158,47 +161,22 @@ body {
     margin-right: 1rem;
     border: 1px solid var(--clr-dark);
 }
-#toggle-ordenar-l, #toggle-ordenar-r {
-    background: var(--clr-light);
-    color: var(--clr-dark);
-    border: 2px solid var(--clr-green);
-}
-#toggle-ordenar-l.active, #toggle-ordenar-r.active {
-    background: var(--clr-green);
-    color: white;
-}
+
 .img-error {
     width: 256px;
     height: auto;
 }
-#toggle-ordenar {
-    position: relative;
-    width: auto;
-    height: 50px;
-}
 #toggle-ordenar .btn {
     height: 50px;
 }
-#toggle-ordenar div:nth-child(1) {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
+
+.inline-flex {
+    display: inline-flex;
 }
-#toggle-ordenar div:nth-child(2) {
-    position: absolute;
-    bottom: 0px;
-    left: 120px;
+.inline-flex > * {
+    margin-right: 0.5rem;
 }
-#toggle-ordenar div:nth-child(3) {
-    position: absolute;
-    bottom: 0px;
-    right: 180px;
-}
-#toggle-ordenar div:nth-child(4) {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-}
+
 /* * {
     border: 1px solid black;
 } */

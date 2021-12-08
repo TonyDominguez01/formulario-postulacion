@@ -33,6 +33,8 @@
         }
         $query = mysqli_query($conexion, $sql);
 
+        mysqli_close($conexion);
+        
         if ($query) {
             echo "<script>
             alert('Datos guardados');

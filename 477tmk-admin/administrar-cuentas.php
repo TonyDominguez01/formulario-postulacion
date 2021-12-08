@@ -49,7 +49,12 @@
         const abrirBorrar = (correo) => {
             usuarioSeleccionado = correo;
             document.getElementById('modal-borrar').classList.toggle('active');
+            document.getElementById('modal-borrar').getElementsByClassName('modal-content')[0].classList.toggle('active');
             document.getElementById('txt-borrar').innerHTML = '¿Estás seguro que quieres eliminar al usuario con correo ' + correo + '?';
+        }
+        const cerrarBorrar = () => {
+            document.getElementById('modal-borrar').classList.toggle('active');
+            document.getElementById('modal-borrar').getElementsByClassName('modal-content')[0].classList.toggle('active');
         }
         const borrarUsuario = () => {
             location.href = './php/borrarUsuario?correo=' + usuarioSeleccionado;
@@ -95,7 +100,7 @@
             <h2>Confirmar operación</h2>
             <p id="txt-borrar"></p>
             <br>
-            <button class="btn" onclick=abrirBorrar()>Volver</button>
+            <button class="btn" onclick=cerrarBorrar()>Volver</button>
             <button class="btn bg-red" onclick=borrarUsuario()>Eliminar</button>
         </div>
     </div>

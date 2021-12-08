@@ -27,6 +27,7 @@
                     location.href = 'index.php';
                 </script>";
             }
+            mysqli_close($conexion);
 ?>
 <!DOCTYPE html>
 <html lang="en">

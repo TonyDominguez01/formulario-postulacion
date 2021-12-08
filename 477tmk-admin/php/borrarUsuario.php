@@ -15,6 +15,8 @@
         $sql = "DELETE FROM `destinatarios` WHERE `correo` = '$correo'";
         $query = mysqli_query($conexion, $sql);
 
+        mysqli_close($conexion);
+
         if ($query) {
             echo "<script>
             alert('Usuario eliminado');
