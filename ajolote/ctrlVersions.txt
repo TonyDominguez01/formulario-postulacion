@@ -15,7 +15,7 @@
         * Estandarizacion para clases que especifiquen el color del , ahora se usa la nomenclatura 'bg-nombreDelColor', además cada clase especifica un color de hover cuando la clase es puesta en conjunto con un btn
         * Estandarizacion para clases que especifiquen el color del texto, ahora se usa la nomenclatura 'clr-nombreDelColor'
 
-0.02.02 --- 06/12/2021
+00.02.02 --- 06/12/2021
     - Ahora la clase 'input' es independiente de si esta o no en un formulario
 
 00.02.03 --- 07/12/2021
@@ -24,3 +24,10 @@
 00.02.04 --- 08/12/2021
     - Adición de las clases 'width-4' que especifican el width
     - Actualización de ventanas modales
+
+00.02.05 --- 09/12/2021
+    - El tamaño y el tipo de fuente en los formularios ahora solo alteran los labels
+    - Cambio de color de los bordes del input
+    - Adición de la clase bg-main
+    - Adición de la clase bg-dark, bg-light, bg-black y bg-white
+    - Adición de la clase wireframe que pinta el borde de verde

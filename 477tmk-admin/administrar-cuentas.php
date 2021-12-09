@@ -65,7 +65,7 @@
         <div class="contenedor-ancho mt-2">
             <h1>Administrar Cuentas</h1>
             <div class="contenedor-ancho p-0 text-right">
-                <a class="btn with-icon" href="vRegistrarUsuario.php">Agregar cuenta <img src='./icons/icon_agregar.png'></a>
+                <a class="btn with-icon" href="registrar-usuario">agregar cuenta <img src='./icons/icon_agregar.png'></a>
             </div>
             <table class="tabla">
                 <tr class="headers">

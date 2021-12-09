@@ -12,7 +12,4 @@
     }
     echo 'Arvhivos borrados: ' . $cont . '<br>';
     echo 'Archivos restantes: ' . (sizeof($files) - $cont);
-    echo "<script>
-        location.href = '../../index.html'
-    </script>"
 ?>

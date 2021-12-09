@@ -31,8 +31,8 @@
                 <label for="correo">Password</label>
                 <input id="password" class="input" name="password" type="password">
                 <div class="contenedor-ancho p-0 text-right">
-                    <button class="btn" type="button" onclick="location.href = './administrar-cuentas.php'">regresar</button>
-                    <button class="btn bg-green" type="submit">guardar usuario</button>
+                    <button class="btn with-icon" type="button" onclick="location.href = './administrar-cuentas.php'">regresar <img src='./icons/icon_volver.png'></button>
+                    <button class="btn with-icon bg-green" type="submit">guardar usuario <img src='./icons/icon_save.png'></button>
                 </div>
             </form>
         </div>

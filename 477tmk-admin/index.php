@@ -21,11 +21,11 @@
 </head>
 <body>
     <div class="contenedor-reducido pt-4 text-center">
-        <div class="contenedor card form-cont">
+        <div class="card form-cont bg-white">
             <div class="encabezado-form text-right">
                 <h1>Login</h1>
             </div>
-            <form class="contenedor-reducido pt-5 pb-5" action="./php/verificarLogin" method="POST" style="margin: 0 auto;">
+            <form class="contenedor ph-2 pv-5" action="./php/verificarLogin" method="POST">
                 <label for="correo">Correo</label>
                 <input class="input" type="text" name="correo" id="correo" required>
                 <label for="password">Password</label>

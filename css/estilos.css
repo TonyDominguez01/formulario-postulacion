@@ -1,15 +1,22 @@
 :root {
     --clr-main: #006cb8;
     --clr-main-h: #0961a0;
-    --clr-second: #7e7e7e;
-    --clr-second-h: #5E5E5E;
+    --clr-second: #2b95e0;
+    --clr-second-h: #4999d3;
 }
     
 body {
-    background-color: #eee;
+    background: #ddd;
 }
 .form-cont {
+    width: 70%;
     padding: 0;
+}
+@media screen and (max-width: 992px) {
+    .form-cont { width: 80%; }
+}
+@media screen and (max-width: 576px) {
+    .form-cont { width: 100%; }
 }
 .form-cont form {
     margin: 1rem 2rem;
@@ -91,24 +98,38 @@ body {
 .btn-question.active:hover {
     background: #444;
 }
-.modal-reference {
-    position: relative;
-}
 .modal-simple {
-    position: absolute;
-    width: 650px;
+    position: fixed;
+    width: auto;
     height: auto;
     padding: 2rem;
     background: white;
     border-radius: 8px;
     box-shadow: 0px 2px 4px #555;
-    bottom: 2rem;
-    left: 0;
+    top: 5rem;
+    left: 25%;
+    right: 25%;
     transition: .3s ease all;
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0, 0);
+}
+@media screen and (max-width: 992px) {
+    .modal-simple {
+        left: 15%;
+        right: 15%;
+    }
+}
+@media screen and (max-width: 576px) {
+    .modal-simple {
+        left: 5%;
+        right: 5%;
+    }
 }
 .modal-simple.active {
-    display: inline;
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1, 1);
 }
 .btn.with-icon {
     display: inline-flex;
@@ -175,6 +196,34 @@ body {
 }
 .inline-flex > * {
     margin-right: 0.5rem;
+}
+.preloader {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    top: 35%;
+    left: calc(50% - 35px);
+    border: 10px solid #bbb;
+    border-top: 10px solid var(--clr-main);
+    animation-name: girar;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.bg-dark {
+    background: var(--clr-dark);
+}
+.bg-second {
+    background:var(--clr-second);
 }
 
 /* * {

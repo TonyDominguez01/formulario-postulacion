@@ -13,8 +13,50 @@
         if (!$conexion) {
             die("Error de conexion: " . mysqli_connect_error());
         }
-        // Recuperar solicitudes
-        $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes";
+
+        //Recuperar datos tomando en cuenta si ha sido aplicado un filtro
+        if (isset($_POST['buscar'])) {
+            $busqueda = $_POST['busqueda'];
+            $filtro = 'buscar';
+            $valor = "busqueda=$busqueda";
+            $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
+            WHERE `nombre` LIKE '%$busqueda%' OR `email01` LIKE '%$busqueda%'";
+        }
+        else if (isset($_POST['filtrar'])) {
+            $fechaInicio = $_POST['fecha-inicio'];
+            $fechaFinal = $_POST['fecha-final'];
+            $filtro = 'filtrar';
+            $valor = "fechaInicio=$fechaInicio&fechaFinal=$fechaFinal";
+            $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
+            WHERE `fechaRegistro` BETWEEN CAST('$fechaInicio' AS DATE) AND CAST('$fechaFinal' AS DATE)";
+        }
+        else {
+            $filtro = 'todos';
+            $valor = 'a';
+            $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes";
+
+            if (isset($_GET['filtro'])) {
+                $filtro = $_GET['filtro'];
+                switch ($filtro) {
+                    case 'buscar':
+                        $busqueda = $_GET['busqueda'];
+                        $valor = "busqueda=$busqueda";
+                        $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
+                        WHERE `nombre` LIKE '%$busqueda%' OR `email01` LIKE '%$busqueda%'";
+                        break;
+                    case 'filtrar':
+                        $fechaInicio = $_GET['fechaInicio'];
+                        $fechaFinal = $_GET['fechaFinal'];
+                        $valor = "fechaInicio=$fechaInicio&fechaFinal=$fechaFinal";
+                        $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
+                        WHERE `fechaRegistro` BETWEEN CAST('$fechaInicio' AS DATE) AND CAST('$fechaFinal' AS DATE)";
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        
         $query = mysqli_query($conexion, $sql);
 
         //Recuperar criterio de ordenación
@@ -45,6 +87,7 @@
         else $page = $_GET['page'];
 
         $totalPages = ceil(mysqli_num_rows($query) / ITEMS_BY_PAGE);
+        $rowsTotales = mysqli_num_rows($query);
         
         $pagAnt = $page - 1;
         $pagSig = $page + 1;
@@ -63,22 +106,8 @@
 
         $start = ($page - 1) * ITEMS_BY_PAGE;
 
-        $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
-        ORDER BY `$criterio` $sentido LIMIT $start, " . ITEMS_BY_PAGE;
-
-        if (isset($_POST['buscar'])) {
-            $busqueda = $_POST['busqueda'];
-            $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
-            WHERE `nombre` LIKE '%$busqueda%' OR `email01` LIKE '%$busqueda%'
-            ORDER BY `$criterio` $sentido LIMIT $start, " . ITEMS_BY_PAGE;
-        }
-        if (isset($_POST['filtrar'])) {
-            $fechaInicio = $_POST['fecha-inicio'];
-            $fechaFinal = $_POST['fecha-final'];
-            $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
-            WHERE `fechaRegistro` BETWEEN CAST('$fechaInicio' AS DATE) AND CAST('$fechaFinal' AS DATE)
-            ORDER BY `$criterio` $sentido LIMIT $start, " . ITEMS_BY_PAGE;
-        }
+        $sql .= " ORDER BY `$criterio` $sentido LIMIT $start, " . ITEMS_BY_PAGE;
+        
         $query = mysqli_query($conexion, $sql);
 
         if ($query) {
@@ -96,15 +125,14 @@
                 $telefonos[$cont] = $row['telefono01'];
                 $cont++;
             }
-            $rowsTotales = mysqli_num_rows($query);
 
-            mysqli_close($conexion);
         }
         else {
             echo "<script>
-                alert('No se logró recuperar los datos');;
+            alert('No se logró recuperar los datos');;
             </script>";
         }
+        mysqli_close($conexion);
 ?>
         <!DOCTYPE html>
         <html lang="es">
@@ -135,14 +163,14 @@
                     <div class="contenedor-ancho">
                         <div class="grid col-4">
                             <div class="toggle-div">
-                                <button id="toggle-filtro-l" type="button" class="toggle-btn width-6 l active" onclick=cambiarFiltro()>Buscar</button>
-                                <button id="toggle-filtro-r" type="button" class="toggle-btn width-6 r" onclick=cambiarFiltro()>Filtrar</button>
+                                <button id="toggle-filtro-l" type="button" class="toggle-btn width-6 l" onclick=cambiarFiltro()>buscar</button>
+                                <button id="toggle-filtro-r" type="button" class="toggle-btn width-6 r" onclick=cambiarFiltro()>filtrar</button>
                             </div>
                             <div class="span-3">
                                 <form id="form-buscar" class="m-0 bg-none active" method="POST" action="./registros-solicitudes">
                                     <input id="busqueda" name="busqueda" class="input" type="text">
                                     <input type="hidden" name="buscar" id="buscar" value="buscar">
-                                    <button class="btn" type="submit">Buscar</button>
+                                    <button class="btn" type="submit">buscar</button>
                                     <button class="btn bg-red" type="button" onclick="location.href = './registros-solicitudes'">limpiar busqueda</button>
                                     <p class="mb-1">Puedes buscar solicitudes por nombre o por correo</p>
                                 </form>
@@ -150,7 +178,7 @@
                                     <input class="input" type="date" name="fecha-inicio" id="fecha-inicio">
                                     <input class="input" type="date" name="fecha-final" id="fecha-final">
                                     <input type="hidden" name="filtrar" id="filtrar" value="filtrar">
-                                    <button class="btn" type="submit">Filtrar</button>
+                                    <button class="btn" type="submit">filtrar</button>
                                     <button class="btn bg-red" type="button" onclick="location.href = './registros-solicitudes'">limpiar filtro</button>
                                     <p class="mb-1">Elige dos fechas para ver las solicitudes recibidas en ese periodo de tiempo</p>
                                 </form>
@@ -161,20 +189,20 @@
                                 <p>Ordenar por: </p>
                                 <div>
                                     <div class="toggle-div">
-                                        <a id="toggle-ordenar-l" type="button" class="toggle-btn width-6 l with-icon" href='?page=<?php echo $page; ?>&ordenar=nombre&sentido=<?php echo $sentido; ?>'>
-                                            Nombre
+                                        <a id="toggle-ordenar-l" type="button" class="toggle-btn width-6 l with-icon" href='<?php echo "?page=$page&ordenar=nombre&sentido=$sentido&filtro=$filtro&$valor"; ?>'>
+                                            nombre
                                         </a>
-                                        <a id="toggle-ordenar-r" type="button" class="toggle-btn width-6 r with-icon" href='?page=<?php echo $page; ?>&ordenar=fecha&sentido=<?php echo $sentido; ?>'>
-                                            Fecha
+                                        <a id="toggle-ordenar-r" type="button" class="toggle-btn width-6 r with-icon" href='<?php echo "?page=$page&ordenar=fecha&sentido=$sentido&filtro=$filtro&$valor"; ?>'>
+                                            fecha
                                         </a>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="toggle-div">
-                                        <a id="toggle-sentido-l" type="button" class="toggle-btn width-4 l with-icon active" href='?page=<?php echo $page; ?>&ordenar=<?php echo $criterio; ?>&sentido=desc'>
+                                        <a id="toggle-sentido-l" type="button" class="toggle-btn width-4 l with-icon active" href='<?php echo "?page=$page&ordenar=$criterio&sentido=desc&filtro=$filtro&$valor"; ?>'>
                                             <img src="./icons/icon_desc.png" alt="">
                                         </a>
-                                        <a id="toggle-sentido-r" type="button" class="toggle-btn width-4 r with-icon" href='?page=<?php echo $page; ?>&ordenar=<?php echo $criterio; ?>&sentido=asc'>
+                                        <a id="toggle-sentido-r" type="button" class="toggle-btn width-4 r with-icon" href='<?php echo "?page=$page&ordenar=$criterio&sentido=asc&filtro=$filtro&$valor"; ?>'>
                                             <img src="./icons/icon_asc.png" alt="">
                                         </a>
                                     </div>
@@ -182,10 +210,10 @@
                             </div>
                             <div class="grid col-3">
                                 <div></div>
-                                <p class="text-right">Página <?php echo $page; ?></p>
+                                <p class="text-right"><?php echo $page; ?> / <?php echo $totalPages; ?></p>
                                 <div class="text-right">
-                                    <a class="btn" href='?page=<?php echo $pagAnt; ?>&ordenar=<?php echo $criterio; ?>'><</a>
-                                    <a class="btn" href='?page=<?php echo $pagSig; ?>&ordenar=<?php echo $criterio; ?>'>></a>
+                                    <a class="btn" href='<?php echo "?page=$pagAnt&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b><</b></a>
+                                    <a class="btn" href='<?php echo "?page=$pagSig&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b>></b></a>
                                 </div>
                             </div>
                         </div>
@@ -235,8 +263,8 @@
                     <h2>Confirmar operación</h2>
                     <p id="txt-borrar"></p>
                     <br>
-                    <button class="btn" onclick=cerrarBorrar()>Volver</button>
-                    <button class="btn bg-red" onclick=borrarSolicitud()>Eliminar</button>
+                    <button class="btn" onclick=cerrarBorrar()>volver</button>
+                    <button class="btn bg-red" onclick=borrarSolicitud()>eliminar</button>
                 </div>
             </div>
         </body>
@@ -266,14 +294,32 @@
                 document.getElementById('toggle-sentido-l').classList.remove('active');
             </script>";
         }
-        if (isset($_POST['buscar'])) {
+        if ($filtro == 'buscar') {
             echo "<script>
+                document.getElementById('toggle-filtro-l').classList.add('active');
+                document.getElementById('toggle-filtro-r').classList.remove('active');
+                document.getElementById('form-buscar').classList.add('active');
+                document.getElementById('form-filtrar').classList.remove('active');
+
                 document.getElementById('results').innerHTML = '<b>$rowsTotales</b> solicitude(s) encontrada(s) de la busqueda <b>$_POST[busqueda]</b>';
             </script>";
         }
-        if (isset($_POST['filtrar'])) {
+        else if ($filtro == 'filtrar') {
+            $inicio = date_format(date_create($fechaInicio), 'd/m/Y');
+            $final = date_format(date_create($fechaFinal), 'd/m/Y');
             echo "<script>
-                document.getElementById('results').innerHTML = '<b>$rowsTotales</b> solicitude(s) recibida(s) entre <b>$fechaInicio</b> y <b>$fechaFinal</b>';
+                document.getElementById('toggle-filtro-r').classList.add('active');
+                document.getElementById('toggle-filtro-l').classList.remove('active');
+                document.getElementById('form-filtrar').classList.add('active');
+                document.getElementById('form-buscar').classList.remove('active');
+
+                document.getElementById('results').innerHTML = '<b>$rowsTotales</b> solicitude(s) recibida(s) entre el <b>$inicio</b> y el <b>$final</b>';
+            </script>";
+        }
+        else {
+            echo "<script>
+                document.getElementById('toggle-filtro-l').classList.add('active');
+                document.getElementById('toggle-filtro-r').classList.remove('active');
             </script>";
         }
     }

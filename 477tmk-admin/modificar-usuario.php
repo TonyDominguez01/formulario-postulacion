@@ -22,12 +22,12 @@
                 mysqli_close($conexion);
             }
             else {
+                mysqli_close($conexion);
                 echo "<script>
                     alert('No se logró recuperar los datos');
                     location.href = 'index.php';
                 </script>";
             }
-            mysqli_close($conexion);
 ?>
 <!DOCTYPE html>
 <html lang="en">

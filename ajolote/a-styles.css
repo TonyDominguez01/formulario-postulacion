@@ -363,19 +363,19 @@ h1, h2, h3, h4, h5, h6 {
     FORMULARIOS
 ============== */
 
-form * {
-    font-family: var(--fuente-1);
-    font-size: 1.25rem;
-}
 form {
     display: block;
     background-color: #fff;
+}
+form label {
+    font-family: var(--fuente-1);
+    font-size: 1.25rem;
 }
 
 .input {
     padding: 10px 15px;
     border-radius: 3px;
-    border: 1px solid #d6d6d6;
+    border: 1px solid #bbb;
     transition: .3s ease all;
     width: 100%;
     margin-bottom: 20px;
@@ -530,11 +530,13 @@ form {
 .float-left { float: left; }
 .float-right { float: right; }
 
-.bg-white { background: #ddd; }
-.btn.bg-white:hover { background: #aaa; }
+.bg-main { background: var(--clr-main); }
 
-.bg-black { background: #222; }
-.btn.bg-black { background: #444; }
+.bg-light { background: #ddd; }
+.btn.bg-light:hover { background: #aaa; }
+
+.bg-dark { background: var(--clr-dark); }
+.btn.bg-dark { background: #444; }
 
 .bg-gray { background: #aaa; }
 .btn.bg-gray:hover { background: #777; }
@@ -545,6 +547,8 @@ form {
 .bg-green { background: var(--clr-green); }
 .btn.bg-green:hover { background: var(--clr-green-h); }
 
+.bg-black { background: black; }
+.bg-white { background: white; }
 .bg-none { background: none; }
 
 .clr-white { color: #fff; }
@@ -556,3 +560,7 @@ form {
 .width-8 { width: 8rem; }
 .width-10 { width: 10rem; }
 .width-12 { width: 12rem; }
+
+.wireframe {
+    border: 2px solid #0f0;
+}
