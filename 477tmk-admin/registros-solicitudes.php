@@ -208,8 +208,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="grid col-3">
-                                <div></div>
+                            <div class="inline-flex">
                                 <p class="text-right"><?php echo $page; ?> / <?php echo $totalPages; ?></p>
                                 <div class="text-right">
                                     <a class="btn" href='<?php echo "?page=$pagAnt&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b><</b></a>

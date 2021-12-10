@@ -91,7 +91,7 @@
                 $mensajeError .= ' formato equivocado';
                 echo "<script>
                     alert('$mensajeError');
-                    location.href = '../index.html';
+                    location.href = '../index.php';
                     </script>";
             }
         }
@@ -100,7 +100,7 @@
     else {
         echo "<script>
             alert('Debes leer y aceptar el aviso de privacidad para continuar');
-            location.href = '../index.html';
+            location.href = '../index.php';
             </script>";
     }
 ?>

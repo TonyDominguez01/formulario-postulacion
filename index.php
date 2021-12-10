@@ -29,7 +29,7 @@
         <div class="contenedor card form-cont mt-1 mb-2">
             <div class="encabezado-form text-right">
                 <h1>Postularme para la vacante</h1>
-                <h2>Puesto como operador telefónico </h2>
+                <h2>Puesto como ejecutivo telefónico </h2>
             </div>
             <form action="php/verificarDatos.php" method="POST" onsubmit="return validacion()">
                 

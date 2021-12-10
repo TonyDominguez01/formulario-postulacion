@@ -9,17 +9,37 @@ body {
     background: #ddd;
 }
 .form-cont {
-    width: 70%;
+    position: absolute;
+    left: 20%;
+    right: 20%;
     padding: 0;
 }
+@media screen and (min-width: 1920px) {
+    .form-cont {
+        left: 30%;
+        right: 30%;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .form-cont {
+        left: 25%;
+        right: 25%;
+    }
+}
 @media screen and (max-width: 992px) {
-    .form-cont { width: 80%; }
+    .form-cont {
+        left: 15%;
+        right: 15%;
+    }
 }
 @media screen and (max-width: 576px) {
-    .form-cont { width: 100%; }
+    .form-cont {
+        left: 5%;
+        right: 5%;
+    }
 }
 .form-cont form {
-    margin: 1rem 2rem;
+    margin: 1rem auto;
     font-size: 1rem;
     display: flexbox;
 }
@@ -192,9 +212,10 @@ body {
 }
 
 .inline-flex {
-    display: inline-flex;
+    
 }
 .inline-flex > * {
+    float: right;
     margin-right: 0.5rem;
 }
 .preloader {
@@ -226,6 +247,6 @@ body {
     background:var(--clr-second);
 }
 
-/* * {
-    border: 1px solid black;
-} */
+* {
+    border: 1px solid #0f0;
+}
