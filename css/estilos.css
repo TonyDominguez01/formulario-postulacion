@@ -14,30 +14,6 @@ body {
     right: 20%;
     padding: 0;
 }
-@media screen and (min-width: 1920px) {
-    .form-cont {
-        left: 30%;
-        right: 30%;
-    }
-}
-@media screen and (min-width: 1440px) {
-    .form-cont {
-        left: 25%;
-        right: 25%;
-    }
-}
-@media screen and (max-width: 992px) {
-    .form-cont {
-        left: 15%;
-        right: 15%;
-    }
-}
-@media screen and (max-width: 576px) {
-    .form-cont {
-        left: 5%;
-        right: 5%;
-    }
-}
 .form-cont form {
     margin: 1rem auto;
     font-size: 1rem;
@@ -93,11 +69,6 @@ body {
     border: 2px solid var(--clr-dark);
     margin: 0 auto;
 }
-@media screen and (max-width: 576px) {
-    .tabla {
-        overflow-y: scroll;
-    }
-}
 .btn-question {
     font-size: 1rem;
     color: white;
@@ -133,18 +104,6 @@ body {
     visibility: hidden;
     opacity: 0;
     transform: scale(0, 0);
-}
-@media screen and (max-width: 992px) {
-    .modal-simple {
-        left: 15%;
-        right: 15%;
-    }
-}
-@media screen and (max-width: 576px) {
-    .modal-simple {
-        left: 5%;
-        right: 5%;
-    }
 }
 .modal-simple.active {
     visibility: visible;
@@ -211,12 +170,14 @@ body {
     height: 50px;
 }
 
-.inline-flex {
-    
-}
 .inline-flex > * {
+    margin-right: 0.25rem;
+}
+.inline-flex.l > * {
+    float: left;
+}
+.inline-flex.r > * {
     float: right;
-    margin-right: 0.5rem;
 }
 .preloader {
     width: 70px;
@@ -247,6 +208,46 @@ body {
     background:var(--clr-second);
 }
 
-* {
-    border: 1px solid #0f0;
+@media screen and (min-width: 1920px) {
+    .form-cont {
+        left: 30%;
+        right: 30%;
+    }
 }
+@media screen and (min-width: 1440px) {
+    .form-cont {
+        left: 25%;
+        right: 25%;
+    }
+}
+@media screen and (max-width: 992px) {
+    .tabla {
+        display: block;
+        overflow-y: auto;
+    }
+    .form-cont {
+        left: 15%;
+        right: 15%;
+    }
+    .modal-simple {
+        left: 15%;
+        right: 15%;
+    }
+    .inline-flex.r > * {
+        float: left;
+    }
+}
+@media screen and (max-width: 576px) {
+    .form-cont {
+        left: 5%;
+        right: 5%;
+    }
+    .modal-simple {
+        left: 5%;
+        right: 5%;
+    }
+}
+
+/* * {
+    border: 1px solid #0f0;
+} */

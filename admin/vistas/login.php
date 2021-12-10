@@ -1,13 +1,3 @@
-<?php
-    session_start();
-    if (isset($_SESSION['correo']) AND isset($_SESSION['nombre'])){
-        echo "<script>
-            location.href = 'registros-solicitudes';
-        </script>";
-    }
-    else {
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,17 +15,15 @@
             <div class="encabezado-form text-right">
                 <h1>Login</h1>
             </div>
-            <form class="contenedor ph-2 pv-5" action="./php/verificarLogin" method="POST">
+            <form class="contenedor ph-2 pv-5" action="./index.php" method="POST">
                 <label for="correo">Correo</label>
                 <input class="input" type="text" name="correo" id="correo" required>
                 <label for="password">Password</label>
                 <input class="input" type="password" name="password" id="password" required>
+                <input type="hidden" id="peticion" name="peticion" value="verificar-login">
                 <button class="btn" type="submit">ingresar</button>
             </form>
         </div>
     </div>
 </body>
 </html>
-<?php
-    }
-?>

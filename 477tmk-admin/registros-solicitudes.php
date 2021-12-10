@@ -162,11 +162,11 @@
                     <h1>Registros de Solicitudes</h1>
                     <div class="contenedor-ancho">
                         <div class="grid col-4">
-                            <div class="toggle-div">
+                            <div class="toggle-div peq-span-4">
                                 <button id="toggle-filtro-l" type="button" class="toggle-btn width-6 l" onclick=cambiarFiltro()>buscar</button>
                                 <button id="toggle-filtro-r" type="button" class="toggle-btn width-6 r" onclick=cambiarFiltro()>filtrar</button>
                             </div>
-                            <div class="span-3">
+                            <div class="span-3 peq-span-4">
                                 <form id="form-buscar" class="m-0 bg-none active" method="POST" action="./registros-solicitudes">
                                     <input id="busqueda" name="busqueda" class="input" type="text">
                                     <input type="hidden" name="buscar" id="buscar" value="buscar">
@@ -184,8 +184,8 @@
                                 </form>
                             </div>
                         </div>
-                        <div id="toggle-ordenar" class="grid col-2">
-                            <div class="inline-flex">
+                        <div id="toggle-ordenar" class="grid col-7">
+                            <div class="inline-flex l span-4 med-span-7">
                                 <p>Ordenar por: </p>
                                 <div>
                                     <div class="toggle-div">
@@ -208,12 +208,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="inline-flex">
-                                <p class="text-right"><?php echo $page; ?> / <?php echo $totalPages; ?></p>
+                            <div class="inline-flex r span-3 med-span-7">
                                 <div class="text-right">
                                     <a class="btn" href='<?php echo "?page=$pagAnt&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b><</b></a>
                                     <a class="btn" href='<?php echo "?page=$pagSig&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b>></b></a>
                                 </div>
+                                <p class="text-right"><?php echo $page; ?> / <?php echo $totalPages; ?></p>
                             </div>
                         </div>
                     </div>
