@@ -5,26 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Postulación</title>
-    <link rel="stylesheet" href="ajolote/a-styles.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <script src="ajolote/a-functions.js"></script>
-    <script src="js/functions.js"></script>
+    <link rel="stylesheet" href="./ajolote/a-styles.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <script src="./ajolote/a-functions.js"></script>
+    <script src="./js/functions.js"></script>
 </head>
 <body>
-    <script>
-        const activarModal = () => {
-            document.getElementById('btn-horario').classList.toggle('active');
-            document.getElementById('btn-modal').classList.toggle('active');
-        }
-        const validacion = () => {
-            if (document.getElementById('avisoPrivacidad').checked == false) {
-                alert('Debes leer y aceptar el aviso de privacidad antes de continuar')
-                document.getElementById('avisoPrivacidad').focus();
-                return false
-            }
-            return true;
-        }
-    </script>
     <div class="contenedor">
         <div class="contenedor card form-cont mt-1 mb-2">
             <div class="encabezado-form text-right">

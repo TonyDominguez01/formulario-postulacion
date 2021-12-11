@@ -98,7 +98,7 @@
                             <td><?php echo $emails[$i] ?></td>
                             <td><?php echo date_format(date_create($fechas[$i]), "d/m/Y - H:i:s"); ?></td>
                             <td>
-                                <button class="btn with-icon bg-green" onclick=enviarWhatsapp(<?php echo $telefonos[$i] ?>)>
+                                <button class="btn with-icon bg-green" onclick=enviarWhatsapp(<?php echo $telefonos[$i]; ?>)>
                                     <div><?php echo $telefonos[$i] ?></div>
                                     <img src="./icons/icon_whatsapp.png" alt="">
                                 </button>

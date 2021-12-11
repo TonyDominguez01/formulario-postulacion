@@ -17,7 +17,7 @@ const borrarSolicitud = () => {
 }
 
 const enviarWhatsapp = (telefono) => {
-    window.open('https://api.whatsapp.com/send?phone=+52' + telefono, '_blank');
+    window.open('https://api.whatsapp.com/send?phone=+52' + telefono + '&text=Esto%20es%20un%20mensaje%20de%20prueba', '_blank');
 }
 
 const cambiarFiltro = () => {
