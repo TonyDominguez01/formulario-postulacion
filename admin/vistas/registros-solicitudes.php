@@ -1,6 +1,3 @@
-<?php
-    if (session_status() !== PHP_SESSION_ACTIVE) session_start();
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,8 +13,8 @@
 <body>
     <script>
         const abrirPDF = (id) => {
-            <?php verificarActividad(0); ?>
-            //window.open('ver-solicitud?id=' + id, '_blank');
+            <?php verificarActividad(); ?>
+            window.open('./vistas/ver-solicitud.php?id=' + id, '_blank');
         }
     </script>
     <?php require_once('./components/nav.php'); ?>
@@ -32,15 +29,15 @@
                     </div>
                     <div class="span-3 peq-span-4">
                         <form id="form-buscar" class="m-0 bg-none active" method="POST" action="./index.php">
-                            <input id="busqueda" name="busqueda" class="input" type="text">
+                            <input id="busqueda" name="busqueda" class="input" type="text" required>
                             <input type="hidden" name="buscar" id="buscar" value="buscar">
                             <button class="btn" type="submit">buscar</button>
                             <button class="btn bg-red" type="button" onclick="location.href = './?peticion=registros-solicitudes'">limpiar busqueda</button>
                             <p class="mb-1">Puedes buscar solicitudes por nombre o por correo</p>
                         </form>
                         <form id="form-filtrar" class="m-0 bg-none" method="POST" action="./index.php">
-                            <input class="input" type="date" name="fecha-inicio" id="fecha-inicio">
-                            <input class="input" type="date" name="fecha-final" id="fecha-final">
+                            <input class="input" type="date" name="fecha-inicio" id="fecha-inicio" required>
+                            <input class="input" type="date" name="fecha-final" id="fecha-final" required>
                             <input type="hidden" name="filtrar" id="filtrar" value="filtrar">
                             <button class="btn" type="submit">filtrar</button>
                             <button class="btn bg-red" type="button" onclick="location.href = './?peticion=registros-solicitudes'">limpiar filtro</button>
@@ -124,8 +121,7 @@
     <div id="modal-borrar" class="modal-div">
         <div class="modal-content">
             <h2>Confirmar operación</h2>
-            <p id="txt-borrar"></p>
-            <br>
+            <p id="txt-borrar"></p><br>
             <button class="btn" onclick=cerrarBorrar()>volver</button>
             <button class="btn bg-red" onclick=borrarSolicitud()>eliminar</button>
         </div>

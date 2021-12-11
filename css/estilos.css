@@ -9,15 +9,16 @@ body {
     background: #ddd;
 }
 .form-cont {
-    position: absolute;
-    left: 20%;
-    right: 20%;
     padding: 0;
 }
+.form-cont.login {
+    width: 80%;
+    max-width: 640px;
+    margin: auto;
+}
 .form-cont form {
-    margin: 1rem auto;
+    margin: 1rem 3rem;
     font-size: 1rem;
-    display: flexbox;
 }
 .form-cont form .grid {
     row-gap: 2px;
@@ -208,26 +209,13 @@ body {
     background:var(--clr-second);
 }
 
-@media screen and (min-width: 1920px) {
-    .form-cont {
-        left: 30%;
-        right: 30%;
-    }
-}
-@media screen and (min-width: 1440px) {
-    .form-cont {
-        left: 25%;
-        right: 25%;
-    }
-}
 @media screen and (max-width: 992px) {
     .tabla {
         display: block;
         overflow-y: auto;
     }
-    .form-cont {
-        left: 15%;
-        right: 15%;
+    .form-cont.login {
+        width: 90%;
     }
     .modal-simple {
         left: 15%;
@@ -238,9 +226,8 @@ body {
     }
 }
 @media screen and (max-width: 576px) {
-    .form-cont {
-        left: 5%;
-        right: 5%;
+    .form-cont.login {
+        width: 100%;
     }
     .modal-simple {
         left: 5%;

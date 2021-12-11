@@ -1,5 +1,4 @@
 <?php
-    session_start();
     verificarActividad();
     
     require_once('./modelos/Conexion.php');

@@ -13,7 +13,7 @@ const cerrarBorrar = () => {
 }
 
 const borrarSolicitud = () => {
-    location.href = './php/borrarSolicitud?id=' + solicitudSeleccionada;
+    location.href = './?peticion=borrar-solicitud&id=' + solicitudSeleccionada;
 }
 
 const enviarWhatsapp = (telefono) => {

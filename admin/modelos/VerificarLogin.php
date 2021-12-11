@@ -19,32 +19,26 @@
     $row = mysqli_fetch_array($query);
     if ($row != NULL) {
         if ($row['estatus'] == 1) {
-            // server should keep session data for AT LEAST 1 hour
-            ini_set('session.gc_maxlifetime', 3600);
-    
-            // each client should remember their session id for EXACTLY 1 hour
-            session_set_cookie_params(60);
-    
-            session_start();
             $_SESSION['correo'] = $row['correo'];
             $_SESSION['nombre'] = $row['nombre'];
             $_SESSION['permisoAdmin'] = $permisoAdmin;
             $_SESSION['ultimoAcceso'] = date("Y-n-j H:i:s");
             echo "<script>
                 alert('Acceso correcto');
-                location.href = '".URL_SITE."?peticion=registros-solicitudes';
+                location.href = './?peticion=registros-solicitudes';
             </script>";
         }
         else {
             echo "<script>
                 alert('Usuario inhabilitado');
-                location.href = '".URL_SITE."?peticion=login';
+                location.href = './?peticion=login';
             </script>";
         }
     }
     else {
         echo "<script>
             alert('Credenciales incorrectas');
+            location.href = './?peticion=login';
         </script>";
     }
     mysqli_close($conexion);

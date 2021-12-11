@@ -7,8 +7,8 @@
     <?php
         if ($_SESSION['permisoAdmin']) {
     ?>
-        <a class="link" href="./?peticion=administrar-cuentas">Administrar cuentas</a>
-        <a class="link" href="./?peticion=registros-solicitudes">Registro de solicitudes</a>
+        <a class="link" href="./?peticion=administrar-cuentas">Administrar Cuentas</a>
+        <a class="link" href="./?peticion=registros-solicitudes">Registro de Solicitudes</a>
     <?php
         }
     ?>

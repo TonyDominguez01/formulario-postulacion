@@ -1,10 +1,3 @@
-<?php
-    session_start();
-    if (isset($_SESSION['permisoAdmin'])){
-        if ($_SESSION['permisoAdmin']){
-            include_once('./php/verificarActividad.php');
-            verificarActividad(0);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +24,7 @@
                 <label for="correo">Password</label>
                 <input id="password" class="input" name="password" type="password">
                 <div class="contenedor-ancho p-0 text-right">
-                    <button class="btn with-icon" type="button" onclick="location.href = './administrar-cuentas.php'">regresar <img src='./icons/icon_volver.png'></button>
+                    <button class="btn with-icon" type="button" onclick="location.href = './?peticion=administrar-cuentas'">regresar <img src='./icons/icon_volver.png'></button>
                     <button class="btn with-icon bg-green" type="submit">guardar usuario <img src='./icons/icon_save.png'></button>
                 </div>
             </form>
@@ -39,12 +32,3 @@
     </div>
 </body>
 </html>
-<?php
-        }
-    }
-    else {
-        echo "<script>
-            location.href = '../error.php?error=403';
-        </script>";
-    }
-?>

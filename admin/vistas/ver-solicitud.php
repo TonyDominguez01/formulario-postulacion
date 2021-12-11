@@ -1,6 +1,6 @@
 <?php
-    require('../fpdf/fpdf.php');
-    require_once('../php/config.php');
+    require_once('../../fpdf/fpdf.php');
+    require_once('../config/config.php');
 
     $id = $_GET['id'];
 
@@ -72,7 +72,7 @@
             {
                 $this->SetFont('Arial','',12);
                 $this->SetTextColor(102, 108, 100);
-                $this->Image('../img/logo.png', 90, 10, 32);
+                $this->Image('../../img/logo.png', 90, 10, 32);
                 $this->Ln(20);
             }
         }

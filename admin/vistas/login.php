@@ -11,11 +11,11 @@
 </head>
 <body>
     <div class="contenedor-reducido pt-4 text-center">
-        <div class="card form-cont bg-white">
+        <div class="card form-cont login bg-white">
             <div class="encabezado-form text-right">
                 <h1>Login</h1>
             </div>
-            <form class="contenedor ph-2 pv-5" action="./index.php" method="POST">
+            <form class="ph-2 pv-5" action="./index.php" method="POST">
                 <label for="correo">Correo</label>
                 <input class="input" type="text" name="correo" id="correo" required>
                 <label for="password">Password</label>
