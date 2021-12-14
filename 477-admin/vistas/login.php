@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../ajolote/a-styles.css">
     <link rel="stylesheet" href="../css/estilos.css">
     <script src="../ajolote/a-functions.js"></script>
+    <script src="./js/password.js"></script>
 </head>
 <body>
     <div class="contenedor-reducido pt-4 text-center">
@@ -19,6 +20,7 @@
                 <label for="correo">Correo</label>
                 <input class="input" type="text" name="correo" id="correo" required>
                 <label for="password">Password</label>
+                <button id="ocultar-password" type="button" onclick=mostrarOcultar()><img src="./icons/icon_hide.png" alt=""></button>
                 <input class="input" type="password" name="password" id="password" required>
                 <input type="hidden" id="peticion" name="peticion" value="verificar-login">
                 <button class="btn" type="submit">ingresar</button>

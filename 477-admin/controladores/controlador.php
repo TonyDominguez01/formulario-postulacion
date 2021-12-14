@@ -4,7 +4,7 @@
             $tiempoActual = date("Y-n-j H:i:s");
             $tiempoInactividad = 900;
             if ((strtotime($tiempoActual) - strtotime($_SESSION['ultimoAcceso'])) >= $tiempoInactividad){
-                $ruta = '?peticion=logout';
+                $ruta = './?peticion=logout';
                 echo "<script>
                     alert('Tiempo de sesión expirado por inactividad');
                     location.href = '$ruta';
@@ -69,6 +69,9 @@
                         break;
                     case 'registrar-usuario':
                         require_once('./vistas/registrar-usuario.php');
+                        break;
+                    case 'guardar-usuario':
+                        require_once('./modelos/GuardarUsuario.php');
                         break;
                     case 'usuario-guardado':
                         require_once('./vistas/usuario-guardado.php');

@@ -276,6 +276,7 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
     font-size: 1.5rem;
     position: relative;
+    cursor: pointer;
 }
 .nav-menu-icon p {
     width: 100%;
@@ -368,7 +369,7 @@ form {
 }
 form label {
     font-family: var(--fuente-1);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
 }
 
 .input {
@@ -404,7 +405,7 @@ form label {
     height: 0.5rem;
     border: 4px solid var(--clr-green);
     float: right;
-    margin-right: -1.4em;
+    margin-right: -1.5em;
     border-right: 0;
     border-top: 0;
     margin-top: 0.4rem;

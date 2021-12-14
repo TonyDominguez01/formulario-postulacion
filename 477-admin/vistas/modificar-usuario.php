@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../ajolote/a-styles.css">
     <script src="../ajolote/a-functions.js"></script>
     <link rel="stylesheet" href="../css/estilos.css">
+    <script src="./js/password.js"></script>
 </head>
 <body>
     <?php include_once('./components/nav.php'); ?>
@@ -21,8 +22,9 @@
                 <input id="nombre" class="input" name="nombre" type="text" value="<?php echo $nombre; ?>" required>
                 <label for="correo">Correo</label>
                 <input id="correo" class="input" name="correo" type="email" value="<?php echo $correo; ?>" required>
-                <label for="correo">Password</label>
-                <input id="password" class="input" name="password" type="password">
+                <label for="password">Password</label>
+                <button id="ocultar-password" type="button" onclick=mostrarOcultarPlace()><img src="./icons/icon_hide.png" alt="">mostrar</button>
+                <input id="password" class="input" name="password" type="password" placeholder="••••••••">
                 <input id="estatus" class="checkbox" name="estatus" type="checkbox" <?php if($estatus) echo 'checked'; ?>>
                 <label for="estatus">Estatus</label>
                 <div class="contenedor-ancho p-0 text-right">

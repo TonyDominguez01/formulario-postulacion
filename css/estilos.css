@@ -208,6 +208,16 @@ body {
 .bg-second {
     background:var(--clr-second);
 }
+#ocultar-password {
+    width: 32px;
+    height: 20px;
+    background-color: var(--clr-light);
+    border: none;
+    cursor: pointer;
+}
+#ocultar-password img {
+    height: 100%;
+}
 
 @media screen and (max-width: 992px) {
     .tabla {

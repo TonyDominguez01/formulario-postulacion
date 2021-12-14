@@ -13,7 +13,7 @@
 </html>
 
 <?php
-    require_once('./config.php');
+    require_once('../477-admin/config/config.php');
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
@@ -158,18 +158,12 @@
             //Content
             $mail->isHTML(true);
             $mail->Subject = 'Solicitud de Empleo Enviada por ' . $datos['nombre'];
-            $mail->Body    = 'Solicitud <b>' . $id . '</b><br>';
+            $mail->Body    = 'Solicitud <b>' . $id . '</b><br><br>
+                Iniciar conversacion<br>
+                https://api.whatsapp.com/send?phone=+52' . $datosArray[6] . '&text=Esto%20es%20un%20mensaje%20de%20prueba';
 
             $mail->send();
             $nombreEncode = utf8_encode($datos['nombre']);
-            
-            //Verificar si hay que limpiar server
-            /* $idSubstr = substr($id, -1);
-            if ($idSubstr == '1'){
-                echo "<script>
-                    location.href = '../477tmk-admin/php/liberarArchivos.php?nombre=$nombreEncode';
-                </script>'";
-            } */
             
             echo "<script>
                 location.href = '../datos-enviados.php?nombre=$nombreEncode';

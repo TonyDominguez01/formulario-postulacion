@@ -31,3 +31,7 @@
     - Adición de la clase bg-main
     - Adición de la clase bg-dark, bg-light, bg-black y bg-white
     - Adición de la clase wireframe que pinta el borde de verde
+00.02.06 --- 09/12/2021
+    - Cambio de tamaño de fuente para formularios de 1.25rem a 1.15rem
+    - Corrección de error en el menú desplegable, ahora se ve un cursor tipo pointer en lugar de tipo de texto
+    - Correción del margin-right label:after en un checkbox, valor cambiado de -1.4rem a -1.5rem
