@@ -17,7 +17,7 @@ const borrarSolicitud = () => {
 }
 
 const enviarWhatsapp = (telefono) => {
-    window.open('https://api.whatsapp.com/send?phone=+52' + telefono + '&text=Esto%20es%20un%20mensaje%20de%20prueba', '_blank');
+    window.open('https://api.whatsapp.com/send?phone=+52' + telefono + '&text=Hola,%20te%20contactamos%20desde%20477TMK', '_blank');
 }
 
 const cambiarFiltro = () => {
@@ -44,11 +44,11 @@ const ordenarPorFecha = () => {
     document.getElementById('toggle-ordenar-r').classList.add('active');
     document.getElementById('toggle-ordenar-l').classList.remove('active');
 }
-const ordenarDescendente = () => {
+const ordenarAscendente = () => {
     document.getElementById('toggle-sentido-l').classList.add('active');
     document.getElementById('toggle-sentido-r').classList.remove('active');
 }
-const ordenarAscendente = () => {
+const ordenarDescendente = () => {
     document.getElementById('toggle-sentido-r').classList.add('active');
     document.getElementById('toggle-sentido-l').classList.remove('active');
 }

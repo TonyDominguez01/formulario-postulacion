@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +23,6 @@
     require('../fpdf/fpdf.php');
 
     $id = $_GET['id'];
-    $mailFrom = 'cuenta.prueba.dguez@gmail.com';
 
     // Conexion
     $conexion = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
@@ -32,7 +31,7 @@
     }
 
     // Recuperar destinatarios
-    $sql = "SELECT * FROM destinatarios";
+    $sql = "SELECT * FROM destinatarios WHERE estatus=1";
     $query = mysqli_query($conexion, $sql);
     if ($query) {
         $correosDest = array();
@@ -135,21 +134,21 @@
         $pdfDoc = $pdf->Output('F', '../pdf/solicitud_' . $id . '.pdf');
 
         try {
-            //Server settings
+            //Server settings PHPMailer::ENCRYPTION_SMTPS
             $mail->SMTPDebug = 0;
             $mail->isSMTP();
-            $mail->Host       = 'smtp.gmail.com';
+            $mail->Host       = 'smtp.ionos.mx';
             $mail->SMTPAuth   = true;
-            $mail->Username   = $mailFrom;
-            $mail->Password   = 'amaz0N_pand1tA_24';
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-            $mail->Port       = 465;
+            $mail->Username   = 'rh@477tmk.mx';
+            $mail->Password   = '#rh.477Tmk@';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port       = 587;
 
             //Attachments
             $mail->AddAttachment('../pdf/solicitud_' . $id . '.pdf', '', $encoding = 'base64', $type = 'application/pdf');
 
             //Recipients
-            $mail->setFrom($mailFrom, 'Antonio Dominguez');
+            $mail->setFrom('rh@477tmk.mx', 'rh');
 
             for ($i=0; $i < sizeof($correosDest); $i++) { 
                 $mail->addAddress($correosDest[$i], $nombresDest[$i]);
@@ -157,10 +156,13 @@
 
             //Content
             $mail->isHTML(true);
-            $mail->Subject = 'Solicitud de Empleo Enviada por ' . $datos['nombre'];
-            $mail->Body    = 'Solicitud <b>' . $id . '</b><br><br>
-                Iniciar conversacion<br>
-                https://api.whatsapp.com/send?phone=+52' . $datosArray[6] . '&text=Esto%20es%20un%20mensaje%20de%20prueba';
+            $mail->Subject = 'Solicitud de Empleo enviada por ' . $datos['nombre'];
+            $mail->Body    = utf8_decode('Solicitud <b>' . $id . '</b><br><br>' .
+                'Nombre: <b>' . $datos['nombre'] . '</b><br>' .
+                'Email: <b>' . $datos['email01'] . '</b><br>' .
+                'Teléfono: <b>' . $datos['telefono01'] . '</b><br><br>' .
+                'Iniciar conversación:<br>
+                https://api.whatsapp.com/send?phone=+52' . $datos['telefono01'] . '&text=Hola,%20te%20contactamos%20desde%20477TMK');
 
             $mail->send();
             $nombreEncode = utf8_encode($datos['nombre']);

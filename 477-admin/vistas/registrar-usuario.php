@@ -23,7 +23,7 @@
                 <label for="correo">Correo</label>
                 <input id="correo" class="input" name="correo" type="email">
                 <label for="password">Password</label>
-                <button id="ocultar-password" type="button" onclick=mostrarOcultar()><img src="./icons/icon_hide.png" alt="">mostrar</button>
+                <button id="ocultar-password" type="button" onclick=mostrarOcultar()><img src="./icons/icon_hide.png" alt=""></button>
                 <input id="password" class="input" name="password" type="password">
                 <input type="hidden" id="peticion" name="peticion" value="guardar-usuario">
                 <div class="contenedor-ancho p-0 text-right">

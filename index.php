@@ -154,7 +154,7 @@
                 </div>
 
                 <div class="contenedor-ancho p-0 text-right">
-                    <button class="btn mb-3" type="submit">POSTULARSE</button>
+                    <button class="btn mb-3" type="submit">Postularme</button>
                 </div>
             </form>
         </div>

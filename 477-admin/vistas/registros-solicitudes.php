@@ -60,11 +60,11 @@
                         </div>
                         <div>
                             <div class="toggle-div">
-                                <a id="toggle-sentido-l" type="button" class="toggle-btn width-4 l with-icon active" href='<?php echo "?page=$page&ordenar=$criterio&sentido=desc&filtro=$filtro&$valor"; ?>'>
-                                    <img src="./icons/icon_desc.png" alt="">
-                                </a>
-                                <a id="toggle-sentido-r" type="button" class="toggle-btn width-4 r with-icon" href='<?php echo "?page=$page&ordenar=$criterio&sentido=asc&filtro=$filtro&$valor"; ?>'>
+                                <a id="toggle-sentido-l" type="button" class="toggle-btn width-4 l with-icon" href='<?php echo "?page=$page&ordenar=$criterio&sentido=asc&filtro=$filtro&$valor"; ?>'>
                                     <img src="./icons/icon_asc.png" alt="">
+                                </a>
+                                <a id="toggle-sentido-r" type="button" class="toggle-btn width-4 r with-icon" href='<?php echo "?page=$page&ordenar=$criterio&sentido=desc&filtro=$filtro&$valor"; ?>'>
+                                    <img src="./icons/icon_desc.png" alt="">
                                 </a>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                 <tr class="headers">
                     <td>Nombre</td>
                     <td>Email 1</td>
-                    <td>Fecha de registro</td>
+                    <td>Fecha de solicitud</td>
                     <td>Teléfono 1</td>
                     <td>PDF</td>
                     <td>Eliminar</td>
