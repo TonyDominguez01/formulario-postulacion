@@ -8,10 +8,10 @@
         if ($_SESSION['permisoAdmin']) {
     ?>
         <a class="link" href="./?peticion=administrar-cuentas">Administrar Cuentas</a>
-        <a class="link" href="./?peticion=registros-solicitudes">Registro de Solicitudes</a>
     <?php
         }
     ?>
+        <a class="link" href="./?peticion=registros-solicitudes">Registro de Solicitudes</a>
         <a class="link" href="./?peticion=logout">Cerrar Sesión</a>
     </div>
 </nav>

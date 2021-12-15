@@ -11,9 +11,6 @@
     <script src="./js/administrar-cuentas.js"></script>
 </head>
 <body>
-    <script>
-        
-    </script>
     <?php require_once('./components/nav.php'); ?>
     <div class="contenedor">
         <div class="contenedor-ancho mt-2">
@@ -26,6 +23,7 @@
                     <td>Correo</td>
                     <td>Nombre</td>
                     <td>Estatus</td>
+                    <td>Estatus Correo</td>
                     <td>Modificar</td>
                     <td>Eliminar</td>
                 </tr>
@@ -33,10 +31,13 @@
                     for ($i=0; $i < sizeof($correos); $i++) { 
                         if ($estatuses[$i]) $indicadorCls = 'bg-green';
                         else $indicadorCls = 'bg-red';
+                        if ($estatusesCorreo[$i]) $indicadorCls2 = 'bg-green';
+                        else $indicadorCls2 = 'bg-red';
                 ?>
                         <tr>
                             <td><?php echo $correos[$i]; ?></td>
                             <td><?php echo $nombres[$i]; ?></td>
+                            <td><div class='indicador <?php echo $indicadorCls; ?>'></div></td>
                             <td><div class='indicador <?php echo $indicadorCls; ?>'></div></td>
                             <td>
                                 <a class='btn with-icon bg-green' href='?peticion=modificar-usuario&correo=<?php echo $correos[$i]; ?>'><div>modificar</div><img src='./icons/icon_modificar.png'></a>

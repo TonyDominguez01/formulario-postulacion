@@ -56,6 +56,9 @@
             case 'logout':
                 require_once('./modelos/Logout.php');
                 break;
+            case 'generar-cartera':
+                require_once('./vistas/generar-cartera.php');
+                break;
             default:
             if ($_SESSION['permisoAdmin']) {
                 switch ($peticion) {

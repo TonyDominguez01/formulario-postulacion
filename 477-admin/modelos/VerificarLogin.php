@@ -14,7 +14,7 @@
     
     if ($row != NULL) $permisoAdmin = true;
 
-    $sql = "SELECT * FROM destinatarios WHERE `correo` = '$correo' AND `password` = '$password'";
+    $sql = "SELECT * FROM usuarios WHERE `correo` = '$correo' AND `password` = '$password'";
     $query = mysqli_query($conexion, $sql);
     $row = mysqli_fetch_array($query);
     if ($row != NULL) {

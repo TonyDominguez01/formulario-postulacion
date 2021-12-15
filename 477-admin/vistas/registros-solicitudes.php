@@ -114,8 +114,6 @@
                     }
                 ?>
             </table>
-                
-            </table>
         </div>
     </div>
     <div id="modal-borrar" class="modal-div">
