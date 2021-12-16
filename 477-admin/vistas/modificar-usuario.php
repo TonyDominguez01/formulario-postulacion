@@ -31,7 +31,7 @@
                 </div><br>
                 <div>
                     <input id="estatusCorreo" class="checkbox" name="estatusCorreo" type="checkbox" <?php if($estatusCorreo) echo 'checked'; ?>>
-                    <label for="estatus">Se le envían correos</label>
+                    <label for="estatusCorreo">Se le envían correos</label>
                 </div>
                 <div class="contenedor-ancho p-0 text-right">
                     <button class="btn with-icon" type="button" onclick="location.href = './?peticion=administrar-cuentas'"><div>regresar </div><img src='./icons/icon_volver.png'></button>
