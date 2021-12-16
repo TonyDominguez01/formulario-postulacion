@@ -18,7 +18,7 @@
         $filtro = 'filtrar';
         $valor = "fechaInicio=$fechaInicio&fechaFinal=$fechaFinal";
         $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
-        WHERE `fechaRegistro` BETWEEN CAST('$fechaInicio' AS DATE) AND CAST('$fechaFinal' AS DATE)";
+        WHERE `fechaRegistro` >= CAST('$fechaInicio' AS DATE) AND `fechaRegistro` <= DATE_ADD(CAST('$fechaFinal' AS DATE),INTERVAL 1 DAY)";
     }
     else {
         $filtro = 'todos';
@@ -39,7 +39,7 @@
                     $fechaFinal = $_GET['fechaFinal'];
                     $valor = "fechaInicio=$fechaInicio&fechaFinal=$fechaFinal";
                     $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
-                    WHERE `fechaRegistro` BETWEEN CAST('$fechaInicio' AS DATE) AND CAST('$fechaFinal' AS DATE)";
+                    WHERE `fechaRegistro` >= CAST('$fechaInicio' AS DATE) AND `fechaRegistro` <= DATE_ADD(CAST('$fechaFinal' AS DATE),INTERVAL 1 DAY)";
                     break;
                 default:
                     break;
