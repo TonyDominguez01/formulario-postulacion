@@ -5,13 +5,14 @@
     require_once('./modelos/Conexion.php');
     
     // Recuperar destinatarios
-    $sql = "SELECT `correo`, `nombre`, `estatus` FROM destinatarios WHERE `correo` = '$correo'";
+    $sql = "SELECT `correo`, `nombre`, `estatus`, `estatusCorreo` FROM usuarios WHERE `correo` = '$correo'";
     $query = mysqli_query($conexion, $sql);
     if ($query) {
         $datos = mysqli_fetch_array($query);
         $correo = $datos['correo'];
         $nombre = utf8_encode($datos['nombre']);
         $estatus = $datos['estatus'];
+        $estatusCorreo = $datos['estatusCorreo'];
         mysqli_close($conexion);
     }
     else {

@@ -10,7 +10,7 @@
     // Conexion
     require_once('./modelos/Conexion.php');
 
-    $sql = "INSERT INTO `destinatarios` (`correo`, `nombre`, `password`, `estatus`) VALUES ('$correo', '$nombre', '$password', 1);";
+    $sql = "INSERT INTO `usuarios` (`correo`, `nombre`, `password`, `estatus`, `estatusCorreo`) VALUES ('$correo', '$nombre', '$password', 1, 1);";
     $query = mysqli_query($conexion, $sql);
 
     mysqli_close($conexion);

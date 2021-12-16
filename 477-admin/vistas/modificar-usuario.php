@@ -25,8 +25,14 @@
                 <label for="password">Password</label>
                 <button id="ocultar-password" type="button" onclick=mostrarOcultarPlace()><img src="./icons/icon_hide.png" alt="">mostrar</button>
                 <input id="password" class="input" name="password" type="password" placeholder="••••••••">
-                <input id="estatus" class="checkbox" name="estatus" type="checkbox" <?php if($estatus) echo 'checked'; ?>>
-                <label for="estatus">Estatus</label>
+                <div>
+                    <input id="estatus" class="checkbox" name="estatus" type="checkbox" <?php if($estatus) echo 'checked'; ?>>
+                    <label for="estatus">Estatus</label>
+                </div><br>
+                <div>
+                    <input id="estatusCorreo" class="checkbox" name="estatusCorreo" type="checkbox" <?php if($estatusCorreo) echo 'checked'; ?>>
+                    <label for="estatus">Se le envían correos</label>
+                </div>
                 <div class="contenedor-ancho p-0 text-right">
                     <button class="btn with-icon" type="button" onclick="location.href = './?peticion=administrar-cuentas'"><div>regresar </div><img src='./icons/icon_volver.png'></button>
                     <button class="btn with-icon bg-green" type="submit"><div>guardar datos </div><img src='./icons/icon_save.png'></button>

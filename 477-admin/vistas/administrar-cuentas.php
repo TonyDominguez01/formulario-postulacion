@@ -23,7 +23,7 @@
                     <td>Correo</td>
                     <td>Nombre</td>
                     <td>Estatus</td>
-                    <td>Estatus Correo</td>
+                    <td>Se le envían correos</td>
                     <td>Modificar</td>
                     <td>Eliminar</td>
                 </tr>
@@ -38,7 +38,7 @@
                             <td><?php echo $correos[$i]; ?></td>
                             <td><?php echo $nombres[$i]; ?></td>
                             <td><div class='indicador <?php echo $indicadorCls; ?>'></div></td>
-                            <td><div class='indicador <?php echo $indicadorCls; ?>'></div></td>
+                            <td><div class='indicador <?php echo $indicadorCls2; ?>'></div></td>
                             <td>
                                 <a class='btn with-icon bg-green' href='?peticion=modificar-usuario&correo=<?php echo $correos[$i]; ?>'><div>modificar</div><img src='./icons/icon_modificar.png'></a>
                             </td>

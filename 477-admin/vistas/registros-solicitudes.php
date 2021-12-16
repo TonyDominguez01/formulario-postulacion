@@ -16,6 +16,10 @@
             <?php verificarActividad(); ?>
             window.open('./vistas/ver-solicitud.php?id=' + id, '_blank');
         }
+        const generarCartera = () => {
+            <?php verificarActividad(); ?>
+            window.open('./vistas/generar-cartera.php', '_blank');
+        }
     </script>
     <?php require_once('./components/nav.php'); ?>
     <div class="contenedor">
@@ -114,6 +118,9 @@
                     }
                 ?>
             </table>
+            <div class="mv-2">
+                <button class="btn" type="button" onclick="generarCartera()">Generar Cartera de Candidatos</button>
+            </div>
         </div>
     </div>
     <div id="modal-borrar" class="modal-div">

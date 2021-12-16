@@ -31,7 +31,7 @@
     }
 
     // Recuperar destinatarios
-    $sql = "SELECT * FROM destinatarios WHERE estatus=1";
+    $sql = "SELECT * FROM usuarios WHERE estatus=1 AND estatusCorreo=1";
     $query = mysqli_query($conexion, $sql);
     if ($query) {
         $correosDest = array();
@@ -162,7 +162,7 @@
                 'Email: <b>' . $datos['email01'] . '</b><br>' .
                 'Teléfono: <b>' . $datos['telefono01'] . '</b><br><br>' .
                 'Iniciar conversación:<br>
-                https://api.whatsapp.com/send?phone=+52' . $datos['telefono01'] . '&text=Hola,%20te%20contactamos%20desde%20477TMK');
+                https://api.whatsapp.com/send?phone=+52' . $datos['telefono01'] . '&text=Hola%20te%20contactamos%20desde%20477TMK');
 
             $mail->send();
             $nombreEncode = utf8_encode($datos['nombre']);

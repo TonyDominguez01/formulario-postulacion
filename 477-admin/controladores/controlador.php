@@ -35,11 +35,7 @@
                 require_once('./vistas/registros-solicitudes.php');
                 break;
             case 'ver-solicitud':
-                echo "<script>
-                    window.open('./vistas/ver-solicitud.php?id=' + id, '_blank');
-                </script>";
-                require_once('./modelos/RegistrosSolicitudes.php');
-                require_once('./vistas/registros-solicitudes.php');
+                
                 break;
             case 'borrar-solicitud':
                 if (isset($_GET['id'])){
@@ -56,8 +52,8 @@
             case 'logout':
                 require_once('./modelos/Logout.php');
                 break;
-            case 'generar-cartera':
-                require_once('./vistas/generar-cartera.php');
+            case 'generar-cartera-pdf':
+                
                 break;
             default:
             if ($_SESSION['permisoAdmin']) {

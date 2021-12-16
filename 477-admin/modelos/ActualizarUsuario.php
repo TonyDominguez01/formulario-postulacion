@@ -15,25 +15,27 @@
 
     if (isset($_POST['estatus'])) $estado = 1;
     else $estado = 0;
+    if (isset($_POST['estatusCorreo'])) $estadoCorreo = 1;
+    else $estadoCorreo = 0;
     
     // Conexion
     require_once('./modelos/Conexion.php');
 
     if ($actualizarPassword) {
-        $sql = "UPDATE `destinatarios` SET `correo` = '$correo', `nombre` = '$nombre', `password` = '$password', `estatus` = $estado WHERE `correo` = '$correo';";
+        $sql = "UPDATE `usuarios` SET `correo` = '$correo', `nombre` = '$nombre', `password` = '$password', `estatus` = $estado, `estatusCorreo` = $estadoCorreo WHERE `correo` = '$correo';";
     }
     else {
-        $sql = "UPDATE `destinatarios` SET `correo` = '$correo', `nombre` = '$nombre', `estatus` = $estado WHERE `correo` = '$correo';";
+        $sql = "UPDATE `usuarios` SET `correo` = '$correo', `nombre` = '$nombre', `estatus` = $estado, `estatusCorreo` = $estadoCorreo WHERE `correo` = '$correo';";
     }
     $query = mysqli_query($conexion, $sql);
 
-    mysqli_close($conexion);
     
     if ($query) {
         echo "<script>
         alert('Datos guardados');
         location.href = './?peticion=administrar-cuentas';
         </script> <br>";
+        mysqli_close($conexion);
     }
     else {
         echo "Error: " . $query . "<br>" . mysqli_error($conexion) . "<br>";

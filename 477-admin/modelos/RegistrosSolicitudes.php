@@ -100,12 +100,12 @@
     
     $query = mysqli_query($conexion, $sql);
 
+    $ids = array();
+    $nombres = array();
+    $emails = array();
+    $fechas = array();
+    $telefonos = array();
     if ($query) {
-        $ids = array();
-        $nombres = array();
-        $emails = array();
-        $fechas = array();
-        $telefonos = array();
         $cont = 0;
         while ($row = @mysqli_fetch_array($query)) {
             $ids[$cont] = $row['idPostulante'];
@@ -115,11 +115,6 @@
             $telefonos[$cont] = $row['telefono01'];
             $cont++;
         }
-    }
-    else {
-        echo "<script>
-        alert('No se logró recuperar los datos');;
-        </script>";
     }
     mysqli_close($conexion);
 ?>
