@@ -149,6 +149,7 @@
                     </select>
                     <div class="span-10 mv-2">
                         <input class="checkbox" type="checkbox" name="avisoPrivacidad" value="aceptado" id="avisoPrivacidad">
+                        <label for="avisoPrivacidad"></label>
                         <label for="avisoPrivacidad">He leído y acepto el <a class="clr-main" href="./aviso-de-privacidad.html" target="_blank">aviso  de privacidad</a></label>
                     </div>
                 </div>

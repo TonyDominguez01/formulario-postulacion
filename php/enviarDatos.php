@@ -47,7 +47,7 @@
         die("Destinatarios no recuperados correctamente: " . mysqli_connect_error());
     }
 
-    $sql = "SELECT * FROM postulantes WHERE `idPostulante` = '$id';";
+    $sql = "SELECT * FROM candidatos WHERE `idPostulante` = '$id';";
     $query = mysqli_query($conexion, $sql);
 
     if ($query) {

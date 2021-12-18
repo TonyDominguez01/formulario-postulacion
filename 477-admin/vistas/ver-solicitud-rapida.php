@@ -69,7 +69,19 @@
             $pdf->Cell(60,10, utf8_decode($campos[$i]) . ':', 0, 0, 'R');
             $pdf->SetTextColor(0, 0, 0);
             $pdf->Cell(10, 10);
-            $pdf->Cell(60,10, $datosArray[$i], 0, 0, 'L');
+
+            if ($datosArray[$i] == 1) {
+                $pdf->SetTextColor(0, 170, 0);
+                $pdf->Cell(60,10, 'Disponible', 0, 0, 'L');
+            }
+            else if ($datosArray[$i] == '0') {
+                $pdf->SetTextColor(210, 0, 0);
+                $pdf->Cell(60,10, 'No disponible', 0, 0, 'L');
+            }
+            else {
+                $pdf->Cell(60,10, $datosArray[$i], 0, 0, 'L');
+            }
+
             $pdf->Ln();
         }
 

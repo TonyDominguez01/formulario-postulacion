@@ -56,12 +56,10 @@ body {
 .tabla td {
     padding: 4px;
     text-align: center;
-}
-.tabla td {
     width: 20%;
 }
 .tabla.solicitudes td {
-    width: repeat(6, 1fr);
+    width: 16%;
 }
 .indicador {
     width: 1.5rem;
@@ -217,6 +215,11 @@ body {
 }
 #ocultar-password img {
     height: 100%;
+    position: relative;
+    top: 4px;
+}
+.m-min {
+    margin: 1px;
 }
 
 @media screen and (max-width: 992px) {

@@ -32,7 +32,7 @@
                             <input id="busqueda" name="busqueda" class="input" type="text" required>
                             <input type="hidden" name="buscar" id="buscar" value="buscar">
                             <button class="btn" type="submit">buscar</button>
-                            <button class="btn bg-red" type="button" onclick="location.href = './?peticion=registros-solicitudes'">limpiar busqueda</button>
+                            <button class="btn bg-red" type="button" onclick="location.href = './?peticion=solicitudes-rapidas'">limpiar busqueda</button>
                             <p class="mb-1">Puedes buscar solicitudes por nombre o por correo</p>
                         </form>
                         <form id="form-filtrar" class="m-0 bg-none" method="POST" action="./index.php">
@@ -40,7 +40,7 @@
                             <input class="input" type="date" name="fecha-final" id="fecha-final" required>
                             <input type="hidden" name="filtrar" id="filtrar" value="filtrar">
                             <button class="btn" type="submit">filtrar</button>
-                            <button class="btn bg-red" type="button" onclick="location.href = './?peticion=registros-solicitudes'">limpiar filtro</button>
+                            <button class="btn bg-red" type="button" onclick="location.href = './?peticion=solicitudes-rapidas'">limpiar filtro</button>
                             <p class="mb-1">Elige dos fechas para ver las solicitudes recibidas en ese periodo de tiempo</p>
                         </form>
                     </div>
@@ -50,20 +50,20 @@
                         <p>Ordenar por: </p>
                         <div>
                             <div class="toggle-div">
-                                <a id="toggle-ordenar-l" type="button" class="toggle-btn width-6 l with-icon" href='<?php echo "?page=$page&ordenar=nombre&sentido=$sentido&filtro=$filtro&$valor"; ?>'>
+                                <a id="toggle-ordenar-l" type="button" class="toggle-btn width-6 l with-icon" href='<?php echo "?peticion=solicitudes-rapidas&page=$page&ordenar=nombre&sentido=$sentido&filtro=$filtro&$valor"; ?>'>
                                     nombre
                                 </a>
-                                <a id="toggle-ordenar-r" type="button" class="toggle-btn width-6 r with-icon" href='<?php echo "?page=$page&ordenar=fecha&sentido=$sentido&filtro=$filtro&$valor"; ?>'>
+                                <a id="toggle-ordenar-r" type="button" class="toggle-btn width-6 r with-icon" href='<?php echo "?peticion=solicitudes-rapidas&page=$page&ordenar=fecha&sentido=$sentido&filtro=$filtro&$valor"; ?>'>
                                     fecha
                                 </a>
                             </div>
                         </div>
                         <div>
                             <div class="toggle-div">
-                                <a id="toggle-sentido-l" type="button" class="toggle-btn width-4 l with-icon" href='<?php echo "?page=$page&ordenar=$criterio&sentido=asc&filtro=$filtro&$valor"; ?>'>
+                                <a id="toggle-sentido-l" type="button" class="toggle-btn width-4 l with-icon" href='<?php echo "?peticion=solicitudes-rapidas&page=$page&ordenar=$criterio&sentido=asc&filtro=$filtro&$valor"; ?>'>
                                     <img src="./icons/icon_asc.png" alt="">
                                 </a>
-                                <a id="toggle-sentido-r" type="button" class="toggle-btn width-4 r with-icon" href='<?php echo "?page=$page&ordenar=$criterio&sentido=desc&filtro=$filtro&$valor"; ?>'>
+                                <a id="toggle-sentido-r" type="button" class="toggle-btn width-4 r with-icon" href='<?php echo "?peticion=solicitudes-rapidas&page=$page&ordenar=$criterio&sentido=desc&filtro=$filtro&$valor"; ?>'>
                                     <img src="./icons/icon_desc.png" alt="">
                                 </a>
                             </div>
@@ -71,8 +71,8 @@
                     </div>
                     <div class="inline-flex r span-3 med-span-7">
                         <div class="text-right">
-                            <a class="btn" href='<?php echo "?page=$pagAnt&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b><</b></a>
-                            <a class="btn" href='<?php echo "?page=$pagSig&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b>></b></a>
+                            <a class="btn" href='<?php echo "?peticion=solicitudes-rapidas&page=$pagAnt&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b><</b></a>
+                            <a class="btn" href='<?php echo "?peticion=solicitudes-rapidas&page=$pagSig&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b>></b></a>
                         </div>
                         <p class="text-right"><?php echo $page; ?> / <?php echo $totalPages; ?></p>
                     </div>
@@ -87,7 +87,7 @@
                     <td>Correo</td>
                     <td>Fecha de solicitud</td>
                     <td>Teléfono</td>
-                    <td>Ver más</td>
+                    <td>Ver todo</td>
                     <td>Disponible</td>
                 </tr>
                 <?php
@@ -103,7 +103,7 @@
                                     <img src="./icons/icon_whatsapp.png" alt="">
                                 </button>
                             </td>
-                            <td><button class='btn' onclick=abrirPDF('<?php echo $correos[$i]; ?>')>Ver más</button></td>
+                            <td><button class='btn with-icon' onclick=abrirPDF('<?php echo $correos[$i]; ?>')>Ver todo<img src="./icons/icon_pdf.png" alt=""></button></td>
                             <td><div class="indicador bg-green"></div></td>
                         </tr>
                 <?php

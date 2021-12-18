@@ -29,7 +29,7 @@
                 <div class="grid col-4">
                     <div class="toggle-div peq-span-4">
                         <button id="toggle-filtro-l" type="button" class="toggle-btn width-6 l" onclick=cambiarFiltro()>buscar</button>
-                        <button id="toggle-filtro-r" type="button" class="toggle-btn width-6 r" onclick=cambiarFiltro()>filtrar</button>
+                        <button id="toggle-filtro-r" type="button" class="toggle-btn width-6 r m-2" onclick=cambiarFiltro()>filtrar</button>
                     </div>
                     <div class="span-3 peq-span-4">
                         <form id="form-buscar" class="m-0 bg-none active" method="POST" action="./index.php">

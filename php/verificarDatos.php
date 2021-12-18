@@ -46,7 +46,7 @@
 
     $fechaHoy = date("Y/m/d"); //Conseguiimos la fecha actual
     $codigoFechaHoy = str_replace("/", "", $fechaHoy); //Formateo de fecha para que se ajuste al codigo
-    $query = mysqli_query($conexion, "SELECT idPostulante FROM postulantes ORDER BY idPostulante DESC LIMIT 1");//Consulta del id del ultimo registro ingresado en la base de datos
+    $query = mysqli_query($conexion, "SELECT idPostulante FROM candidatos ORDER BY idPostulante DESC LIMIT 1");//Consulta del id del ultimo registro ingresado en la base de datos
     $ultimoRegistro=mysqli_fetch_array($query);//Guardamos los result en una variable
     $fechaUltimoRegistro = substr($ultimoRegistro[0], 0, -3);//Sacamos el codigo de fecha que tenia el ultimo registro
     
@@ -76,7 +76,7 @@
             if (!(ctype_alnum($ine))) { $mensajeError .= '-ineLetras- '; }
             
             if (strlen($mensajeError) <= 0) {
-                $sql = "INSERT INTO `postulantes` (`idPostulante`, `nombre`, `calleNumero`, `colonia`, `cp`, `ciudad`, `estado`, `telefono01`, `telefono02`, `email01`, `email02`, `beneficiario`, `curp`, `rfc`, `nss`, `ine`, `nivelEstudios`, `fechaNac`, `estadoCivil`, `experiencia`, `experienciaDonde`, `turnoInteres`) VALUES
+                $sql = "INSERT INTO `candidatos` (`idPostulante`, `nombre`, `calleNumero`, `colonia`, `cp`, `ciudad`, `estado`, `telefono01`, `telefono02`, `email01`, `email02`, `beneficiario`, `curp`, `rfc`, `nss`, `ine`, `nivelEstudios`, `fechaNac`, `estadoCivil`, `experiencia`, `experienciaDonde`, `turnoInteres`) VALUES
                 ('$idPostulante', '$nombre', '$calleNumero', '$colonia', $cp, '$ciudad', '$estado', $telefono01, $telefono02, '$email01', '$email02', '$beneficiario', '$curp', '$rfc', '$nss', '$ine', '$nivelEstudios', '$fechaNac', '$estadoCivil', '$experiencia', '$experienciaDonde', '$turnoInteres');";
                 $query = mysqli_query($conexion, $sql);
     
