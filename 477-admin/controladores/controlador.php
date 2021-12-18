@@ -34,8 +34,11 @@
                 require_once('./modelos/RegistrosSolicitudes.php');
                 require_once('./vistas/registros-solicitudes.php');
                 break;
+            case 'solicitudes-rapidas':
+                require_once('./modelos/SolicitudesRapidas.php');
+                require_once('./vistas/solicitudes-rapidas.php');
+                break;
             case 'ver-solicitud':
-                
                 break;
             case 'borrar-solicitud':
                 if (isset($_GET['id'])){
