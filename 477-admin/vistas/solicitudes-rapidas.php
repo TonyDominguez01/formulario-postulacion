@@ -8,8 +8,15 @@
     <link rel="stylesheet" href="../ajolote/a-styles.css">
     <script src="../ajolote/a-functions.js"></script>
     <link rel="stylesheet" href="../css/estilos.css">
+    <script src="./js/solicitudes-rapidas.js"></script>
 </head>
 <body>
+    <script>
+        const abrirPDF = (correo) => {
+            <?php verificarActividad(); ?>
+            window.open('./vistas/ver-solicitud-rapida.php?correo=' + correo, '_blank');
+        }
+    </script>
     <?php require_once('./components/nav.php'); ?>
     <div class="contenedor">
         <div class="contendor-ancho mv-2">
@@ -78,17 +85,17 @@
                 <tr class="headers">
                     <td>Nombre</td>
                     <td>Correo</td>
-                    <td>Teléfono</td>
                     <td>Fecha de solicitud</td>
+                    <td>Teléfono</td>
+                    <td>Ver más</td>
                     <td>Disponible</td>
-                    <td>Revisar</td>
                 </tr>
                 <?php
-                    for ($i=0; $i < sizeof($ids); $i++) { 
-                    ?>
+                    for ($i=0; $i < sizeof($correos); $i++) { 
+                ?>
                         <tr>
                             <td><?php echo $nombres[$i] ?></td>
-                            <td><?php echo $emails[$i] ?></td>
+                            <td><?php echo $correos[$i] ?></td>
                             <td><?php echo date_format(date_create($fechas[$i]), "d/m/Y - H:i:s"); ?></td>
                             <td>
                                 <button class="btn with-icon bg-green" onclick=enviarWhatsapp(<?php echo $telefonos[$i]; ?>)>
@@ -96,20 +103,16 @@
                                     <img src="./icons/icon_whatsapp.png" alt="">
                                 </button>
                             </td>
-                            <td>
-                                <button class='btn with-icon' onclick=abrirPDF(<?php echo $ids[$i]; ?>)><div>ver pdf </div><img src="./icons/icon_pdf.png"></button>
-                            </td>
-                            <td>
-                                <button class='btn with-icon bg-red' onclick="abrirBorrar('<?php echo "$ids[$i]', '$nombres[$i]"; ?>')"><div>eliminar</div><img src="./icons/icon_delete.png"></button>
-                            </td>
+                            <td><button class='btn' onclick=abrirPDF('<?php echo $correos[$i]; ?>')>Ver más</button></td>
+                            <td><div class="indicador bg-green"></div></td>
                         </tr>
-                    <?php
+                <?php
                     }
                 ?>
             </table>
-            <div class="mv-2">
+            <!-- <div class="mv-2">
                 <button class="btn" type="button" onclick="generarCartera()">Generar Cartera de Candidatos</button>
-            </div>
+            </div> -->
         </div>
     </div>
     <div id="modal-borrar" class="modal-div">
@@ -122,3 +125,23 @@
     </div>
 </body>
 </html>
+
+<?php
+    if ($criterio == 'nombre')echo "<script> ordenarPorNombre(); </script>";
+    else echo "<script> ordenarPorFecha(); </script>";
+
+    if ($sentido == 'desc') echo "<script> ordenarDescendente(); </script>";
+    else echo "<script> ordenarAscendente(); </script>";
+
+    if ($filtro == 'buscar') {
+        echo "<script> actualizarBuscar('$rowsTotales', '$_POST[busqueda]'); </script>";
+    }
+    else if ($filtro == 'filtrar') {
+        $inicio = date_format(date_create($fechaInicio), 'd/m/Y');
+        $final = date_format(date_create($fechaFinal), 'd/m/Y');
+        echo "<script> actualizarFiltrar('$rowsTotales', '$inicio', '$final'); </script>";
+    }
+    else {
+        echo "<script> mostrarBuscar(); </script>";
+    }
+?>

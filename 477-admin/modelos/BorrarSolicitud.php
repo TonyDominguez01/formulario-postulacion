@@ -3,7 +3,7 @@
 
     require_once('./Modelos/Conexion.php');
 
-    $sql = "DELETE FROM `postulantes` WHERE `idPostulante` = '$idPostulante'";
+    $sql = "DELETE FROM `candidatos` WHERE `idPostulante` = '$idPostulante'";
     $query = mysqli_query($conexion, $sql);
 
     mysqli_close($conexion);

@@ -8,7 +8,7 @@
         $busqueda = $_POST['busqueda'];
         $filtro = 'buscar';
         $valor = "busqueda=$busqueda";
-        $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
+        $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM candidatos
         WHERE `nombre` LIKE '%$busqueda%' OR `email01` LIKE '%$busqueda%'";
     }
     else if (isset($_POST['filtrar'])) {
@@ -16,13 +16,13 @@
         $fechaFinal = $_POST['fecha-final'];
         $filtro = 'filtrar';
         $valor = "fechaInicio=$fechaInicio&fechaFinal=$fechaFinal";
-        $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
+        $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM candidatos
         WHERE `fechaRegistro` >= CAST('$fechaInicio' AS DATE) AND `fechaRegistro` <= DATE_ADD(CAST('$fechaFinal' AS DATE),INTERVAL 1 DAY)";
     }
     else {
         $filtro = 'todos';
         $valor = 'a';
-        $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes";
+        $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM candidatos";
 
         if (isset($_GET['filtro'])) {
             $filtro = $_GET['filtro'];
@@ -30,14 +30,14 @@
                 case 'buscar':
                     $busqueda = $_GET['busqueda'];
                     $valor = "busqueda=$busqueda";
-                    $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
+                    $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM candidatos
                     WHERE `nombre` LIKE '%$busqueda%' OR `email01` LIKE '%$busqueda%'";
                     break;
                 case 'filtrar':
                     $fechaInicio = $_GET['fechaInicio'];
                     $fechaFinal = $_GET['fechaFinal'];
                     $valor = "fechaInicio=$fechaInicio&fechaFinal=$fechaFinal";
-                    $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
+                    $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM candidatos
                     WHERE `fechaRegistro` >= CAST('$fechaInicio' AS DATE) AND `fechaRegistro` <= DATE_ADD(CAST('$fechaFinal' AS DATE),INTERVAL 1 DAY)";
                     break;
                 default:

@@ -4,46 +4,25 @@
     require_once('./modelos/Conexion.php');
 
     //Recuperar datos tomando en cuenta si ha sido aplicado un filtro
-    if (isset($_POST['buscar'])) {
+    if (isset($_REQUEST['buscar'])) {
         $busqueda = $_POST['busqueda'];
         $filtro = 'buscar';
         $valor = "busqueda=$busqueda";
-        $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
-        WHERE `nombre` LIKE '%$busqueda%' OR `email01` LIKE '%$busqueda%'";
+        $sql = "SELECT `nombre`, `correo`, `telefono`, `fechaRegistro`, `lunes`, `martes`, `miercoles`, `jueves`, `viernes`, `sabado`, `horaInicio`, `horaFinal` FROM solicitudesrapidas
+        WHERE `nombre` LIKE '%$busqueda%' OR `correo` LIKE '%$busqueda%'";
     }
-    else if (isset($_POST['filtrar'])) {
+    else if (isset($_REQUEST['filtrar'])) {
         $fechaInicio = $_POST['fecha-inicio'];
         $fechaFinal = $_POST['fecha-final'];
         $filtro = 'filtrar';
         $valor = "fechaInicio=$fechaInicio&fechaFinal=$fechaFinal";
-        $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
+        $sql = "SELECT `nombre`, `correo`, `telefono`, `fechaRegistro`, `lunes`, `martes`, `miercoles`, `jueves`, `viernes`, `sabado`, `horaInicio`, `horaFinal` FROM solicitudesrapidas
         WHERE `fechaRegistro` >= CAST('$fechaInicio' AS DATE) AND `fechaRegistro` <= DATE_ADD(CAST('$fechaFinal' AS DATE),INTERVAL 1 DAY)";
     }
     else {
         $filtro = 'todos';
         $valor = 'a';
-        $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes";
-
-        if (isset($_GET['filtro'])) {
-            $filtro = $_GET['filtro'];
-            switch ($filtro) {
-                case 'buscar':
-                    $busqueda = $_GET['busqueda'];
-                    $valor = "busqueda=$busqueda";
-                    $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
-                    WHERE `nombre` LIKE '%$busqueda%' OR `email01` LIKE '%$busqueda%'";
-                    break;
-                case 'filtrar':
-                    $fechaInicio = $_GET['fechaInicio'];
-                    $fechaFinal = $_GET['fechaFinal'];
-                    $valor = "fechaInicio=$fechaInicio&fechaFinal=$fechaFinal";
-                    $sql = "SELECT `idPostulante`, `nombre`, `email01`, `telefono01`, `fechaRegistro` FROM postulantes
-                    WHERE `fechaRegistro` >= CAST('$fechaInicio' AS DATE) AND `fechaRegistro` <= DATE_ADD(CAST('$fechaFinal' AS DATE),INTERVAL 1 DAY)";
-                    break;
-                default:
-                    break;
-            }
-        }
+        $sql = "SELECT `nombre`, `correo`, `telefono`, `fechaRegistro`, `lunes`, `martes`, `miercoles`, `jueves`, `viernes`, `sabado`, `horaInicio`, `horaFinal` FROM solicitudesrapidas";
     }
     
     $query = mysqli_query($conexion, $sql);
@@ -99,19 +78,36 @@
     
     $query = mysqli_query($conexion, $sql);
 
-    $ids = array();
     $nombres = array();
-    $emails = array();
-    $fechas = array();
+    $correos = array();
     $telefonos = array();
+    $fechas = array();
+    $lunes = array();
+    $martes = array();
+    $miercoles = array();
+    $jueves = array();
+    $viernes = array();
+    $sabados = array();
+    $horasInicio = array();
+    $horasFinal = array();
+
     if ($query) {
         $cont = 0;
         while ($row = @mysqli_fetch_array($query)) {
-            $ids[$cont] = $row['idPostulante'];
             $nombres[$cont] = utf8_encode($row['nombre']);
-            $emails[$cont] = $row['email01'];
+            $correos[$cont] = $row['correo'];
+            $telefonos[$cont] = $row['telefono'];
             $fechas[$cont] = $row['fechaRegistro'];
-            $telefonos[$cont] = $row['telefono01'];
+
+            $lunes[$cont] = $row['lunes'];
+            $martes[$cont] = $row['martes'];
+            $miercoles[$cont] = $row['miercoles'];
+            $jueves[$cont] = $row['jueves'];
+            $viernes[$cont] = $row['viernes'];
+            $sabados[$cont] = $row['sabado'];
+
+            $horasInicio[$cont] = $row['horaInicio'];
+            $horasFinal[$cont] = $row['horaFinal'];
             $cont++;
         }
     }

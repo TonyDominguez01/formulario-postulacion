@@ -11,7 +11,7 @@
     }
 
     // Recuperar destinatarios
-    $sql = "SELECT * FROM postulantes WHERE `idPostulante` = '$id';";
+    $sql = "SELECT * FROM candidatos WHERE `idPostulante` = '$id';";
     $query = mysqli_query($conexion, $sql);
 
     if ($query) {
