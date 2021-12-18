@@ -32,14 +32,14 @@
                         <button id="toggle-filtro-r" type="button" class="toggle-btn width-6 r m-2" onclick=cambiarFiltro()>filtrar</button>
                     </div>
                     <div class="span-3 peq-span-4">
-                        <form id="form-buscar" class="m-0 bg-none active" method="POST" action="./index.php">
+                        <form id="form-buscar" class="m-0 bg-none active" method="POST" action="./peticion=registros-solicitudes">
                             <input id="busqueda" name="busqueda" class="input" type="text" required>
                             <input type="hidden" name="buscar" id="buscar" value="buscar">
                             <button class="btn" type="submit">buscar</button>
                             <button class="btn bg-red" type="button" onclick="location.href = './?peticion=registros-solicitudes'">limpiar busqueda</button>
                             <p class="mb-1">Puedes buscar solicitudes por nombre o por correo</p>
                         </form>
-                        <form id="form-filtrar" class="m-0 bg-none" method="POST" action="./index.php">
+                        <form id="form-filtrar" class="m-0 bg-none" method="POST" action="./?peticion=registros-solicitudes">
                             <input class="input" type="date" name="fecha-inicio" id="fecha-inicio" required>
                             <input class="input" type="date" name="fecha-final" id="fecha-final" required>
                             <input type="hidden" name="filtrar" id="filtrar" value="filtrar">

@@ -90,6 +90,7 @@
     $sabados = array();
     $horasInicio = array();
     $horasFinal = array();
+    $disponibles = array();
 
     if ($query) {
         $cont = 0;
@@ -108,6 +109,39 @@
 
             $horasInicio[$cont] = $row['horaInicio'];
             $horasFinal[$cont] = $row['horaFinal'];
+
+            $diaActual = date('w');
+            $fechaActual = date('Y/m/d');
+            $horaActual = date('H:i');
+            $disponibles[$cont] = 0;
+            switch ($diaActual) {
+                case '1':
+                    if ($lunes[$cont] == '1') $disponibles[$cont] = 1;
+                    break;
+                case '2':
+                    if ($martes[$cont] == '1') $disponibles[$cont] = 1;
+                    break;
+                case '3':
+                    if ($miercoles[$cont] == '1') $disponibles[$cont] = 1;
+                    break;
+                case '4':
+                    if ($jueves[$cont] == '1') $disponibles[$cont] = 1;
+                    break;
+                case '5':
+                    if ($viernes[$cont] == '1') $disponibles[$cont] = 1;
+                    break;
+                case '6':
+                    if ($sabados[$cont] == '1') $disponibles[$cont] = 1;
+                    break;
+                default:
+                    break;
+            }
+            if ($disponibles[$cont] == 1){
+                if (!(strtotime($horaActual) > strtotime($horasInicio[$cont]) && strtotime($horaActual) < strtotime($horasFinal[$cont]))) {
+                    $disponibles[$cont] = 0;
+                }
+            }
+
             $cont++;
         }
     }
