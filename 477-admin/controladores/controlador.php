@@ -94,8 +94,15 @@
                             </script>";
                         }
                         break;
+                    case 'mantenimiento':
+                        require_once('./vistas/mantenimiento.php');
+                        break;
                     case 'liberar-archivos':
                         require_once('./modelos/LiberarArchivos.php');
+                        break;
+                    case 'secciones':
+                        require_once('./vistas/secciones.php');
+                        require_once('./modelos/Secciones.php');
                         break;
                     default:
                         require_once('./modelos/RegistrosSolicitudes.php');
@@ -104,8 +111,8 @@
                 }
             }
             else {
-                require_once('./modelos/RegistrosSolicitudes.php');
-                require_once('./vistas/registros-solicitudes.php');
+                require_once('./modelos/SolicitudesRapidas.php');
+                require_once('./vistas/solicitudes-rapidas.php');
             }
             break;
         }

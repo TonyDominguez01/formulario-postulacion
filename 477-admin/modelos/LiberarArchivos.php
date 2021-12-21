@@ -1,4 +1,6 @@
 <?php
+    verificarActividad();
+    
     $files = glob('../pdf/*.pdf'); //obtenemos el nombre de todos los ficheros
     $cont = 0;
     foreach($files as $file){
@@ -10,6 +12,8 @@
             $cont++;
         }
     }
-    echo 'Arvhivos borrados: ' . $cont . '<br>';
-    echo 'Archivos restantes: ' . (sizeof($files) - $cont);
+    $restantes = (sizeof($files) - $cont);
+    echo "<script>
+        location.href = './?peticion=mantenimiento&borrados=$cont&restantes=$restantes'
+    </script>";
 ?>

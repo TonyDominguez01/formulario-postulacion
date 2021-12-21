@@ -7,12 +7,12 @@
     <?php
         if ($_SESSION['permisoAdmin']) {
     ?>
-        <a class="link" href="./?peticion=administrar-cuentas">Administrar Cuentas</a>
+            <a class='link' href='./?peticion=adinistrar-cuentas'>Cuentas</a>
+            <a class='link' href='./?peticion=mantenimiento'>Mantenimiento</a>
         <?php
         }
         ?>
-        <a class="link" href="./?peticion=solicitudes-rapidas">Solicitudes Rápidas</a>
-        <a class="link" href="./?peticion=registros-solicitudes">Solicitudes Completas</a>
+            <a class='link' href='./?peticion=solicitudes-rapidas'>Solicitudes Rapidas</a>
         <a class="link" href="./?peticion=logout">Cerrar Sesión</a>
     </div>
 </nav>
