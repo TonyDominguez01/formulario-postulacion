@@ -1,3 +1,6 @@
+<?php
+    verificarActividad();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
