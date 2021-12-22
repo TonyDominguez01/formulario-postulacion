@@ -33,10 +33,20 @@
                     <input id="estatusCorreo" class="checkbox" name="estatusCorreo" type="checkbox" <?php if($estatusCorreo) echo 'checked'; ?>>
                     <label for="estatusCorreo">Se le envían correos</label>
                 </div>
+                <div>
+                    <select class="input mv-1" name="permiso" id="permiso">
+                        <?php
+                            for ($i=0; $i < sizeof($idsPermiso); $i++) { 
+                        ?>
+                                <option value="<?php echo $idsPermiso[$i]; ?>" <?php if($permiso == $i) echo 'selected'; ?>><?php echo $nombresPermiso[$i]; ?></option>
+                        <?php
+                            }
+                        ?>
+                    </select>
+                </div>
                 <div class="contenedor-ancho p-0 text-right">
                     <button class="btn with-icon" type="button" onclick="location.href = './?peticion=administrar-cuentas'"><div>regresar </div><img src='./icons/icon_volver.png'></button>
                     <button class="btn with-icon bg-green" type="submit"><div>guardar datos </div><img src='./icons/icon_save.png'></button>
-                    
                 </div>
             </form>
         </div>

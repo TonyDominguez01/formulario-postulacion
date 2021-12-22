@@ -17,15 +17,17 @@
     else $estado = 0;
     if (isset($_POST['estatusCorreo'])) $estadoCorreo = 1;
     else $estadoCorreo = 0;
+
+    $permiso = $_POST['permiso'];
     
     // Conexion
     require_once('./modelos/Conexion.php');
 
     if ($actualizarPassword) {
-        $sql = "UPDATE `usuarios` SET `correo` = '$correo', `nombre` = '$nombre', `password` = '$password', `estatus` = $estado, `estatusCorreo` = $estadoCorreo WHERE `correo` = '$correo';";
+        $sql = "UPDATE `usuarios` SET `correo` = '$correo', `nombre` = '$nombre', `password` = '$password', `estatus` = $estado, `estatusCorreo` = $estadoCorreo, `idPermiso` = $permiso WHERE `correo` = '$correo';";
     }
     else {
-        $sql = "UPDATE `usuarios` SET `correo` = '$correo', `nombre` = '$nombre', `estatus` = $estado, `estatusCorreo` = $estadoCorreo WHERE `correo` = '$correo';";
+        $sql = "UPDATE `usuarios` SET `correo` = '$correo', `nombre` = '$nombre', `estatus` = $estado, `estatusCorreo` = $estadoCorreo, `idPermiso` = $permiso WHERE `correo` = '$correo';";
     }
     $query = mysqli_query($conexion, $sql);
 

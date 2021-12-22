@@ -18,7 +18,6 @@
                 <h2>Puesto como ejecutivo telefónico </h2>
             </div>
             <form action="php/verificarDatos.php" method="POST" onsubmit="return validacion()">
-                
                 <div class="grid col-10">
                     <label class="span-10" for="nombre">Nombre</label>
                     <input class="input span-10" id="nombre" name="nombre" type="text" maxlength="50" required />
@@ -33,7 +32,7 @@
                     </div>
                     <div class="span-3 peq-span-10">
                         <label for="cp">C.P.</label>
-                        <input id="cp" name="cp" class="input" type="text" pattern="[0-9]{5}" />
+                        <input id="cp" name="cp" class="input" type="text" pattern="[0-9]{5}" onchange=setMessage(this) maxlength="5" />
                     </div>
 
                     <div class="span-5 peq-span-10">
@@ -44,17 +43,16 @@
                         <label for="estado">Estado</label>
                         <input class="input" id="estado" name="estado" type="text" maxlength="15" />
                     </div>
-
                 </div>
 
                 <div class="grid col-2">
                     <div class="peq-span-2">
                         <label for="telefono01">Teléfono 1</label>
-                        <input class="input" id="telefono01" name="telefono01" type="text" pattern="[0-9]{10}" required />
+                        <input class="input" id="telefono01" name="telefono01" type="text" pattern="[0-9]{10}" maxlength="10" onchange="setMessage(this)" required />
                     </div>
                     <div class="peq-span-2">
                         <label for="telefono02">Teléfono 2</label>
-                        <input class="input" id="telefono02" name="telefono02" type="text" pattern="[0-9]{10}" />
+                        <input class="input" id="telefono02" name="telefono02" type="text" pattern="[0-9]{10}" maxlength="10" onchange="setMessage(this)" />
                     </div>
                     <div class="peq-span-2">
                         <label for="email01">E-mail 1</label>
@@ -71,19 +69,19 @@
                     <input class="span-10 input" id="beneficiario" name="beneficiario" type="text" maxlength="50" />
                     <div class="span-5 peq-span-10">
                         <label for="curp">Curp</label>
-                        <input class="input" id="curp" name="curp" type="text" minlength="18" maxlength="18" pattern="[A-Za-z0-9]{18}" required />
+                        <input class="input" id="curp" name="curp" type="text" minlength="18" maxlength="18" pattern="[A-Za-z0-9]{18}" required onchange="setMessage(this)" />
                     </div>
                     <div class="span-5 peq-span-10">
                         <label for="rfc">RFC</label>
-                        <input class="input" id="rfc" name="rfc" type="text" minlength="13" maxlength="13" pattern="[A-Za-z0-9]{13}" />
+                        <input class="input" id="rfc" name="rfc" type="text" minlength="13" maxlength="13" pattern="[A-Za-z0-9]{13}" onchange="setMessage(this)" />
                     </div>
                     <div class="span-5 peq-span-10">
                         <label for="nss">No. de seguridad social</label>
-                        <input class="input" id="nss" name="nss" type="text" minlength="11" maxlength="11" pattern="[0-9]{11}" />
+                        <input class="input" id="nss" name="nss" type="text" minlength="11" maxlength="11" pattern="[0-9]{11}" onchange="setMessage(this)" />
                     </div>
                     <div class="span-5 peq-span-10">
                         <label for="ine">INE (Clave de elector)</label>
-                        <input class="input" id="ine" name="ine" type="text" minlength="18" maxlength="18" pattern="[A-Za-z0-9]{18}" required />
+                        <input class="input" id="ine" name="ine" type="text" minlength="18" maxlength="18" pattern="[A-Za-z0-9]{18}" onchange="setMessage(this)" required />
                     </div>
 
                     <label class="span-10" for="nivelEstudios">Nivel de estudios</label>

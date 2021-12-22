@@ -3,9 +3,21 @@
     $correo = $_GET['correo'];
     // Conexion
     require_once('./modelos/Conexion.php');
+
+    //Recuperar permisos
+    $sql = "SELECT * FROM permisos";
+    $query = mysqli_query($conexion, $sql);
+    if ($query) {
+        $idsPermiso = array();
+        $nombresPermiso = array();
+        while ($row = @mysqli_fetch_array($query)) {
+            $nombresPermiso[$row['idPermiso']] = $row['nombre'];
+            $idsPermiso[$row['idPermiso']] = $row['idPermiso'];
+        }
+    }
     
     // Recuperar destinatarios
-    $sql = "SELECT `correo`, `nombre`, `estatus`, `estatusCorreo` FROM usuarios WHERE `correo` = '$correo'";
+    $sql = "SELECT `correo`, `nombre`, `estatus`, `estatusCorreo`, `idPermiso` FROM usuarios WHERE `correo` = '$correo'";
     $query = mysqli_query($conexion, $sql);
     if ($query) {
         $datos = mysqli_fetch_array($query);
@@ -13,6 +25,7 @@
         $nombre = utf8_encode($datos['nombre']);
         $estatus = $datos['estatus'];
         $estatusCorreo = $datos['estatusCorreo'];
+        $permiso = $datos['idPermiso'];
         mysqli_close($conexion);
     }
     else {

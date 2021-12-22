@@ -221,6 +221,9 @@ body {
 .m-min {
     margin: 1px;
 }
+.input:focus:invalid {
+    border: 1px solid var(--clr-red);
+}
 
 @media screen and (max-width: 992px) {
     .tabla {

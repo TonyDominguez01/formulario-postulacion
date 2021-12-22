@@ -1,29 +1,19 @@
-const VerificarDatos = () => {
-    let telefono01 = document.getElementById('telefono01');
-    let email01 = document.getElementById('email01');
-    let curp = document.getElementById('curp');
-    let ine = document.getElementById('ine');
-
-    let error = '';
-
-    if (telefono01.length == 10) { error += 'Error en el teléfono'; }
-    if (curp.length == 18) { error += 'Error en el curp'; }
-    if (ine.length == 18) { error += 'Error en el ine'; }
-
-    if (error.length <= 0) {
-        
+const setMessage = (e) => {
+    e.setCustomValidity('');
+    if(!e.checkValidity()) {
+        let mensaje = '';
+        switch (e.id) {
+            case 'cp': mensaje = 'Debe estar formado por 5 números'; break;
+            case 'telefono01': mensaje = 'Debe estar formado por 10 números'; break;
+            case 'telefono02': mensaje = 'Debe estar formado por 10 números'; break;
+            case 'curp': mensaje = 'Debe estar formado por 18 carácteres alfanuméricos'; break;
+            case 'rfc': mensaje = 'Debe estar formado por 13 carácteres alfanuméricos'; break;
+            case 'nss': mensaje = 'Debe estar formado por 11 números'; break;
+            case 'ine': mensaje = 'Debe estar formado por 18 carácteres alfanuméricos'; break;
+            default: break;
+        }
+        e.setCustomValidity(mensaje);
     }
-}
-const Check = (e) => {
-    tecla = (document.all) ? e.keyCode : e.which;
-
-    //Tecla de retroceso para borrar, siempre la permite
-    if (tecla == 8) return true;
-
-    // Patron de entrada, en este caso solo acepta numeros y letras
-    patron = /[A-Za-z0-9]/;
-    tecla_final = String.fromCharCode(tecla);
-    return patron.test(tecla_final);
 }
 
 const activarModal = () => {
@@ -32,7 +22,7 @@ const activarModal = () => {
 }
 const validacion = () => {
     if (document.getElementById('avisoPrivacidad').checked == false) {
-        alert('Debes leer y aceptar el aviso de privacidad antes de continuar')
+        alert('Debes leer y aceptar el aviso de privacidad antes de continuar');
         document.getElementById('avisoPrivacidad').focus();
         return false
     }
