@@ -1,8 +1,11 @@
 let correoSeleccionado = '';
 let estadoToggle = true;
 
-const abrirBorrar = (correo) => {
-    
+const abrirBorrar = (correo, nombre) => {
+    correoSeleccionado = correo;
+    document.getElementById('modal-borrar').classList.toggle('active');
+    document.getElementById('modal-borrar').getElementsByClassName('modal-content')[0].classList.toggle('active');
+    document.getElementById('txt-borrar').innerHTML = '¿Estás seguro que quieres eliminar la solicitud recibida por ' + nombre + ' desde el correo ' + correo + '?';
 }
 const cerrarBorrar = () => {
     document.getElementById('modal-borrar').classList.toggle('active');
@@ -10,7 +13,7 @@ const cerrarBorrar = () => {
 }
 
 const borrarSolicitud = () => {
-    location.href = './?peticion=borrar-solicitud&id=' + solicitudSeleccionada;
+    location.href = './?peticion=borrar-solicitud-rapida&correo=' + correoSeleccionado;
 }
 
 const enviarWhatsapp = (telefono) => {

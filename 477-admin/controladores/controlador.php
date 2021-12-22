@@ -49,6 +49,18 @@
                     </script>";
                 }
                 break;
+            case 'borrar-solicitud-rapida':
+                if (isset($_GET['correo'])){
+                    $correo = $_GET['correo'];
+                    require_once('./modelos/BorrarSolicitudRapida.php');
+                }
+                else {
+                    echo "<script>
+                        alert('No se ha introducido un correo');
+                        location.href = './?peticion=registros-solicitudes';
+                    </script>";
+                }
+                break;
             case 'logout':
                 require_once('./modelos/Logout.php');
                 break;

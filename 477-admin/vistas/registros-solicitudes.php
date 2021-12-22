@@ -18,7 +18,7 @@
         }
         const generarCartera = () => {
             <?php verificarActividad(); ?>
-            window.open('./vistas/generar-cartera.php', '_blank');
+            window.open('./vistas/cartera-candidatos.php', '_blank');
         }
     </script>
     <?php require_once('./components/nav.php'); ?>

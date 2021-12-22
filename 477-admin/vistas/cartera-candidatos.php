@@ -6,7 +6,7 @@
     require_once('../modelos/Conexion.php');
 
     // Recuperar destinatarios
-    $sql = "SELECT `nombre`, `telefono01`, `telefono02`, `email01`, `email02` FROM postulantes";
+    $sql = "SELECT `nombre`, `telefono01`, `telefono02`, `email01`, `email02` FROM candidatos";
     $query = mysqli_query($conexion, $sql);
 
     if ($query) {

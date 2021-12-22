@@ -86,9 +86,10 @@
                     <td>Nombre</td>
                     <td>Correo</td>
                     <td>Fecha de solicitud</td>
+                    <td>Disponible</td>
                     <td>Teléfono</td>
                     <td>Ver todo</td>
-                    <td>Disponible</td>
+                    <td>Eliminar</td>
                 </tr>
                 <?php
                     for ($i=0; $i < sizeof($correos); $i++) { 
@@ -98,6 +99,12 @@
                             <td><?php echo $correos[$i] ?></td>
                             <td><?php echo date_format(date_create($fechas[$i]), "d/m/Y - H:i:s"); ?></td>
                             <td>
+                                <div class="indicador <?php 
+                                    if ($disponibles[$i] == 0) echo 'bg-red';
+                                    else echo 'bg-green';
+                                ?>"></div>
+                            </td>
+                            <td>
                                 <button class="btn with-icon bg-green" onclick=enviarWhatsapp(<?php echo $telefonos[$i]; ?>)>
                                     <div><?php echo $telefonos[$i] ?></div>
                                     <img src="./icons/icon_whatsapp.png" alt="">
@@ -105,10 +112,7 @@
                             </td>
                             <td><button class='btn with-icon' onclick=abrirPDF('<?php echo $correos[$i]; ?>')>Ver todo<img src="./icons/icon_pdf.png" alt=""></button></td>
                             <td>
-                                <div class="indicador <?php 
-                                    if ($disponibles[$i] == 0) echo 'bg-red';
-                                    else echo 'bg-green';
-                                ?>"></div>
+                                <button class='btn with-icon bg-red' onclick="abrirBorrar(<?php echo "'$correos[$i]', '$nombres[$i]'"; ?>)"><div>eliminar</div><img src="./icons/icon_delete.png"></button>
                             </td>
                         </tr>
                 <?php
