@@ -17,7 +17,7 @@
     <?php require_once('./components/nav.php'); ?>
     <div class="contenedor">
         <div class="contenedor-ancho mt-2">
-            <h1>Administrar Cuentas</h1>
+            <h1>Mantenimiento</h1>
 
             <a class="btn" href="./?peticion=liberar-archivos">Liberar Archivos</a>
 

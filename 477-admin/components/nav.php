@@ -12,6 +12,7 @@
         <?php
         }
         ?>
+            <!-- <a class='link' href='./?peticion=registros-solicitudes'>Registros de Solicitudes</a> -->
             <a class='link' href='./?peticion=solicitudes-rapidas'>Solicitudes Rapidas</a>
         <a class="link" href="./?peticion=logout">Cerrar Sesión</a>
     </div>

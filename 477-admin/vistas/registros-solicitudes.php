@@ -54,20 +54,20 @@
                         <p>Ordenar por: </p>
                         <div>
                             <div class="toggle-div">
-                                <a id="toggle-ordenar-l" type="button" class="toggle-btn width-6 l with-icon" href='<?php echo "?page=$page&ordenar=nombre&sentido=$sentido&filtro=$filtro&$valor"; ?>'>
+                                <a id="toggle-ordenar-l" type="button" class="toggle-btn width-6 l with-icon" href='<?php echo "?peticion=registros-solicitudes&page=$page&ordenar=nombre&sentido=$sentido&filtro=$filtro&$valor"; ?>'>
                                     nombre
                                 </a>
-                                <a id="toggle-ordenar-r" type="button" class="toggle-btn width-6 r with-icon" href='<?php echo "?page=$page&ordenar=fecha&sentido=$sentido&filtro=$filtro&$valor"; ?>'>
+                                <a id="toggle-ordenar-r" type="button" class="toggle-btn width-6 r with-icon" href='<?php echo "?peticion=registros-solicitudes&page=$page&ordenar=fecha&sentido=$sentido&filtro=$filtro&$valor"; ?>'>
                                     fecha
                                 </a>
                             </div>
                         </div>
                         <div>
                             <div class="toggle-div">
-                                <a id="toggle-sentido-l" type="button" class="toggle-btn width-4 l with-icon" href='<?php echo "?page=$page&ordenar=$criterio&sentido=asc&filtro=$filtro&$valor"; ?>'>
+                                <a id="toggle-sentido-l" type="button" class="toggle-btn width-4 l with-icon" href='<?php echo "?peticion=registros-solicitudes&page=$page&ordenar=$criterio&sentido=asc&filtro=$filtro&$valor"; ?>'>
                                     <img src="./icons/icon_asc.png" alt="">
                                 </a>
-                                <a id="toggle-sentido-r" type="button" class="toggle-btn width-4 r with-icon" href='<?php echo "?page=$page&ordenar=$criterio&sentido=desc&filtro=$filtro&$valor"; ?>'>
+                                <a id="toggle-sentido-r" type="button" class="toggle-btn width-4 r with-icon" href='<?php echo "?peticion=registros-solicitudes&page=$page&ordenar=$criterio&sentido=desc&filtro=$filtro&$valor"; ?>'>
                                     <img src="./icons/icon_desc.png" alt="">
                                 </a>
                             </div>
@@ -75,8 +75,8 @@
                     </div>
                     <div class="inline-flex r span-3 med-span-7">
                         <div class="text-right">
-                            <a class="btn" href='<?php echo "?page=$pagAnt&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b><</b></a>
-                            <a class="btn" href='<?php echo "?page=$pagSig&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b>></b></a>
+                            <a class="btn" href='<?php echo "?peticion=registros-solicitudes&page=$pagAnt&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b><</b></a>
+                            <a class="btn" href='<?php echo "?peticion=registros-solicitudes&page=$pagSig&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b>></b></a>
                         </div>
                         <p class="text-right"><?php echo $page; ?> / <?php echo $totalPages; ?></p>
                     </div>
