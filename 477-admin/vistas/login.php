@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="../ajolote/a-styles.css">
-    <link rel="stylesheet" href="../css/estilos.css">
-    <script src="../ajolote/a-functions.js"></script>
-    <script src="./js/password.js"></script>
-</head>
+<html lang="es">
+<?php
+    $title = 'Login';
+    $extras = '<script src="./js/password.js"></script>';
+    require_once('./components/head.php');
+?>
 <body>
     <div class="contenedor pt-4 pb-1 text-center">
         <div class="card form-cont login bg-white">
@@ -17,8 +12,8 @@
                 <h1>Login</h1>
             </div>
             <form class="ph-0 pv-5" action="./index.php" method="POST">
-                <label for="correo">Correo</label>
-                <input class="input" type="text" name="correo" id="correo" required>
+                <label for="usuario">Correo o Usuario</label>
+                <input class="input" type="text" name="usuario" id="usuario" required>
                 <label for="password">Password</label>
                 <button id="ocultar-password" type="button" onclick=mostrarOcultar()><img src="./icons/icon_hide.png" alt=""></button>
                 <input class="input" type="password" name="password" id="password" required>

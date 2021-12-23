@@ -31,9 +31,9 @@
                 require_once('./modelos/RegistrosSolicitudes.php');
                 require_once('./vistas/registros-solicitudes.php');
                 break;
-            case 'solicitudes-rapidas':
-                require_once('./modelos/SolicitudesRapidas.php');
-                require_once('./vistas/solicitudes-rapidas.php');
+            case 'solicitudes-contacto':
+                require_once('./modelos/SolicitudesContacto.php');
+                require_once('./vistas/solicitudes-contacto.php');
                 break;
             case 'ver-solicitud':
                 break;
@@ -112,14 +112,14 @@
                             require_once('./modelos/Secciones.php');
                             break;
                         default:
-                            require_once('./modelos/SolicitudesRapidas.php');
-                            require_once('./vistas/solicitudes-rapidas.php');
+                            require_once('./modelos/SolicitudesContacto.php');
+                            require_once('./vistas/solicitudes-contacto.php');
                             break;
                     }
                 }
                 else {
-                    require_once('./modelos/SolicitudesRapidas.php');
-                    require_once('./vistas/solicitudes-rapidas.php');
+                    require_once('./modelos/SolicitudesContacto.php');
+                    require_once('./vistas/solicitudes-contacto.php');
                 }
                 break;
         }

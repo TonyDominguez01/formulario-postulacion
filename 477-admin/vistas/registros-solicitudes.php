@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registros de Solicitudes</title>
-    <link rel="stylesheet" href="../ajolote/a-styles.css">
-    <script src="../ajolote/a-functions.js"></script>
-    <link rel="stylesheet" href="../css/estilos.css">
-    <script src="./js/registros-solicitudes.js"></script>
-</head>
+<?php
+    $title = 'Solicitudes Completas';
+    $extras = '<script src="./js/registros-solicitudes.js"></script>';
+    require_once('./components/head.php');
+?>
 <body>
     <script>
         const abrirPDF = (id) => {
@@ -24,7 +19,7 @@
     <?php require_once('./components/nav.php'); ?>
     <div class="contenedor">
         <div class="contendor-ancho mv-2">
-            <h1>Registros de Solicitudes</h1>
+            <h1>Solicitudes Completas</h1>
             <div class="contenedor-ancho">
                 <div class="grid col-4">
                     <div class="toggle-div peq-span-4">
@@ -32,7 +27,7 @@
                         <button id="toggle-filtro-r" type="button" class="toggle-btn width-6 r m-2" onclick=cambiarFiltro()>filtrar</button>
                     </div>
                     <div class="span-3 peq-span-4">
-                        <form id="form-buscar" class="m-0 bg-none active" method="POST" action="./peticion=registros-solicitudes">
+                        <form id="form-buscar" class="m-0 bg-none active" method="POST" action="./?peticion=registros-solicitudes">
                             <input id="busqueda" name="busqueda" class="input" type="text" required>
                             <input type="hidden" name="buscar" id="buscar" value="buscar">
                             <button class="btn" type="submit">buscar</button>
@@ -91,7 +86,7 @@
                     <td>Email 1</td>
                     <td>Fecha de solicitud</td>
                     <td>Teléfono 1</td>
-                    <td>PDF</td>
+                    <td>Ver todo</td>
                     <td>Eliminar</td>
                 </tr>
                 <?php
@@ -108,7 +103,7 @@
                                 </button>
                             </td>
                             <td>
-                                <button class='btn with-icon' onclick=abrirPDF(<?php echo $ids[$i]; ?>)><div>ver pdf </div><img src="./icons/icon_pdf.png"></button>
+                                <button class='btn with-icon' onclick=abrirPDF(<?php echo $ids[$i]; ?>)><div>ver todo </div><img src="./icons/icon_pdf.png"></button>
                             </td>
                             <td>
                                 <button class='btn with-icon bg-red' onclick="abrirBorrar('<?php echo "$ids[$i]', '$nombres[$i]"; ?>')"><div>eliminar</div><img src="./icons/icon_delete.png"></button>

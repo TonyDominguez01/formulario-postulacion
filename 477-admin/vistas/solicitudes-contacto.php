@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitudes Rápidas</title>
-    <link rel="stylesheet" href="../ajolote/a-styles.css">
-    <script src="../ajolote/a-functions.js"></script>
-    <link rel="stylesheet" href="../css/estilos.css">
-    <script src="./js/solicitudes-rapidas.js"></script>
-</head>
+<?php
+    $title = 'Solicitudes de Contacto';
+    $extras = '<script src="./js/solicitudes-contacto.js"></script>';
+    require_once('./components/head.php');
+?>
 <body>
     <script>
+        function actualizar(){location.reload(true);}
+        //Función para actualizar cada 5 segundos(5000 milisegundos)
+        setInterval("actualizar()",60000);
         const abrirPDF = (correo) => {
             <?php verificarActividad(); ?>
             window.open('./vistas/ver-solicitud-rapida.php?correo=' + correo, '_blank');
@@ -20,7 +18,7 @@
     <?php require_once('./components/nav.php'); ?>
     <div class="contenedor">
         <div class="contendor-ancho mv-2">
-            <h1>Solicitudes Rápidas</h1>
+            <h1>Solicitudes de Contacto</h1>
             <div class="contenedor-ancho">
                 <div class="grid col-4">
                     <div class="toggle-div peq-span-4">
@@ -28,19 +26,19 @@
                         <button id="toggle-filtro-r" type="button" class="toggle-btn width-6 r" onclick=cambiarFiltro()>filtrar</button>
                     </div>
                     <div class="span-3 peq-span-4">
-                        <form id="form-buscar" class="m-0 bg-none active" method="POST" action="./?peticion=solicitudes-rapidas">
+                        <form id="form-buscar" class="m-0 bg-none active" method="POST" action="./?peticion=solicitudes-contacto">
                             <input id="busqueda" name="busqueda" class="input" type="text" required>
                             <input type="hidden" name="buscar" id="buscar" value="buscar">
                             <button class="btn" type="submit">buscar</button>
-                            <button class="btn bg-red" type="button" onclick="location.href = './?peticion=solicitudes-rapidas'">limpiar busqueda</button>
+                            <button class="btn bg-red" type="button" onclick="location.href = './?peticion=solicitudes-contacto'">limpiar busqueda</button>
                             <p class="mb-1">Puedes buscar solicitudes por nombre o por correo</p>
                         </form>
-                        <form id="form-filtrar" class="m-0 bg-none" method="POST" action="./?peticion=solicitudes-rapidas">
+                        <form id="form-filtrar" class="m-0 bg-none" method="POST" action="./?peticion=solicitudes-contacto">
                             <input class="input" type="date" name="fecha-inicio" id="fecha-inicio" required>
                             <input class="input" type="date" name="fecha-final" id="fecha-final" required>
                             <input type="hidden" name="filtrar" id="filtrar" value="filtrar">
                             <button class="btn" type="submit">filtrar</button>
-                            <button class="btn bg-red" type="button" onclick="location.href = './?peticion=solicitudes-rapidas'">limpiar filtro</button>
+                            <button class="btn bg-red" type="button" onclick="location.href = './?peticion=solicitudes-contacto'">limpiar filtro</button>
                             <p class="mb-1">Elige dos fechas para ver las solicitudes recibidas en ese periodo de tiempo</p>
                         </form>
                     </div>
@@ -50,20 +48,20 @@
                         <p>Ordenar por: </p>
                         <div>
                             <div class="toggle-div">
-                                <a id="toggle-ordenar-l" type="button" class="toggle-btn width-6 l with-icon" href='<?php echo "?peticion=solicitudes-rapidas&page=$page&ordenar=nombre&sentido=$sentido&filtro=$filtro&$valor"; ?>'>
+                                <a id="toggle-ordenar-l" type="button" class="toggle-btn width-6 l with-icon" href='<?php echo "?peticion=solicitudes-contacto&page=$page&ordenar=nombre&sentido=$sentido&filtro=$filtro&$valor"; ?>'>
                                     nombre
                                 </a>
-                                <a id="toggle-ordenar-r" type="button" class="toggle-btn width-6 r with-icon" href='<?php echo "?peticion=solicitudes-rapidas&page=$page&ordenar=fecha&sentido=$sentido&filtro=$filtro&$valor"; ?>'>
+                                <a id="toggle-ordenar-r" type="button" class="toggle-btn width-6 r with-icon" href='<?php echo "?peticion=solicitudes-contacto&page=$page&ordenar=fecha&sentido=$sentido&filtro=$filtro&$valor"; ?>'>
                                     fecha
                                 </a>
                             </div>
                         </div>
                         <div>
                             <div class="toggle-div">
-                                <a id="toggle-sentido-l" type="button" class="toggle-btn width-4 l with-icon" href='<?php echo "?peticion=solicitudes-rapidas&page=$page&ordenar=$criterio&sentido=asc&filtro=$filtro&$valor"; ?>'>
+                                <a id="toggle-sentido-l" type="button" class="toggle-btn width-4 l with-icon" href='<?php echo "?peticion=solicitudes-contacto&page=$page&ordenar=$criterio&sentido=asc&filtro=$filtro&$valor"; ?>'>
                                     <img src="./icons/icon_asc.png" alt="">
                                 </a>
-                                <a id="toggle-sentido-r" type="button" class="toggle-btn width-4 r with-icon" href='<?php echo "?peticion=solicitudes-rapidas&page=$page&ordenar=$criterio&sentido=desc&filtro=$filtro&$valor"; ?>'>
+                                <a id="toggle-sentido-r" type="button" class="toggle-btn width-4 r with-icon" href='<?php echo "?peticion=solicitudes-contacto&page=$page&ordenar=$criterio&sentido=desc&filtro=$filtro&$valor"; ?>'>
                                     <img src="./icons/icon_desc.png" alt="">
                                 </a>
                             </div>
@@ -71,8 +69,8 @@
                     </div>
                     <div class="inline-flex r span-3 med-span-7">
                         <div class="text-right">
-                            <a class="btn" href='<?php echo "?peticion=solicitudes-rapidas&page=$pagAnt&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b><</b></a>
-                            <a class="btn" href='<?php echo "?peticion=solicitudes-rapidas&page=$pagSig&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b>></b></a>
+                            <a class="btn" href='<?php echo "?peticion=solicitudes-contacto&page=$pagAnt&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b><</b></a>
+                            <a class="btn" href='<?php echo "?peticion=solicitudes-contacto&page=$pagSig&ordenar=$criterio&sentido=$sentido&filtro=$filtro&$valor"; ?>'><b>></b></a>
                         </div>
                         <p class="text-right"><?php echo $page; ?> / <?php echo $totalPages; ?></p>
                     </div>
@@ -92,7 +90,7 @@
                     <td>Eliminar</td>
                 </tr>
                 <?php
-                    for ($i=0; $i < sizeof($correos); $i++) { 
+                    for ($i=0; $i < sizeof($correos); $i++) {
                 ?>
                         <tr>
                             <td><?php echo $nombres[$i] ?></td>
@@ -110,7 +108,7 @@
                                     <img src="./icons/icon_whatsapp.png" alt="">
                                 </button>
                             </td>
-                            <td><button class='btn with-icon' onclick=abrirPDF('<?php echo $correos[$i]; ?>')>Ver todo<img src="./icons/icon_pdf.png" alt=""></button></td>
+                            <td><button class='btn with-icon' onclick=abrirPDF('<?php echo $correos[$i]; ?>')>ver todo<img src="./icons/icon_pdf.png" alt=""></button></td>
                             <td>
                                 <button class='btn with-icon bg-red' onclick="abrirBorrar(<?php echo "'$correos[$i]', '$nombres[$i]'"; ?>)"><div>eliminar</div><img src="./icons/icon_delete.png"></button>
                             </td>

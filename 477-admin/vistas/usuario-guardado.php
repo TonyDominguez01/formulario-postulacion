@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuario Guardado</title>
-    <link rel="stylesheet" href="../ajolote/a-styles.css">
-    <link rel="stylesheet" href="../css/estilos.css">
-    <script src="../ajolote/a-functions.js"></script>
-</head>
+<?php
+    $title = 'Usuario Guardado';
+    $extras = '';
+    require_once('./components/head.php');
+?>
 <body>
     <?php include_once('./components/nav.php') ?>
     <div class="contenedor mt-2">

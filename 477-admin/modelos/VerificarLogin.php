@@ -1,5 +1,5 @@
 <?php
-    $correo = $_POST['correo'];
+    $usuario = $_POST['usuario'];
     $password = md5($_POST['password']);
     
     // Conexion
@@ -8,7 +8,7 @@
         die("Error de conexion: " . mysqli_connect_error());
     }
 
-    $sql = "SELECT * FROM usuarios WHERE `correo` = '$correo' AND `password` = '$password'";
+    $sql = "SELECT * FROM usuarios WHERE (`correo` = '$usuario' OR `nombre` = '$usuario') AND `password` = '$password'";
     $query = mysqli_query($conexion, $sql);
     $row = mysqli_fetch_array($query);
     if ($row != NULL) {
