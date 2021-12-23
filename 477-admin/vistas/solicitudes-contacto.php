@@ -7,12 +7,11 @@
 ?>
 <body>
     <script>
-        function actualizar(){location.reload(true);}
-        //Función para actualizar cada 5 segundos(5000 milisegundos)
+        function actualizar(){location.reload(true);} //Actualiza la página cada 60 segundos(60,000 milisegundos)
         setInterval("actualizar()",60000);
         const abrirPDF = (correo) => {
             <?php verificarActividad(); ?>
-            window.open('./vistas/ver-solicitud-rapida.php?correo=' + correo, '_blank');
+            window.open('./vistas/solicitud-de-contacto.php?correo=' + correo, '_blank');
         }
     </script>
     <?php require_once('./components/nav.php'); ?>

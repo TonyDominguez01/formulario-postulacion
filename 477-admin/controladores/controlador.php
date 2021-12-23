@@ -2,7 +2,7 @@
     function verificarActividad (){
         if (isset($_SESSION['ultimoAcceso'])) {
             $tiempoActual = date("Y-n-j H:i:s");
-            $tiempoInactividad = 900;
+            $tiempoInactividad = 1800;
             if ((strtotime($tiempoActual) - strtotime($_SESSION['ultimoAcceso'])) >= $tiempoInactividad){
                 $ruta = './?peticion=logout';
                 echo "<script>

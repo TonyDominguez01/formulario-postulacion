@@ -9,7 +9,7 @@
     <script>
         const abrirPDF = (id) => {
             <?php verificarActividad(); ?>
-            window.open('./vistas/ver-solicitud.php?id=' + id, '_blank');
+            window.open('./vistas/solicitud.php?id=' + id, '_blank');
         }
         const generarCartera = () => {
             <?php verificarActividad(); ?>

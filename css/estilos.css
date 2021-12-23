@@ -11,10 +11,16 @@ body {
 .form-cont {
     padding: 0;
 }
-.form-cont.login {
+.login {
     width: 80%;
-    max-width: 640px;
+    height: auto;
+    max-width: 800px;
     margin: auto;
+    padding: 0;
+    max-height: 400px;
+}
+.login-img {
+    height: fit-content;
 }
 .form-cont form {
     margin: 1rem 3rem;
@@ -230,7 +236,7 @@ body {
         display: block;
         overflow-y: auto;
     }
-    .form-cont.login {
+    .login {
         width: 90%;
     }
     .modal-simple {
@@ -242,8 +248,11 @@ body {
     }
 }
 @media screen and (max-width: 576px) {
-    .form-cont.login {
+    .login {
         width: 100%;
+    }
+    .login-img {
+        height: 0%;
     }
     .modal-simple {
         left: 5%;

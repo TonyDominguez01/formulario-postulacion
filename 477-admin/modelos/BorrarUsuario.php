@@ -5,7 +5,7 @@
 
     require_once('./modelos/Conexion.php');
 
-    $sql = "DELETE FROM `destinatarios` WHERE `correo` = '$correo'";
+    $sql = "DELETE FROM `usuarios` WHERE `correo` = '$correo'";
     $query = mysqli_query($conexion, $sql);
 
     mysqli_close($conexion);
