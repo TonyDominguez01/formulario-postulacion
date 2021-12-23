@@ -8,12 +8,12 @@
 <body>
     <div class="contenedor pt-4 pb-1 text-center">
         <div class="card login grid col-5 bg-white">
-            <div class="span-2 peq-span-5">
-                <img class="login-img" src="../img/background.jpg" alt="">
+            <div class="login-img span-2 peq-span-5">
+                <img src="../img/logo.png" alt="logo">
             </div>
             <div class="span-3 peq-span-5 bg-white p-2">
                 <h1>Login</h1>
-                <form class="ph-0 pv-5" action="./index.php" method="POST">
+                <form class="ph-0 pv-3" action="./index.php" method="POST">
                     <label for="usuario">Correo o Usuario</label>
                     <input class="input" type="text" name="usuario" id="usuario" required>
                     <label for="password">Password</label>

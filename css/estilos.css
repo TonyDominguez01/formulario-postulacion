@@ -13,14 +13,22 @@ body {
 }
 .login {
     width: 80%;
-    height: auto;
     max-width: 800px;
     margin: auto;
     padding: 0;
     max-height: 400px;
 }
 .login-img {
-    height: fit-content;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    background: lightgray;
+}
+.login-img img{
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 15%;
 }
 .form-cont form {
     margin: 1rem 3rem;

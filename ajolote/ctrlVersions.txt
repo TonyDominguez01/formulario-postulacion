@@ -39,3 +39,6 @@
     
 00.02.07 --- 14/12/2021
     - Se cambio el padding de la clase 'input' a '4px 8px', además se definio un height de 2rem
+
+00.02.08 --- 23/12/2021
+    - Se agregaron las clases 'p-1', 'p-2', 'p-3', 'p-4', 'p-5' 'm-1', 'm-2', 'm-3', 'm-4' y 'm-5'

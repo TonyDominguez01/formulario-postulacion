@@ -433,11 +433,17 @@ form label {
 ============== */
 
 /* padding */
-.p-0 { padding: 0 }
-.pt-0 { padding-top: 0 }
-.pb-0 { padding-bottom: 0 }
-.pr-0 { padding-right: 0 }
-.pl-0 { padding-left: 0 }
+.p-0 { padding: 0; }
+.p-1 { padding: 1rem; }
+.p-2 { padding: 2rem; }
+.p-3 { padding: 3rem; }
+.p-4 { padding: 4rem; }
+.p-4 { padding: 5rem; }
+
+.pt-0 { padding-top: 0; }
+.pb-0 { padding-bottom: 0; }
+.pr-0 { padding-right: 0; }
+.pl-0 { padding-left: 0; }
 
 .pt-1 { padding-top: 1rem; }
 .pb-1 { padding-bottom: 1rem; }
@@ -479,11 +485,17 @@ form label {
 .ph-5 { padding-right: 5rem; padding-left: 5rem; }
 
 /* margen */
-.m-0 { margin: 0px }
-.mt-0 { margin-top: 0px }
-.mb-0 { margin-bottom: 0 }
-.mr-0 { margin-right: 0 }
-.ml-0 { margin-left: 0 }
+.m-0 { margin: 0; }
+.m-1 { margin: 1rem; }
+.m-2 { margin: 2rem; }
+.m-3 { margin: 3rem; }
+.m-4 { margin: 4rem; }
+.m-5 { margin: 5rem; }
+
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mr-0 { margin-right: 0; }
+.ml-0 { margin-left: 0; }
 
 .mt-1 { margin-top: 1rem }
 .mb-1 { margin-bottom: 1rem }
