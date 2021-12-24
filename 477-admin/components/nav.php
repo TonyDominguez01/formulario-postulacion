@@ -1,14 +1,14 @@
-<nav class="nav">
+<nav class="menu">
     <div class="contenedor" id="nav">
-        <div class="encabezado inline-flex">
+        <div class="menu-icon" onclick=MostrarOcultarMenu()><p>☰</p></div>
+        <div class="encabezado-m inline-flex">
             <p><?php echo $_SESSION['nombre']; ?></p>
         </div>
-        <div class="nav-menu-icon" onclick=MostrarOcultarMenu()><p>☰</p></div>
         <?php
         if ($_SESSION['permiso'] == 0) {
         ?>
             <a class='link' href='./?peticion=administrar-cuentas'>Cuentas</a>
-            <!-- <a class='link' href='./?peticion=mantenimiento'>Mantenimiento</a> -->
+            <a class='link' href='./?peticion=mantenimiento'>Mantenimiento</a>
         <?php
         }
         ?>

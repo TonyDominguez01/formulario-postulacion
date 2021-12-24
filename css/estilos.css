@@ -8,6 +8,48 @@
 body {
     background: #eee;
 }
+.main {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    display: flex;
+}
+.main > .menu {
+    height: 100%;
+    background: var(--clr-main);
+    width: 16%;
+    margin: 0;
+}
+.main > .contenedor {
+    width: 84%;
+    padding: 1rem;
+    overflow-y: scroll;
+}
+.menu .encabezado-m,
+.menu .menu-icon {
+    color: #fff;
+    padding: 1rem 1rem;
+    font-weight: 700;
+}
+.menu .menu-icon {
+    text-align: center;
+    font-size: 1.5rem;
+    position: relative;
+    cursor: pointer;
+}
+.menu .link {
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    transition: .3s ease all;
+}
+.menu .link:hover,
+.menu .link.activo {
+    background: var(--clr-main-h);
+}
 .form-cont {
     padding: 0;
 }

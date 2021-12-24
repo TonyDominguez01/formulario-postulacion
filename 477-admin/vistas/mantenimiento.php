@@ -9,14 +9,16 @@
     require_once('./components/head.php');
 ?>
 <body>
-    <?php require_once('./components/nav.php'); ?>
-    <div class="contenedor">
-        <div class="contenedor-ancho mt-2">
-            <h1>Mantenimiento</h1>
-
-            <a class="btn" href="./?peticion=liberar-archivos">Liberar Archivos</a>
-
-            <div id="results" class="results"></div>
+    <div class="main">
+        <?php require_once('./components/nav.php'); ?>
+        <div class="contenedor">
+            <div class="contenedor-ancho mt-2">
+                <h1>Mantenimiento</h1>
+    
+                <a class="btn" href="./?peticion=liberar-archivos">Liberar Archivos</a>
+    
+                <div id="results" class="results"></div>
+            </div>
         </div>
     </div>
 </body>
