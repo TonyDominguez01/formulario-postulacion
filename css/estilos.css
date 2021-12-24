@@ -6,7 +6,7 @@
 }
     
 body {
-    background: #ddd;
+    background: #eee;
 }
 .form-cont {
     padding: 0;
@@ -16,19 +16,15 @@ body {
     max-width: 800px;
     margin: auto;
     padding: 0;
-    max-height: 400px;
 }
 .login-img {
-    position: relative;
+    width: 100%;
     overflow: hidden;
-    height: 100%;
-    background: lightgray;
+    background: var(--clr-main);
 }
 .login-img img{
-    position: absolute;
     width: 80%;
-    left: 10%;
-    top: 15%;
+    margin: 25% auto;
 }
 .form-cont form {
     margin: 1rem 3rem;
@@ -93,15 +89,10 @@ body {
     cursor: pointer;
     transition: .3s ease all;
 }
-.btn-question:hover {
-    background: #444;
-}
-.btn-question.active {
-    background: var(--clr-main);
-}
-.btn-question.active:hover {
-    background: #444;
-}
+.btn-question:hover { background: #444; }
+.btn-question.active { background: var(--clr-main); }
+.btn-question.active:hover { background: #444; }
+
 .modal-simple {
     position: fixed;
     width: auto;
@@ -123,9 +114,7 @@ body {
     opacity: 1;
     transform: scale(1, 1);
 }
-.btn.with-icon {
-    display: inline-flex;
-}
+.btn.with-icon { display: inline-flex; }
 .btn.with-icon img,
 .toggle-btn.with-icon img {
     width: 1.5rem;
@@ -183,15 +172,9 @@ body {
     height: 50px;
 }
 
-.inline-flex > * {
-    margin-right: 0.25rem;
-}
-.inline-flex.l > * {
-    float: left;
-}
-.inline-flex.r > * {
-    float: right;
-}
+.inline-flex > * { margin-right: 0.25rem; }
+.inline-flex.l > * { float: left; }
+.inline-flex.r > * { float: right; }
 .preloader {
     width: 70px;
     height: 70px;
@@ -207,12 +190,8 @@ body {
     animation-timing-function: linear;
 }
 @keyframes girar {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 .bg-dark {
     background: var(--clr-dark);
@@ -240,31 +219,30 @@ body {
 }
 
 @media screen and (max-width: 992px) {
+    .login { width: 90%; }
+    .inline-flex.r > * { float: left; }
     .tabla {
         display: block;
         overflow-y: auto;
-    }
-    .login {
-        width: 90%;
     }
     .modal-simple {
         left: 15%;
         right: 15%;
     }
-    .inline-flex.r > * {
-        float: left;
+    .login-img img{
+        width: 90%;
+        margin: 20% auto;
     }
 }
 @media screen and (max-width: 576px) {
-    .login {
-        width: 100%;
-    }
-    .login-img {
-        height: 0%;
-    }
+    .login { width: 100%; }
     .modal-simple {
         left: 5%;
         right: 5%;
+    }
+    .login-img img{
+        width: 25%;
+        margin: 1% auto;
     }
 }
 

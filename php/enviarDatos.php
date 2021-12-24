@@ -158,7 +158,7 @@
             $mail->isHTML(true);
             $mail->Subject = 'Solicitud de Empleo enviada por ' . $datos['nombre'];
             $mail->Body    = utf8_decode('Solicitud <b>' . $id . '</b><br><br>' .
-                'Nombre: <b>' . $datos['nombre'] . '</b><br>' .
+                'Nombre: <b>' . utf8_encode($datos['nombre']) . '</b><br>' .
                 'Email: <b>' . $datos['email01'] . '</b><br>' .
                 'Teléfono: <b>' . $datos['telefono01'] . '</b><br><br>' .
                 'Iniciar conversación:<br>
