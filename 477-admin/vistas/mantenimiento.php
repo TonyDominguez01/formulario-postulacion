@@ -12,7 +12,7 @@
     <div class="main">
         <?php require_once('./components/nav.php'); ?>
         <div id="contenedor" class="contenedor">
-            <div class="contenedor-ancho mt-2">
+            <div class="contenedor-ancho mt-2 p-0">
                 <h1>Mantenimiento</h1>
     
                 <a class="btn" href="./?peticion=liberar-archivos">Liberar Archivos</a>

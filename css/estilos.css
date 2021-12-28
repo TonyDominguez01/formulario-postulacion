@@ -42,6 +42,9 @@ body {
     cursor: pointer;
     z-index: 10;
 }
+.menu-icon img {
+    width: 32px;
+}
 .menu .link {
     background: var(--clr-main);
     color: #fff;
@@ -88,12 +91,15 @@ body {
     .menu .link.mostrar-menu,
     .menu #encabezado.mostrar-menu {
         transform: translate(0px, -0px);
-        top: 0;
+        top: 0px;
     }
     .main > .contenedor {
         width: 100%;
         height: auto;
         margin-top: 4rem;
+    }
+    .main > .contenedor.mostrar-menu {
+        width: 100%;
     }
 }
 
@@ -155,10 +161,6 @@ body {
 .tabla td {
     padding: 4px;
     text-align: center;
-    width: 20%;
-}
-.tabla.solicitudes td {
-    width: 14%;
 }
 .indicador {
     width: 1.5rem;

@@ -55,21 +55,21 @@
         $pdf->Ln();
         $pdf->SetFont('Arial','B',14);
 
-        $pdf->Cell(47,8, 'Nombre', 0, 0, 'L');
-        $pdf->Cell(47,8, utf8_decode('Teléfono 1'), 0, 0, 'L');
-        $pdf->Cell(47,8, utf8_decode('Teléfono 2'), 0, 0, 'L');
-        $pdf->Cell(47,8, 'Email 1', 0, 0, 'L');
-        $pdf->Cell(47,8, 'Email 2', 0, 0, 'L');
+        $pdf->Cell(47,8, 'Nombre', 'B', 0, 'L');
+        $pdf->Cell(47,8, utf8_decode('Teléfono 1'), 'B', 0, 'L');
+        $pdf->Cell(47,8, utf8_decode('Teléfono 2'), 'B', 0, 'L');
+        $pdf->Cell(47,8, 'Email 1', 'B', 0, 'L');
+        $pdf->Cell(47,8, 'Email 2', 'B', 0, 'L');
         $pdf->Ln();
         $pdf->SetTextColor(0, 0, 0);
         $pdf->SetFont('Arial','',12);
 
         for ($i=0; $i < sizeof($nombres); $i++) { 
-            $pdf->Cell(47,8, utf8_decode($nombres[$i]), 0, 0, 'L');
-            $pdf->Cell(47,8, utf8_decode($telefonos01[$i]), 0, 0, 'L');
-            $pdf->Cell(47,8, utf8_decode($telefonos02[$i]), 0, 0, 'L');
-            $pdf->Cell(47,8, utf8_decode($emails01[$i]), 0, 0, 'L');
-            $pdf->Cell(47,8, utf8_decode($emails02[$i]), 0, 0, 'L');
+            $pdf->Cell(47,8, utf8_decode($nombres[$i]), 'LB', 0, 'L');
+            $pdf->Cell(47,8, utf8_decode($telefonos01[$i]), 'B', 0, 'L');
+            $pdf->Cell(47,8, utf8_decode($telefonos02[$i]), 'B', 0, 'L');
+            $pdf->Cell(47,8, utf8_decode($emails01[$i]), 'B', 0, 'L');
+            $pdf->Cell(47,8, utf8_decode($emails02[$i]), 'RB', 0, 'L');
             $pdf->Ln();
         }
 
