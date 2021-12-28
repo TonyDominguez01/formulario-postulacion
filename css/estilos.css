@@ -16,18 +16,21 @@ body {
 }
 .main > .menu {
     height: 100%;
-    background: var(--clr-main);
     width: 15%;
     margin: 0;
+    padding: 0;
+    background: var(--clr-main);
 }
 .main > .contenedor {
     width: 85%;
     padding: 1rem;
     margin: 0px;
     overflow-y: scroll;
+    max-width: 100%;
 }
 .menu .encabezado-m,
 .menu .menu-icon {
+    background: var(--clr-main);
     color: #fff;
     padding: 1rem 1rem;
     font-weight: 700;
@@ -37,15 +40,16 @@ body {
     font-size: 1.5rem;
     position: relative;
     cursor: pointer;
+    z-index: 10;
 }
 .menu .link {
+    background: var(--clr-main);
     color: #fff;
     text-decoration: none;
     padding: 1rem 1rem;
     font-size: 1rem;
     display: flex;
     align-items: center;
-    transition: 1s ease all;
 }
 .menu .link:hover,
 .menu .link.activo {
@@ -53,7 +57,7 @@ body {
 }
 .menu .link,
 .menu #encabezado {
-    transition: .3s ease all;
+    transition: .0s ease all;
 }
 .menu .link.mostrar-menu,
 .menu #encabezado.mostrar-menu {
@@ -64,8 +68,35 @@ body {
 }
 .main > .contenedor.mostrar-menu {
     width: 95%;
-    max-width: 100%;
 }
+
+@media screen and (max-width: 992px) {
+    .main > .menu {
+        position: fixed;
+        width: 100%;
+        height: 4rem;
+    }
+    .main > .menu.mostrar-menu {
+        width: 100%;
+        height: auto;
+    }
+    .main > .menu .link,
+    .main > .menu #encabezado {
+        position: relative;
+        top: -400px;
+    }
+    .menu .link.mostrar-menu,
+    .menu #encabezado.mostrar-menu {
+        transform: translate(0px, -0px);
+        top: 0;
+    }
+    .main > .contenedor {
+        width: 100%;
+        height: auto;
+        margin-top: 4rem;
+    }
+}
+
 .form-cont {
     padding: 0;
 }
@@ -127,7 +158,7 @@ body {
     width: 20%;
 }
 .tabla.solicitudes td {
-    width: 16%;
+    width: 14%;
 }
 .indicador {
     width: 1.5rem;

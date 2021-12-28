@@ -1,6 +1,6 @@
 <nav id="menu" class="menu">
     <script src="./js/menu.js"></script>
-    <div class="contenedor" id="nav">
+    <div id="nav">
         <div class="menu-icon" onclick=MostrarOcultarMenuM()><p>☰</p></div>
         <div id="encabezado" class="encabezado-m inline-flex">
             <p><?php echo $_SESSION['nombre']; ?></p>

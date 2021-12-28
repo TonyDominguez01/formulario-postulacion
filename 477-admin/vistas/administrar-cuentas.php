@@ -11,7 +11,7 @@
         <div id="contenedor" class="contenedor">
             <div class="contenedor-ancho mt-2">
                 <h1>Administrar Cuentas</h1>
-                <div class="contenedor-ancho p-0 text-right">
+                <div class="mv-2 p-0 text-right">
                     <a class="btn with-icon" href="./?peticion=registrar-usuario">agregar cuenta <img src='./icons/icon_agregar.png'></a>
                 </div>
                 <table class="tabla">

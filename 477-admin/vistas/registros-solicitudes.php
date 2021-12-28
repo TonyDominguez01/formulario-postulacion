@@ -21,7 +21,7 @@
         <div id="contenedor" class="contenedor">
             <div class="contendor-ancho mv-2">
                 <h1>Solicitudes Completas</h1>
-                <div class="contenedor-ancho">
+                <div class="mv-2">
                     <div class="grid col-4">
                         <div class="toggle-div peq-span-4">
                             <button id="toggle-filtro-l" type="button" class="toggle-btn width-6 l" onclick=cambiarFiltro()>buscar</button>
