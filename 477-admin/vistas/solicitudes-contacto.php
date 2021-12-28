@@ -16,7 +16,7 @@
     </script>
     <div class="main">
         <?php require_once('./components/nav.php'); ?>
-        <div class="contenedor">
+        <div id="contenedor" class="contenedor">
             <div class="contendor-ancho mv-2">
                 <h1>Solicitudes de Contacto</h1>
                 <div class="contenedor-ancho">

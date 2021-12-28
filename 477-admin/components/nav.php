@@ -1,7 +1,8 @@
-<nav class="menu">
+<nav id="menu" class="menu">
+    <script src="./js/menu.js"></script>
     <div class="contenedor" id="nav">
-        <div class="menu-icon" onclick=MostrarOcultarMenu()><p>☰</p></div>
-        <div class="encabezado-m inline-flex">
+        <div class="menu-icon" onclick=MostrarOcultarMenuM()><p>☰</p></div>
+        <div id="encabezado" class="encabezado-m inline-flex">
             <p><?php echo $_SESSION['nombre']; ?></p>
         </div>
         <?php

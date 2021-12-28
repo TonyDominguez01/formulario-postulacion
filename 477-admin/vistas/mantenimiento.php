@@ -11,7 +11,7 @@
 <body>
     <div class="main">
         <?php require_once('./components/nav.php'); ?>
-        <div class="contenedor">
+        <div id="contenedor" class="contenedor">
             <div class="contenedor-ancho mt-2">
                 <h1>Mantenimiento</h1>
     

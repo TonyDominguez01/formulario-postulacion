@@ -17,12 +17,13 @@ body {
 .main > .menu {
     height: 100%;
     background: var(--clr-main);
-    width: 16%;
+    width: 15%;
     margin: 0;
 }
 .main > .contenedor {
-    width: 84%;
+    width: 85%;
     padding: 1rem;
+    margin: 0px;
     overflow-y: scroll;
 }
 .menu .encabezado-m,
@@ -44,11 +45,26 @@ body {
     font-size: 1rem;
     display: flex;
     align-items: center;
-    transition: .3s ease all;
+    transition: 1s ease all;
 }
 .menu .link:hover,
 .menu .link.activo {
     background: var(--clr-main-h);
+}
+.menu .link,
+.menu #encabezado {
+    transition: .3s ease all;
+}
+.menu .link.mostrar-menu,
+.menu #encabezado.mostrar-menu {
+    transform: translate(-200px, 0px);
+}
+.main > .menu.mostrar-menu {
+    width: 5%;
+}
+.main > .contenedor.mostrar-menu {
+    width: 95%;
+    max-width: 100%;
 }
 .form-cont {
     padding: 0;

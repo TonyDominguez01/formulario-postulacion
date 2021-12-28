@@ -8,7 +8,7 @@
 <body>
     <div class="main">
         <?php require_once('./components/nav.php'); ?>
-        <div class="contenedor">
+        <div id="contenedor" class="contenedor">
             <div class="contenedor-ancho mt-2">
                 <h1>Administrar Cuentas</h1>
                 <div class="contenedor-ancho p-0 text-right">

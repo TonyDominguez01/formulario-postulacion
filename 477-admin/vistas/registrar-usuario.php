@@ -8,7 +8,7 @@
 <body>
     <div class="main">
         <?php include_once('./components/nav.php'); ?>
-        <div class="contenedor">
+        <div id="contenedor" class="contenedor">
             <div class="contenedor-reducido card form-cont">
                 <div class="encabezado-form text-right">
                     <h1>Registrar Usuario</h1>
