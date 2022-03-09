@@ -13,7 +13,7 @@
         <?php
         }
         ?>
-            <a class='link' href='./?peticion=registros-solicitudes'>Solicitudes Completas</a>
+            <!-- <a class='link' href='./?peticion=registros-solicitudes'>Solicitudes Completas</a> -->
             <a class='link' href='./?peticion=solicitudes-contacto'>Solicitudes de Contacto</a>
         <a class="link" href="./?peticion=logout">Cerrar Sesión</a>
     </div>
